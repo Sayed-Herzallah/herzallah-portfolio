@@ -100,7 +100,7 @@ export default function Contact() {
     setErrors(prev => ({ ...prev, [name]: errorMsg }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Trigger validation for all fields on submission
@@ -130,14 +130,31 @@ export default function Contact() {
 
     setIsSubmitting(true);
 
-    // Simulate submission delay
-    setTimeout(() => {
+    try {
+      const response = await fetch(process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formState),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setIsSubmitted(true);
+        setFormState({ name: "", email: "", subject: "", message: "" });
+        setErrors({ name: "", email: "", subject: "", message: "" });
+        setTouched({ name: false, email: false, subject: false, message: false });
+      } else {
+        alert(data.message || data.details?.join("\n") || "Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting contact form:", error);
+      alert("Something went wrong. Please check your connection and try again.");
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormState({ name: "", email: "", subject: "", message: "" });
-      setErrors({ name: "", email: "", subject: "", message: "" });
-      setTouched({ name: false, email: false, subject: false, message: false });
-    }, 1500);
+    }
   };
 
   return (
