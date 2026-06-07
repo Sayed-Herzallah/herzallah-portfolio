@@ -14,6 +14,8 @@
   --font-sans: "Inter", var(--font-geist-sans), sans-serif;
   
   --animate-gradient-pulse: gradient-pulse 8s ease infinite;
+  
+  --breakpoint-xs: 500px;
 }
 
 @keyframes gradient-pulse {

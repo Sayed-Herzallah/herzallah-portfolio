@@ -40,7 +40,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="hover:text-white transition-colors duration-200"
+            className="hover:text-white transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-115 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]"
           >
             <Github className="w-5 h-5" />
           </a>
@@ -49,7 +49,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="hover:text-white transition-colors duration-200"
+            className="hover:text-[#0077b5] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-115 hover:drop-shadow-[0_0_8px_rgba(0,119,181,0.4)]"
           >
             <Linkedin className="w-5 h-5" />
           </a>
@@ -58,7 +58,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp"
-            className="hover:text-emerald-400 transition-colors duration-200"
+            className="hover:text-[#25d366] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-115 hover:drop-shadow-[0_0_8px_rgba(37,211,102,0.4)]"
           >
             <WhatsAppIcon className="w-5 h-5" />
           </a>
@@ -67,7 +67,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Email"
-            className="hover:text-primary transition-colors duration-200"
+            className="hover:text-[#8b5cf6] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-115 hover:drop-shadow-[0_0_8px_rgba(139,92,246,0.4)]"
           >
             <Mail className="w-5 h-5" />
           </a>

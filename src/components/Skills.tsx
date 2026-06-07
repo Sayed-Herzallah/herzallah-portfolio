@@ -58,7 +58,7 @@ function SkillCategoryCard({
       />
 
       <h3 
-        className="text-lg font-bold text-white mb-6 flex items-center gap-2"
+        className="text-xl font-bold text-white mb-6 flex items-center gap-2"
         style={{ transform: "translateZ(30px)" }}
       >
         <span className="w-1.5 h-4 bg-primary rounded-full animate-pulse" />
@@ -76,9 +76,9 @@ function SkillCategoryCard({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.3, delay: skillIndex * 0.03 }}
-            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:border-primary/20 hover:bg-primary/[0.03] text-sm text-gray-300 hover:text-white transition-all cursor-default group/item"
+            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:border-primary/20 hover:bg-primary/[0.03] text-base text-gray-300 hover:text-white transition-all cursor-default group/item"
           >
-            <CheckCircle className="w-3.5 h-3.5 text-gray-600 group-hover/item:text-primary transition-colors" />
+            <CheckCircle className="w-4 h-4 text-gray-600 group-hover/item:text-primary transition-colors" />
             <span>{skill}</span>
           </motion.div>
         ))}
@@ -94,21 +94,14 @@ export default function Skills() {
         
         {/* Section Header */}
         <div className="mb-16 md:mb-20">
-          <div className="flex items-center gap-4 mb-3 flex-wrap">
-            <div className="flex items-center gap-1.5 bg-black/30 px-3 py-1.5 rounded-full border border-white/5 shadow-[inset_0_0_1px_rgba(255,255,255,0.1)]">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56] shadow-[0_0_5px_#ff5f56]" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e] shadow-[0_0_5px_#ffbd2e]" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f] shadow-[0_0_5px_#27c93f]" />
-            </div>
-            <div className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-widest">
-              <Cpu className="w-3.5 h-3.5" />
-              <span>03 // Skills & Stack</span>
-            </div>
+          <div className="inline-flex items-center gap-2 text-sm font-semibold text-primary uppercase tracking-widest mb-3">
+            <Cpu className="w-3.5 h-3.5" />
+            <span>03 // Skills & Stack</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
+          <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
             Technical Expertise
           </h2>
-          <p className="text-sm text-gray-500 mt-2 max-w-lg">
+          <p className="text-base text-zinc-300 mt-2 max-w-lg">
             A comprehensive breakdown of technologies, methodologies, and core professional competencies.
           </p>
         </div>

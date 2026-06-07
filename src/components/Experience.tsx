@@ -12,21 +12,14 @@ export default function Experience() {
         
         {/* Section Header */}
         <div className="mb-16 md:mb-20">
-          <div className="flex items-center gap-4 mb-3 flex-wrap">
-            <div className="flex items-center gap-1.5 bg-black/30 px-3 py-1.5 rounded-full border border-white/5 shadow-[inset_0_0_1px_rgba(255,255,255,0.1)]">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56] shadow-[0_0_5px_#ff5f56]" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e] shadow-[0_0_5px_#ffbd2e]" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f] shadow-[0_0_5px_#27c93f]" />
-            </div>
-            <div className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-widest">
-              <Briefcase className="w-3.5 h-3.5" />
-              <span>04 // Experience & Education</span>
-            </div>
+          <div className="inline-flex items-center gap-2 text-sm font-semibold text-primary uppercase tracking-widest mb-3">
+            <Briefcase className="w-3.5 h-3.5" />
+            <span>04 // Experience & Education</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
+          <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
             Professional Timeline
           </h2>
-          <p className="text-sm text-gray-500 mt-2 max-w-lg">
+          <p className="text-base text-zinc-300 mt-2 max-w-lg">
             A history of technical execution, bootcamp trainings, and academic qualifications.
           </p>
         </div>
@@ -54,21 +47,21 @@ export default function Experience() {
                 {/* Meta details */}
                 <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
                   <div>
-                    <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-primary transition-colors">
+                    <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-primary transition-colors">
                       {item.role}
                     </h3>
-                    <p className="text-sm font-semibold text-gray-400 mt-0.5">
+                    <p className="text-base font-semibold text-zinc-300 mt-0.5">
                       {item.company}
                     </p>
                   </div>
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.06] text-xs font-medium text-gray-400">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.06] text-sm font-medium text-zinc-300">
                     <Calendar className="w-3 h-3" />
                     <span>{item.duration}</span>
                   </div>
                 </div>
 
                 {/* Description points */}
-                <ul className="space-y-2.5 text-sm md:text-base text-gray-400 mb-6 pl-4 list-disc marker:text-primary/70">
+                <ul className="space-y-2.5 text-base md:text-lg text-zinc-200 mb-6 pl-4 list-disc marker:text-primary/70">
                   {item.description.map((point, ptIdx) => (
                     <li key={ptIdx} className="leading-relaxed">
                       {point}
@@ -81,7 +74,7 @@ export default function Experience() {
                   {item.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-[10px] uppercase font-semibold tracking-wider text-gray-500 bg-white/[0.02] border border-white/[0.05] px-2 py-0.5 rounded"
+                      className="text-xs uppercase font-semibold tracking-wider text-gray-500 bg-white/[0.02] border border-white/[0.05] px-2 py-0.5 rounded"
                     >
                       {tag}
                     </span>
@@ -111,14 +104,14 @@ export default function Experience() {
                 {/* Meta details */}
                 <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
                   <div>
-                    <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-secondary transition-colors">
+                    <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-secondary transition-colors">
                       {item.degree}
                     </h3>
-                    <p className="text-sm font-semibold text-gray-400 mt-0.5">
+                    <p className="text-base font-semibold text-zinc-300 mt-0.5">
                       {item.school}
                     </p>
                   </div>
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.06] text-xs font-medium text-gray-400">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.06] text-sm font-medium text-zinc-300">
                     <Calendar className="w-3 h-3" />
                     <span>{item.duration}</span>
                   </div>
@@ -126,7 +119,7 @@ export default function Experience() {
 
                 {/* Description points */}
                 {item.description && (
-                  <ul className="space-y-2.5 text-sm md:text-base text-gray-400 pl-4 list-disc marker:text-secondary/70">
+                  <ul className="space-y-2.5 text-base md:text-lg text-zinc-200 pl-4 list-disc marker:text-secondary/70">
                     {item.description.map((point, ptIdx) => (
                       <li key={ptIdx} className="leading-relaxed">
                         {point}

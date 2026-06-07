@@ -3,6 +3,7 @@
 import React from "react";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { portfolioData } from "@/data/portfolioData";
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
@@ -18,8 +19,10 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 );
 
 export default function Hero() {
+  const [profileImgSrc, setProfileImgSrc] = React.useState(portfolioData.profileImage);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
       {/* Background glow effects */}
       <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-primary/10 glow-spot animate-gradient-pulse" />
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-secondary/10 glow-spot" />
@@ -33,22 +36,26 @@ export default function Hero() {
           {/* Radial Glow directly behind the portrait area */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-purple-600/20 blur-[100px] z-0 animate-pulse" />
           
-          <img
-            src={portfolioData.profileImage}
+          <Image
+            src={profileImgSrc}
             alt={portfolioData.name}
-            className="h-full max-h-[55vh] w-auto object-contain opacity-95 relative z-10"
+            width={650}
+            height={850}
+            priority
+            className="h-full max-h-[68vh] w-auto object-contain opacity-95 relative z-10"
+            onError={() => setProfileImgSrc("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400")}
           />
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 w-full relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-y-8 items-center min-h-[80vh]">
+      <div className="max-w-7xl mx-auto px-6 w-full relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-y-4 lg:gap-y-8 items-center min-h-[85vh] lg:min-h-[80vh]">
         
         {/* Left Column (Desktop) / Centered Top Content (Mobile/Tablet): Greeting and Name */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="col-span-1 lg:col-span-3 flex flex-col items-center lg:items-start justify-center text-center lg:text-left"
+          className="col-span-1 lg:col-span-3 flex flex-col items-center lg:items-start justify-center text-center lg:text-left pt-6 lg:pt-0"
         >
           <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl font-bold font-display tracking-wide text-white leading-[1.15]">
             I'm Eng.{" "}
@@ -59,22 +66,22 @@ export default function Hero() {
           </h1>
           
           {/* High-contrast, two-line title to keep things clean, clear, and highlight Backend focus */}
-          <div className="text-xs uppercase tracking-[0.2em] font-bold text-gray-300 mt-4 pl-0.5 leading-relaxed">
+          <div className="text-sm uppercase tracking-[0.2em] font-bold text-gray-300 mt-4 pl-0.5 leading-relaxed">
             <div>Full Stack Developer</div>
-            <div className="text-secondary font-bold text-[10px] tracking-[0.15em] mt-1.5 block">
+            <div className="text-secondary font-bold text-xs tracking-[0.15em] mt-1.5 block">
               (Backend Focused)
             </div>
           </div>
 
           {/* Social Links under the Name with CONNECT: label (high contrast) */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-8 pl-0.5">
-            <span className="text-xs font-semibold text-gray-300 uppercase tracking-widest">Connect:</span>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-6 pl-0.5">
+            <span className="text-sm font-semibold text-gray-300 uppercase tracking-widest">Connect:</span>
             <div className="flex items-center gap-5 text-gray-300">
               <a
                 href={portfolioData.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white transition-colors duration-200"
+                className="hover:text-white transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-115 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]"
                 aria-label="GitHub"
               >
                 <Github className="w-5 h-5" />
@@ -83,7 +90,7 @@ export default function Hero() {
                 href={portfolioData.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white transition-colors duration-200"
+                className="hover:text-[#0077b5] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-115 hover:drop-shadow-[0_0_8px_rgba(0,119,181,0.4)]"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
@@ -92,7 +99,7 @@ export default function Hero() {
                 href={`https://wa.me/${portfolioData.phone.replace(/\D/g, "")}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-emerald-400 transition-colors duration-200"
+                className="hover:text-[#25d366] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-115 hover:drop-shadow-[0_0_8px_rgba(37,211,102,0.4)]"
                 aria-label="WhatsApp"
               >
                 <WhatsAppIcon className="w-5 h-5" />
@@ -101,7 +108,7 @@ export default function Hero() {
                 href={`https://mail.google.com/mail/?view=cm&fs=1&to=${portfolioData.email}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-primary transition-colors duration-200"
+                className="hover:text-[#8b5cf6] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-115 hover:drop-shadow-[0_0_8px_rgba(139,92,246,0.4)]"
                 aria-label="Email"
               >
                 <Mail className="w-5 h-5" />
@@ -115,17 +122,18 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="col-span-1 lg:hidden flex justify-center items-center relative my-4 w-full max-w-sm md:max-w-xl mx-auto"
+          className="col-span-1 lg:hidden flex justify-center items-center relative my-1 w-full max-w-[310px] xs:max-w-[340px] sm:max-w-lg mx-auto"
         >
           {/* Glow */}
           <div className="absolute w-[240px] h-[240px] md:w-[360px] md:h-[360px] rounded-full bg-purple-600/20 blur-[60px] z-0 animate-pulse" />
-          <img
-            src={portfolioData.profileImage}
+          <Image
+            src={profileImgSrc}
             alt={portfolioData.name}
-            className="w-full h-auto object-contain relative z-10 select-none pointer-events-none max-h-[40vh] md:max-h-[55vh]"
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400";
-            }}
+            width={450}
+            height={550}
+            priority
+            className="w-full h-auto object-contain relative z-10 select-none pointer-events-none max-h-[46vh] xs:max-h-[50vh] sm:max-h-[60vh]"
+            onError={() => setProfileImgSrc("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400")}
           />
         </motion.div>
 
@@ -134,14 +142,14 @@ export default function Hero() {
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="col-span-1 lg:hidden flex flex-col items-center justify-center text-center mt-4"
+          className="col-span-1 lg:hidden flex flex-col items-center justify-center text-center mt-1 mb-6"
         >
-          <p className="text-sm sm:text-base text-gray-200 font-medium leading-relaxed mb-6 max-w-sm md:max-w-2xl">
+          <p className="text-base sm:text-lg text-gray-200 font-medium leading-relaxed mb-6 max-w-sm md:max-w-2xl">
             I'm a passionate Web Developer focused on building modern, responsive, and user-friendly websites. I specialize in turning ideas into digital experiences that are both visually appealing and highly functional.
           </p>
           <a
             href="#projects"
-            className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.2em] text-white hover:text-primary transition-colors duration-200 group"
+            className="inline-flex items-center gap-2.5 text-sm font-bold uppercase tracking-[0.2em] text-white hover:text-primary transition-colors duration-200 group"
           >
             <span>View My Work</span>
             <svg
@@ -164,13 +172,13 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="hidden lg:flex lg:col-span-3 lg:col-start-10 flex-col items-start justify-center text-left pl-4"
         >
-          <p className="text-sm sm:text-base text-gray-200 font-medium leading-relaxed mb-8">
+          <p className="text-base sm:text-lg text-gray-200 font-medium leading-relaxed mb-8">
             I'm a passionate Web Developer focused on building modern, responsive, and user-friendly websites. I specialize in turning ideas into digital experiences that are both visually appealing and highly functional.
           </p>
           
           <a
             href="#projects"
-            className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.2em] text-white hover:text-primary transition-colors duration-200 group"
+            className="inline-flex items-center gap-2.5 text-sm font-bold uppercase tracking-[0.2em] text-white hover:text-primary transition-colors duration-200 group"
           >
             <span>View My Work</span>
             <svg

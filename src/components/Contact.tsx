@@ -149,21 +149,14 @@ export default function Contact() {
         
         {/* Section Header */}
         <div className="mb-16 md:mb-20">
-          <div className="flex items-center gap-4 mb-3 flex-wrap">
-            <div className="flex items-center gap-1.5 bg-black/30 px-3 py-1.5 rounded-full border border-white/5 shadow-[inset_0_0_1px_rgba(255,255,255,0.1)]">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56] shadow-[0_0_5px_#ff5f56]" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e] shadow-[0_0_5px_#ffbd2e]" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f] shadow-[0_0_5px_#27c93f]" />
-            </div>
-            <div className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-widest">
-              <Mail className="w-3.5 h-3.5" />
-              <span>06 // Contact</span>
-            </div>
+          <div className="inline-flex items-center gap-2 text-sm font-semibold text-primary uppercase tracking-widest mb-3">
+            <Mail className="w-3.5 h-3.5" />
+            <span>06 // Contact</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
+          <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
             Get In Touch
           </h2>
-          <p className="text-sm text-gray-500 mt-2 max-w-lg">
+          <p className="text-base text-zinc-300 mt-2 max-w-lg">
             Have an exciting opportunity, a project proposal, or just want to chat? Drop a message below!
           </p>
         </div>
@@ -172,10 +165,10 @@ export default function Contact() {
           {/* Info Card Column */}
           <div className="lg:col-span-5 flex flex-col justify-start gap-8">
             <div className="space-y-6">
-              <h3 className="text-xl font-bold text-white">
+              <h3 className="text-2xl font-bold text-white">
                 Contact Information
               </h3>
-              <p className="text-sm text-gray-400 leading-relaxed max-w-sm">
+              <p className="text-base text-zinc-200 leading-relaxed max-w-sm">
                 Feel free to reach out via email or WhatsApp. I usually respond within 24 hours.
               </p>
             </div>
@@ -202,8 +195,8 @@ export default function Contact() {
                   className="min-w-0 flex-1 cursor-pointer"
                   title="Click to Send Email"
                 >
-                  <div className="text-xs text-gray-500 font-medium">Email Me</div>
-                  <div className="text-sm font-semibold text-gray-300 hover:text-white transition-colors truncate">
+                  <div className="text-sm text-zinc-400 font-medium">Email Me</div>
+                  <div className="text-base font-semibold text-gray-300 hover:text-white transition-colors truncate">
                     {portfolioData.email}
                   </div>
                 </a>
@@ -250,8 +243,8 @@ export default function Contact() {
                   className="min-w-0 flex-1 cursor-pointer"
                   title="Click to Chat on WhatsApp"
                 >
-                  <div className="text-xs text-gray-500 font-medium">WhatsApp Me</div>
-                  <div className="text-sm font-semibold text-gray-300 hover:text-white transition-colors truncate">
+                  <div className="text-sm text-zinc-400 font-medium">WhatsApp Me</div>
+                  <div className="text-base font-semibold text-gray-300 hover:text-white transition-colors truncate">
                     {portfolioData.phone}
                   </div>
                 </a>
@@ -283,14 +276,14 @@ export default function Contact() {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <div className="text-xs text-gray-500 font-medium">Location</div>
-                  <div className="text-sm font-semibold text-gray-300 truncate">
+                  <div className="text-sm text-zinc-400 font-medium">Location</div>
+                  <div className="text-base font-semibold text-gray-300 truncate">
                     {portfolioData.location}
                   </div>
                 </div>
               </div>
 
-              <div className="pt-2 text-xs text-gray-500">
+              <div className="pt-2 text-sm text-gray-500">
                 * Secure communication enabled.
               </div>
             </div>
@@ -313,12 +306,12 @@ export default function Contact() {
                       <CheckCircle2 className="w-8 h-8" />
                     </div>
                     <h3 className="text-2xl font-bold text-white">Message Sent!</h3>
-                    <p className="text-sm text-gray-400 max-w-sm">
+                    <p className="text-base text-gray-400 max-w-sm">
                       Thank you for reaching out. I have received your message and will get back to you shortly.
                     </p>
                     <button
                       onClick={() => setIsSubmitted(false)}
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-white transition-colors pt-4 cursor-pointer"
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-white transition-colors pt-4 cursor-pointer"
                     >
                       Send another message <ArrowRight className="w-3.5 h-3.5" />
                     </button>
@@ -328,7 +321,7 @@ export default function Contact() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5">
                       {/* Name input */}
                       <div className="relative pb-6">
-                        <label htmlFor="name" className="text-xs font-semibold text-gray-400 block mb-2">
+                        <label htmlFor="name" className="text-sm font-semibold text-zinc-300 block mb-2">
                           Your Name
                         </label>
                         <input
@@ -339,7 +332,7 @@ export default function Contact() {
                           value={formState.name}
                           onChange={handleChange}
                           onBlur={handleBlur}
-                          className={`w-full bg-white/[0.02] border focus:ring-1 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-600 outline-none transition-all ${
+                          className={`w-full bg-white/[0.02] border focus:ring-1 rounded-xl px-4 py-3 text-base text-white placeholder-gray-600 outline-none transition-all ${
                             touched.name && errors.name
                               ? "border-red-500/50 focus:border-red-500/80 focus:ring-red-500/20"
                               : "border-white/[0.08] focus:border-primary/50 focus:ring-primary/30"
@@ -347,7 +340,7 @@ export default function Contact() {
                           placeholder="John Doe"
                         />
                         {touched.name && errors.name && (
-                          <span className="text-red-400 text-xs absolute left-0 bottom-0">
+                          <span className="text-red-400 text-sm absolute left-0 bottom-0">
                             {errors.name}
                           </span>
                         )}
@@ -355,7 +348,7 @@ export default function Contact() {
 
                       {/* Email input */}
                       <div className="relative pb-6">
-                        <label htmlFor="email" className="text-xs font-semibold text-gray-400 block mb-2">
+                        <label htmlFor="email" className="text-sm font-semibold text-zinc-300 block mb-2">
                           Email Address
                         </label>
                         <input
@@ -366,7 +359,7 @@ export default function Contact() {
                           value={formState.email}
                           onChange={handleChange}
                           onBlur={handleBlur}
-                          className={`w-full bg-white/[0.02] border focus:ring-1 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-600 outline-none transition-all ${
+                          className={`w-full bg-white/[0.02] border focus:ring-1 rounded-xl px-4 py-3 text-base text-white placeholder-gray-600 outline-none transition-all ${
                             touched.email && errors.email
                               ? "border-red-500/50 focus:border-red-500/80 focus:ring-red-500/20"
                               : "border-white/[0.08] focus:border-primary/50 focus:ring-primary/30"
@@ -374,7 +367,7 @@ export default function Contact() {
                           placeholder="john@example.com"
                         />
                         {touched.email && errors.email && (
-                          <span className="text-red-400 text-xs absolute left-0 bottom-0">
+                          <span className="text-red-400 text-sm absolute left-0 bottom-0">
                             {errors.email}
                           </span>
                         )}
@@ -383,7 +376,7 @@ export default function Contact() {
 
                     {/* Subject input */}
                     <div className="relative pb-6">
-                      <label htmlFor="subject" className="text-xs font-semibold text-gray-400 block mb-2">
+                      <label htmlFor="subject" className="text-sm font-semibold text-zinc-300 block mb-2">
                         Subject
                       </label>
                       <input
@@ -394,7 +387,7 @@ export default function Contact() {
                         value={formState.subject}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        className={`w-full bg-white/[0.02] border focus:ring-1 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-600 outline-none transition-all ${
+                        className={`w-full bg-white/[0.02] border focus:ring-1 rounded-xl px-4 py-3 text-base text-white placeholder-gray-600 outline-none transition-all ${
                           touched.subject && errors.subject
                             ? "border-red-500/50 focus:border-red-500/80 focus:ring-red-500/20"
                             : "border-white/[0.08] focus:border-primary/50 focus:ring-primary/30"
@@ -402,7 +395,7 @@ export default function Contact() {
                         placeholder="Project Discussion"
                       />
                       {touched.subject && errors.subject && (
-                        <span className="text-red-400 text-xs absolute left-0 bottom-0">
+                        <span className="text-red-400 text-sm absolute left-0 bottom-0">
                           {errors.subject}
                         </span>
                       )}
@@ -410,7 +403,7 @@ export default function Contact() {
 
                     {/* Message input */}
                     <div className="relative pb-6">
-                      <label htmlFor="message" className="text-xs font-semibold text-gray-400 block mb-2">
+                      <label htmlFor="message" className="text-sm font-semibold text-zinc-300 block mb-2">
                         Your Message
                       </label>
                       <textarea
@@ -421,7 +414,7 @@ export default function Contact() {
                         value={formState.message}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        className={`w-full bg-white/[0.02] border focus:ring-1 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-600 outline-none transition-all resize-none ${
+                        className={`w-full bg-white/[0.02] border focus:ring-1 rounded-xl px-4 py-3 text-base text-white placeholder-gray-600 outline-none transition-all resize-none ${
                           touched.message && errors.message
                             ? "border-red-500/50 focus:border-red-500/80 focus:ring-red-500/20"
                             : "border-white/[0.08] focus:border-primary/50 focus:ring-primary/30"
@@ -429,7 +422,7 @@ export default function Contact() {
                         placeholder="Tell me about your project..."
                       />
                       {touched.message && errors.message && (
-                        <span className="text-red-400 text-xs absolute left-0 bottom-0">
+                        <span className="text-red-400 text-sm absolute left-0 bottom-0">
                           {errors.message}
                         </span>
                       )}
@@ -440,7 +433,7 @@ export default function Contact() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full inline-flex items-center justify-center gap-2 text-sm font-semibold text-black bg-white hover:bg-gray-200 disabled:bg-gray-700 disabled:text-gray-400 transition-all duration-200 py-3.5 rounded-xl cursor-pointer shadow-lg shadow-white/5 active:scale-[0.99]"
+                        className="w-full inline-flex items-center justify-center gap-2 text-base font-semibold text-black bg-white hover:bg-gray-200 disabled:bg-gray-700 disabled:text-gray-400 transition-all duration-200 py-3.5 rounded-xl cursor-pointer shadow-lg shadow-white/5 active:scale-[0.99]"
                       >
                         {isSubmitting ? (
                           <span>Sending...</span>

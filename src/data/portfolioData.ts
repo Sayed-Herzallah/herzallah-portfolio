@@ -69,7 +69,7 @@ export const portfolioData: PortfolioData = {
   title: "Full Stack Developer (Backend Focused)",
   tagline: "Turning complex requirements into clean, production-ready web systems.",
   bio: "Full Stack Developer specializing in Backend development, with hands-on experience building and deploying real-world web applications across the MERN stack and relational databases (MySQL, Sequelize). Selected as one of 5,000 developers for Google's Build with AI: Masr Edition program.",
-  profileImage: "/profile.svg",
+  profileImage: "/profile.png",
   cvUrl: "https://drive.google.com/file/d/1_aB_cDeF_gHiJkLmNoPqRsTuVwXyZ123/view?usp=sharing",
   email: "herzallahdeveloper@gmail.com",
   phone: "+20 155 858 5258",
