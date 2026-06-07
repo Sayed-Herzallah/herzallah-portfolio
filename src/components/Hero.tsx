@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, FileDown } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { portfolioData } from "@/data/portfolioData";
@@ -54,7 +54,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="col-span-1 lg:col-span-3 flex flex-col items-center lg:items-start justify-center text-center lg:text-left pt-6 lg:pt-0"
         >
           <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl font-bold font-display tracking-wide text-white leading-[1.15]">
@@ -115,24 +115,35 @@ export default function Hero() {
               </a>
             </div>
           </div>
+
+          {/* CV Button — visible on all screens */}
+          <a
+            href={portfolioData.cvUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-5 px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-widest text-secondary bg-secondary/10 border border-secondary/20 hover:bg-secondary/20 hover:border-secondary/40 hover:text-white transition-all duration-200 self-center lg:self-start"
+          >
+            <FileDown className="w-4 h-4" />
+            Download CV
+          </a>
         </motion.div>
 
         {/* Mobile & Tablet Portrait Graphic (stacks in center, hidden on desktop, scaled up on tablet) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="col-span-1 lg:hidden flex justify-center items-center relative my-1 w-full max-w-[310px] xs:max-w-[340px] sm:max-w-lg mx-auto"
+          transition={{ duration: 0.4 }}
+          className="col-span-1 lg:hidden flex justify-center items-center relative my-1 w-full max-w-[360px] xs:max-w-[400px] sm:max-w-lg md:max-w-xl mx-auto"
         >
           {/* Glow */}
-          <div className="absolute w-[240px] h-[240px] md:w-[360px] md:h-[360px] rounded-full bg-purple-600/20 blur-[60px] z-0 animate-pulse" />
+          <div className="absolute w-[280px] h-[280px] md:w-[400px] md:h-[400px] rounded-full bg-purple-600/20 blur-[60px] z-0 animate-pulse" />
           <Image
             src={profileImgSrc}
             alt={portfolioData.name}
             width={450}
             height={550}
             priority
-            className="w-full h-auto object-contain relative z-10 select-none pointer-events-none max-h-[46vh] xs:max-h-[50vh] sm:max-h-[60vh]"
+            className="w-full h-auto object-contain relative z-10 select-none pointer-events-none max-h-[55vh] xs:max-h-[58vh] sm:max-h-[62vh] md:max-h-[65vh]"
             onError={() => setProfileImgSrc("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400")}
           />
         </motion.div>
@@ -141,7 +152,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.4 }}
           className="col-span-1 lg:hidden flex flex-col items-center justify-center text-center mt-1 mb-6"
         >
           <p className="text-base sm:text-lg text-gray-200 font-medium leading-relaxed mb-6 max-w-sm md:max-w-2xl">
@@ -169,7 +180,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.4 }}
           className="hidden lg:flex lg:col-span-3 lg:col-start-10 flex-col items-start justify-center text-left pl-4"
         >
           <p className="text-base sm:text-lg text-gray-200 font-medium leading-relaxed mb-8">

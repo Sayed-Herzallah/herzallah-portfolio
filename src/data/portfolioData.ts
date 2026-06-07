@@ -105,11 +105,9 @@ export const portfolioData: PortfolioData = {
   longDescription:
     "Ataa is a scalable full-stack platform designed to modernize charity operations. It connects donors, organizations, and administrators through a secure role-based system. The platform delivers real-time donation tracking, campaign lifecycle management, automated workflows, and AI-powered analytics to enhance transparency, trust, and decision-making in charitable operations.",
 
-      image: "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=800",
+      image: "/images/ataa-charity.png",
       images: [
-        "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&q=80&w=800"
+        "/images/ataa-charity.png"
       ],
   tags: [
     "React",
@@ -147,11 +145,9 @@ export const portfolioData: PortfolioData = {
       title: "Siwa Oasis Travel Platform API",
       description: "Production-ready REST API for a tourism platform — handling user authentication, destination browsing, custom trip planning, bus booking with cancel/confirm flows, chatbot with session history, and admin reporting.",
       longDescription: "Architected using layered service pattern (Controller → Service → Model) with full separation of concerns.",
-      image: "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=800",
+      image: "/images/siwa-oasis.png",
       images: [
-        "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&q=80&w=800"
+        "/images/siwa-oasis.png"
       ],
       tags: ["Node.js", "Express.js", "Sequelize", "MySQL", "JWT", "Clean Architecture"],
       liveUrl: "",
@@ -163,11 +159,9 @@ export const portfolioData: PortfolioData = {
       title: "Social Media Platform Real-time API",
       description: "High-performance backend API supporting complex social graph relationships (followers/following), real-time communication via WebSockets, and scalable feed retrieval using cursor-based pagination for infinite scroll.",
       longDescription: "Optimised for high read-load scenarios using cursor-based pagination.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+      image: "/images/social-media.png",
       images: [
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800"
+        "/images/social-media.png"
       ],
       tags: ["Node.js", "MongoDB", "Mongoose", "Socket.io", "Cursor-based Pagination"],
       liveUrl: "",
@@ -179,10 +173,9 @@ export const portfolioData: PortfolioData = {
       title: "AI-Integrated URL Analysis Dashboard",
       description: "Full-stack dashboard application with deployed frontend and backend. Integrates an AI layer for real-time URL analysis and insight generation. Features responsive UI with dynamic data visualization.",
       longDescription: "Provides complete frontend/backend communication via Fetch API with serverless model hooks.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+      image: "/images/ai-dashboard.png",
       images: [
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=800"
+        "/images/ai-dashboard.png"
       ],
       tags: ["React.js", "Node.js", "Fetch API", "AI Integration", "Tailwind CSS"],
       liveUrl: "",
@@ -194,7 +187,10 @@ export const portfolioData: PortfolioData = {
       title: "Brain Tumor AI Analysis Medical Web App",
       description: "Transformed a complete 17-screen mobile UI design into a structured React application simulating a real-world medical platform — covering patient registration, MRI scan upload, medical history search, and chat interface.",
       longDescription: "Demonstrates strong UI-to-code translation and scalable component architecture.",
-      image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800",
+      image: "/images/brain-tumor.png",
+      images: [
+        "/images/brain-tumor.png"
+      ],
       tags: ["React.js", "Context API", "Custom Hooks", "Responsive Design"],
       liveUrl: "",
       githubUrl: "https://github.com/Sayed-Herzallah",
@@ -210,11 +206,9 @@ export const portfolioData: PortfolioData = {
   longDescription:
     "R3aya is a production-level backend API designed for a child physiotherapy monitoring ecosystem. It enables structured management of parents, children, and medical specialists while supporting EMG-based muscle analysis sessions. The system is built with a modular architecture focusing on scalability, security, and healthcare-grade data integrity.",
 
-      image: "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=800",
+      image: "/images/r3aya-healthcare.png",
       images: [
-        "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&q=80&w=800"
+        "/images/r3aya-healthcare.png"
       ],
   tags: [
     "Node.js",
@@ -249,7 +243,10 @@ export const portfolioData: PortfolioData = {
       title: "Villa Agency React Frontend",
       description: "React application for a real estate agency with full CRUD, authentication, responsive animations, and live Vercel deployment. Built as a graduation project for MCIT Creativa Innovation Hub.",
       longDescription: "Features interactive villa searching, sorting, and user listing functions.",
-      image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=800",
+      image: "/images/villa-agency.png",
+      images: [
+        "/images/villa-agency.png"
+      ],
       tags: ["React.js", "CRUD", "Auth", "Responsive", "Vercel Deployment"],
       liveUrl: "",
       githubUrl: "https://github.com/Sayed-Herzallah",
@@ -265,11 +262,9 @@ export const portfolioData: PortfolioData = {
   longDescription:
     "Sharaha App is a production-level RESTful API inspired by anonymous messaging platforms. It allows users to securely register, authenticate, and receive anonymous messages. The system is built with a modular architecture emphasizing separation of concerns, security best practices, and scalability.",
 
-      image: "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=800",
+      image: "/images/sharaha-messaging.png",
       images: [
-        "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&q=80&w=800"
+        "/images/sharaha-messaging.png"
       ],
 
   tags: [
@@ -314,11 +309,9 @@ export const portfolioData: PortfolioData = {
   longDescription:
     "UFUQ Real Estate is a production-level frontend application designed to deliver a seamless property browsing experience. The platform includes dynamic property listings, multilingual support, and interactive UI sections such as hero banners, testimonials, and contact flows. It focuses on performance, responsiveness, and clean user experience design principles.",
 
-      image: "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=800",
+      image: "/images/ufuq-realestate.png",
       images: [
-        "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&q=80&w=800"
+        "/images/ufuq-realestate.png"
       ],
 
   tags: [
@@ -353,11 +346,9 @@ export const portfolioData: PortfolioData = {
   longDescription:
     "This project is a production-style backend API for a blogging system built with Node.js and Express, using Sequelize ORM for relational database management. It supports user authentication, CRUD operations for posts, and structured relational data modeling to ensure scalability and data consistency.",
 
-      image: "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=800",
+      image: "/images/blog-platform.png",
       images: [
-        "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&q=80&w=800"
+        "/images/blog-platform.png"
       ],
 
   tags: [

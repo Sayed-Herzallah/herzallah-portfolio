@@ -115,7 +115,7 @@ export default function Projects() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
+              transition={{ duration: 0.35, delay: index * 0.02 }}
               onClick={() => openProjectModal(project)}
               className="min-w-[290px] sm:min-w-[360px] md:min-w-[380px] w-full max-w-[380px] snap-start glass-card rounded-2xl overflow-hidden flex flex-col group border border-white/[0.05] hover:border-white/[0.12] hover:bg-white/[0.02] transition-all duration-300 cursor-pointer"
             >

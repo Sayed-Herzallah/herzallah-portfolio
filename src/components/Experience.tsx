@@ -34,7 +34,7 @@ export default function Experience() {
               initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
+              transition={{ duration: 0.35, delay: index * 0.04 }}
               className="relative group"
             >
               {/* Glowing node on timeline */}
@@ -91,7 +91,7 @@ export default function Experience() {
               initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: (portfolioData.experience.length + index) * 0.15 }}
+              transition={{ duration: 0.35, delay: index * 0.04 }}
               className="relative group"
             >
               {/* Glowing node on timeline with Education Icon */}

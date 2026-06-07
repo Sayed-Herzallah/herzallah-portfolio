@@ -34,7 +34,7 @@ export default function About() {
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.4, delay: index * 0.03 }}
                 >
                   {paragraph}
                 </motion.p>
@@ -49,7 +49,7 @@ export default function About() {
                    initial={{ opacity: 0, scale: 0.95 }}
                    whileInView={{ opacity: 1, scale: 1 }}
                    viewport={{ once: true }}
-                   transition={{ duration: 0.5, delay: index * 0.1 }}
+                   transition={{ duration: 0.3, delay: index * 0.05 }}
                    className="glass-card rounded-2xl p-4 md:p-5 flex flex-col justify-between min-h-[110px] md:min-h-[120px] hover:border-white/10 hover:bg-white/[0.03] transition-all duration-300 group"
                 >
                   <div className="flex items-center justify-between">
