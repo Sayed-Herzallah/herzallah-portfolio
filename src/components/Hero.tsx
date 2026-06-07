@@ -1,0 +1,192 @@
+"use client";
+
+import React from "react";
+import { Github, Linkedin, Mail } from "lucide-react";
+import { motion } from "framer-motion";
+import { portfolioData } from "@/data/portfolioData";
+
+const WhatsAppIcon = ({ className }: { className?: string }) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={className}
+    width="1em"
+    height="1em"
+  >
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.067 2.877 1.215 3.076.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.46h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+  </svg>
+);
+
+export default function Hero() {
+  return (
+    <section className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+      {/* Background glow effects */}
+      <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-primary/10 glow-spot animate-gradient-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-secondary/10 glow-spot" />
+
+      {/* Grid Pattern overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+
+      {/* Desktop-only absolutely centered profile & monitor SVG (scaled to 55vh to prevent any overlap on text columns) */}
+      <div className="hidden lg:block absolute inset-0 z-10 pointer-events-none select-none">
+        <div className="w-full h-full max-w-7xl mx-auto relative flex items-center justify-center transform lg:-translate-x-[2%] xl:-translate-x-[1%]">
+          {/* Radial Glow directly behind the portrait area */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-purple-600/20 blur-[100px] z-0 animate-pulse" />
+          
+          <img
+            src={portfolioData.profileImage}
+            alt={portfolioData.name}
+            className="h-full max-h-[55vh] w-auto object-contain opacity-95 relative z-10"
+          />
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 w-full relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-y-8 items-center min-h-[80vh]">
+        
+        {/* Left Column (Desktop) / Centered Top Content (Mobile/Tablet): Greeting and Name */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="col-span-1 lg:col-span-3 flex flex-col items-center lg:items-start justify-center text-center lg:text-left"
+        >
+          <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl font-bold font-display tracking-wide text-white leading-[1.15]">
+            I'm Eng.{" "}
+            <span className="bg-gradient-to-r from-[#e9d5ff] via-[#c084fc] to-[#f472b6] bg-clip-text text-transparent block mt-1 lg:mt-2">
+              Sayed <br className="hidden lg:inline" />
+              Herzallah
+            </span>
+          </h1>
+          
+          {/* High-contrast, two-line title to keep things clean, clear, and highlight Backend focus */}
+          <div className="text-xs uppercase tracking-[0.2em] font-bold text-gray-300 mt-4 pl-0.5 leading-relaxed">
+            <div>Full Stack Developer</div>
+            <div className="text-secondary font-bold text-[10px] tracking-[0.15em] mt-1.5 block">
+              (Backend Focused)
+            </div>
+          </div>
+
+          {/* Social Links under the Name with CONNECT: label (high contrast) */}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-8 pl-0.5">
+            <span className="text-xs font-semibold text-gray-300 uppercase tracking-widest">Connect:</span>
+            <div className="flex items-center gap-5 text-gray-300">
+              <a
+                href={portfolioData.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors duration-200"
+                aria-label="GitHub"
+              >
+                <Github className="w-5 h-5" />
+              </a>
+              <a
+                href={portfolioData.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors duration-200"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a
+                href={`https://wa.me/${portfolioData.phone.replace(/\D/g, "")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-emerald-400 transition-colors duration-200"
+                aria-label="WhatsApp"
+              >
+                <WhatsAppIcon className="w-5 h-5" />
+              </a>
+              <a
+                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${portfolioData.email}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors duration-200"
+                aria-label="Email"
+              >
+                <Mail className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Mobile & Tablet Portrait Graphic (stacks in center, hidden on desktop, scaled up on tablet) */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="col-span-1 lg:hidden flex justify-center items-center relative my-4 w-full max-w-sm md:max-w-xl mx-auto"
+        >
+          {/* Glow */}
+          <div className="absolute w-[240px] h-[240px] md:w-[360px] md:h-[360px] rounded-full bg-purple-600/20 blur-[60px] z-0 animate-pulse" />
+          <img
+            src={portfolioData.profileImage}
+            alt={portfolioData.name}
+            className="w-full h-auto object-contain relative z-10 select-none pointer-events-none max-h-[40vh] md:max-h-[55vh]"
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400";
+            }}
+          />
+        </motion.div>
+
+        {/* Mobile & Tablet Description & View My Work (stacks in center, hidden on desktop) */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="col-span-1 lg:hidden flex flex-col items-center justify-center text-center mt-4"
+        >
+          <p className="text-sm sm:text-base text-gray-200 font-medium leading-relaxed mb-6 max-w-sm md:max-w-2xl">
+            I'm a passionate Web Developer focused on building modern, responsive, and user-friendly websites. I specialize in turning ideas into digital experiences that are both visually appealing and highly functional.
+          </p>
+          <a
+            href="#projects"
+            className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.2em] text-white hover:text-primary transition-colors duration-200 group"
+          >
+            <span>View My Work</span>
+            <svg
+              className="w-10 h-3 ml-1.5 group-hover:translate-x-1.5 transition-transform duration-200 text-white"
+              viewBox="0 0 40 12"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <line x1="0" y1="6" x2="38" y2="6" />
+              <polyline points="32,1 38,6 32,11" />
+            </svg>
+          </a>
+        </motion.div>
+
+        {/* Desktop-only Description & View My Work Column */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="hidden lg:flex lg:col-span-3 lg:col-start-10 flex-col items-start justify-center text-left pl-4"
+        >
+          <p className="text-sm sm:text-base text-gray-200 font-medium leading-relaxed mb-8">
+            I'm a passionate Web Developer focused on building modern, responsive, and user-friendly websites. I specialize in turning ideas into digital experiences that are both visually appealing and highly functional.
+          </p>
+          
+          <a
+            href="#projects"
+            className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.2em] text-white hover:text-primary transition-colors duration-200 group"
+          >
+            <span>View My Work</span>
+            <svg
+              className="w-10 h-3 ml-1.5 group-hover:translate-x-1.5 transition-transform duration-200 text-white"
+              viewBox="0 0 40 12"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <line x1="0" y1="6" x2="38" y2="6" />
+              <polyline points="32,1 38,6 32,11" />
+            </svg>
+          </a>
+        </motion.div>
+      </div>
+
+    </section>
+  );
+}
