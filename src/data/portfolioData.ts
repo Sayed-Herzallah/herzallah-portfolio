@@ -8,6 +8,7 @@ export interface Project {
   tags: string[];
   liveUrl?: string;
   githubUrl?: string;
+  features?: string[];
   featured: boolean;
 }
 
@@ -420,9 +421,9 @@ export const portfolioData: PortfolioData = {
       tags: ["React.js", "Context API", "REST APIs", "Responsive Design"]
     },
     {
-      id: "exp-route",
+      id: "exp-NTI - National Telecommunication Institute",
       role: "Full Stack Web Developer (Bootcamp — MERN Stack)",
-      company: "Route Academy",
+      company: "NTI - National Telecommunication Institute ",
       duration: "Jan 2024 – Apr 2024",
       description: [
         "Completed advanced MERN Stack training with a focus on building scalable backend systems and real-time features.",
@@ -448,9 +449,9 @@ export const portfolioData: PortfolioData = {
   education: [
     {
       id: "edu-1",
-      degree: "Bachelor of Science in Computer Science & Information Systems",
-      school: "Cairo / Helwan University",
-      duration: "2020 - 2024",
+      degree: "Bachelor's Degree in Computer Science and Information Systems",
+       school: "Delta Higher Institute",
+        duration: "2022 - 2026",
       description: [
         "Specialized in Software Engineering, database normalization, and web technologies.",
         "Graduation project focused on building automated web analysis tools and RESTful architectures."
