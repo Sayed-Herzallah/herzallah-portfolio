@@ -14,6 +14,7 @@ export default function Projects() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
@@ -27,18 +28,6 @@ export default function Projects() {
 
   const handleTouchMove = (e: React.TouchEvent) => {
     touchEndX.current = e.targetTouches[0].clientX;
-  };
-
-  const handleTouchEnd = (imagesLength: number) => {
-    const diff = touchStartX.current - touchEndX.current;
-    const swipeThreshold = 40;
-    if (diff > swipeThreshold) {
-      setActiveImageIndex((prev) => (prev === imagesLength - 1 ? 0 : prev + 1));
-    } else if (diff < -swipeThreshold) {
-      setActiveImageIndex((prev) => (prev === 0 ? imagesLength - 1 : prev - 1));
-    }
-    touchStartX.current = 0;
-    touchEndX.current = 0;
   };
 
   const openProjectModal = (project: typeof portfolioData.projects[0]) => {
@@ -218,6 +207,7 @@ export default function Projects() {
             const imagesList = selectedProject.images && selectedProject.images.length > 0
               ? selectedProject.images
               : [selectedProject.image];
+            const imagesCount = imagesList.length;
 
             return (
               <motion.div
@@ -251,7 +241,17 @@ export default function Projects() {
                       className="relative aspect-video w-full bg-zinc-950 border-b border-white/[0.06] overflow-hidden group/modal-img"
                       onTouchStart={handleTouchStart}
                       onTouchMove={handleTouchMove}
-                      onTouchEnd={() => handleTouchEnd(imagesList.length)}
+                      onTouchEnd={() => {
+                        const diff = touchStartX.current - touchEndX.current;
+                        const swipeThreshold = 40;
+                        if (diff > swipeThreshold) {
+                          setActiveImageIndex((prev) => (prev === imagesCount - 1 ? 0 : prev + 1));
+                        } else if (diff < -swipeThreshold) {
+                          setActiveImageIndex((prev) => (prev === 0 ? imagesCount - 1 : prev - 1));
+                        }
+                        touchStartX.current = 0;
+                        touchEndX.current = 0;
+                      }}
                     >
                       {imagesList.map((imgUrl, idx) => (
                         <motion.div

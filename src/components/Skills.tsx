@@ -8,7 +8,6 @@ import { portfolioData } from "@/data/portfolioData";
 // Interactive 3D Parallax Tilt Card Component
 function SkillCategoryCard({
   category,
-  catIndex,
 }: {
   category: typeof portfolioData.skills[0];
   catIndex: number;

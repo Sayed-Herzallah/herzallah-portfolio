@@ -58,7 +58,7 @@ export default function Hero() {
           className="col-span-1 lg:col-span-3 flex flex-col items-center lg:items-start justify-center text-center lg:text-left pt-6 lg:pt-0"
         >
           <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl font-bold font-display tracking-wide text-white leading-[1.15]">
-            I'm Eng.{" "}
+            I&apos;m Eng.{" "}
             <span className="bg-gradient-to-r from-[#e9d5ff] via-[#c084fc] to-[#f472b6] bg-clip-text text-transparent block mt-1 lg:mt-2">
               Sayed <br className="hidden lg:inline" />
               Herzallah
@@ -145,7 +145,7 @@ export default function Hero() {
           className="col-span-1 lg:hidden flex flex-col items-center justify-center text-center mt-1 mb-6"
         >
           <p className="text-base sm:text-lg text-gray-200 font-medium leading-relaxed mb-6 max-w-sm md:max-w-2xl">
-            I'm a passionate Web Developer focused on building modern, responsive, and user-friendly websites. I specialize in turning ideas into digital experiences that are both visually appealing and highly functional.
+            {"I'm"} a passionate Web Developer focused on building modern, responsive, and user-friendly websites. I specialize in turning ideas into digital experiences that are both visually appealing and highly functional.
           </p>
           <a
             href="#projects"
@@ -173,7 +173,7 @@ export default function Hero() {
           className="hidden lg:flex lg:col-span-3 lg:col-start-10 flex-col items-start justify-center text-left pl-4"
         >
           <p className="text-base sm:text-lg text-gray-200 font-medium leading-relaxed mb-8">
-            I'm a passionate Web Developer focused on building modern, responsive, and user-friendly websites. I specialize in turning ideas into digital experiences that are both visually appealing and highly functional.
+            {"I'm"} a passionate Web Developer focused on building modern, responsive, and user-friendly websites. I specialize in turning ideas into digital experiences that are both visually appealing and highly functional.
           </p>
           
           <a

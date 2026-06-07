@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Snowflake, Sun } from "lucide-react";
+import { Snowflake } from "lucide-react";
 import SnowEffect from "./SnowEffect";
 
 export default function ThemeToggle() {
@@ -9,6 +9,7 @@ export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     // Check local storage or default to winter season (Dec, Jan, Feb)
     const saved = localStorage.getItem("winterMode");
