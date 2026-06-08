@@ -7,7 +7,7 @@ import { portfolioData } from "@/data/portfolioData";
 import { Milestone } from "lucide-react";
 
 export default function About() {
-  const [aboutImgSrc, setAboutImgSrc] = React.useState("/about-image.png");
+  const [aboutImgSrc, setAboutImgSrc] = React.useState("/about-image.webp");
 
   return (
     <section id="about" className="py-20 md:py-32 border-t border-card-border relative">

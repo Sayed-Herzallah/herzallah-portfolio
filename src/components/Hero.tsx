@@ -156,7 +156,7 @@ export default function Hero() {
           className="col-span-1 lg:hidden flex flex-col items-center justify-center text-center mt-1 mb-6"
         >
           <p className="text-base sm:text-lg text-gray-200 font-medium leading-relaxed mb-6 max-w-sm md:max-w-2xl">
-            {"I'm"} a passionate Web Developer focused on building modern, responsive, and user-friendly websites. I specialize in turning ideas into digital experiences that are both visually appealing and highly functional.
+            I am a Backend-Focused Full-Stack Developer specializing in Node.js, Express, and database engineering. I translate complex requirements into clean, optimized, and production-ready APIs.
           </p>
           <a
             href="#projects"
@@ -184,7 +184,7 @@ export default function Hero() {
           className="hidden lg:flex lg:col-span-3 lg:col-start-10 flex-col items-start justify-center text-left pl-4"
         >
           <p className="text-base sm:text-lg text-gray-200 font-medium leading-relaxed mb-8">
-            {"I'm"} a passionate Web Developer focused on building modern, responsive, and user-friendly websites. I specialize in turning ideas into digital experiences that are both visually appealing and highly functional.
+            I am a Backend-Focused Full-Stack Developer specializing in Node.js, Express, and database engineering. I translate complex requirements into clean, optimized, and production-ready APIs.
           </p>
           
           <a
