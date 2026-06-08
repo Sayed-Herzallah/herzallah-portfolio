@@ -2,10 +2,56 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { ExternalLink, Github, FolderKanban, ArrowLeft, ArrowRight, X } from "lucide-react";
+import { 
+  ExternalLink, Github, FolderKanban, ArrowLeft, ArrowRight, X, 
+  Globe, CheckCircle2, Cpu, Database, Layers, Sparkles, Activity 
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { portfolioData } from "@/data/portfolioData";
+
+// Helper function to extract and format project metadata details based on tags
+const getProjectDetails = (project: typeof portfolioData.projects[0]) => {
+  const tagsLower = project.tags.map(t => t.toLowerCase());
+  
+  // Database detection
+  let database = "MongoDB (NoSQL)";
+  if (tagsLower.includes("mysql") || tagsLower.includes("sequelize") || tagsLower.includes("mysql/sequelize")) {
+    database = "MySQL (Relational)";
+  } else if (tagsLower.includes("mongodb") || tagsLower.includes("mongoose")) {
+    database = "MongoDB (NoSQL)";
+  }
+
+  // Architecture/Focus detection
+  let architecture = "MVC Pattern";
+  if (tagsLower.includes("clean architecture") || tagsLower.includes("clean-architecture")) {
+    architecture = "Clean Layered Architecture";
+  } else if (tagsLower.includes("modular architecture") || tagsLower.includes("modular")) {
+    architecture = "Modular Feature Architecture";
+  } else if (tagsLower.includes("layered service pattern") || tagsLower.includes("mvc architecture")) {
+    architecture = "Service-Layer Pattern";
+  }
+
+  // Scope detection
+  let scope = "Full-Stack Development";
+  if (tagsLower.includes("backend") || tagsLower.includes("express.js") || tagsLower.includes("rest api") || tagsLower.includes("api") || tagsLower.includes("socket.io")) {
+    if (!tagsLower.includes("react") && !tagsLower.includes("next.js") && !tagsLower.includes("react.js")) {
+      scope = "Backend System API";
+    } else {
+      scope = "Full-Stack Web App";
+    }
+  } else if (tagsLower.includes("react") || tagsLower.includes("next.js") || tagsLower.includes("react.js")) {
+    scope = "Frontend SPA";
+  }
+
+  // Live status or deployment
+  let status = "Production Ready";
+  if (project.liveUrl && project.liveUrl.trim().length > 0) {
+    status = "Deployed & Active";
+  }
+
+  return { database, architecture, scope, status };
+};
 
 export default function Projects() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -17,6 +63,18 @@ export default function Projects() {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
+
+  // Body Scroll Lock Hook
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedProject]);
 
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
@@ -214,7 +272,7 @@ export default function Projects() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 bg-background/85 backdrop-blur-md z-[100] flex items-center justify-center p-4 md:p-6"
+                className="fixed inset-0 bg-black/90 backdrop-blur-md z-[100] flex items-center justify-center p-4 md:p-6"
                 onClick={() => setSelectedProject(null)}
               >
                 <motion.div
@@ -222,175 +280,277 @@ export default function Projects() {
                   animate={{ scale: 1, y: 0, opacity: 1 }}
                   exit={{ scale: 0.95, y: 15, opacity: 0 }}
                   transition={{ type: "spring", damping: 25, stiffness: 350 }}
-                  className="glass-card w-full max-w-xl rounded-2xl border border-white/[0.08] overflow-hidden relative shadow-2xl flex flex-col max-h-[85vh]"
+                  className="glass-card w-full max-w-4xl rounded-2xl md:rounded-3xl border border-white/[0.08] overflow-hidden relative shadow-2xl flex flex-col max-h-[90vh] md:max-h-[85vh] z-10"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  {/* Close Button */}
-                  <button
-                    onClick={() => setSelectedProject(null)}
-                    className="absolute right-4 top-4 p-2.5 rounded-full bg-black/60 border border-white/10 hover:bg-black/80 text-white transition-all cursor-pointer z-50 shadow-lg"
-                    aria-label="Close modal"
-                  >
-                    <X className="w-4 h-4" />
-                  </button>
+                  {/* Decorative glows inside the modal */}
+                  <div className="absolute top-[-10%] left-[-10%] w-[350px] h-[350px] rounded-full bg-primary/5 blur-[80px] pointer-events-none select-none z-0" />
+                  <div className="absolute bottom-[-10%] right-[-10%] w-[350px] h-[350px] rounded-full bg-secondary/5 blur-[80px] pointer-events-none select-none z-0" />
+
+                  {/* Modal Header Bar (Keeps title/badges & close button separate from CTAs below) */}
+                  <div className="px-6 py-4 md:px-8 md:py-5 border-b border-white/[0.06] flex items-center justify-between gap-4 shrink-0 bg-black/20 backdrop-blur-md relative z-20">
+                    <div className="space-y-1.5">
+                      <div className="flex flex-wrap gap-2 items-center">
+                        <span className="text-[9px] md:text-[10px] font-bold tracking-widest text-primary uppercase bg-primary/10 border border-primary/20 px-2.5 py-0.5 rounded-full">
+                          {getProjectDetails(selectedProject).scope}
+                        </span>
+                        <span className="text-[9px] md:text-[10px] font-bold tracking-widest text-emerald-400 uppercase bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                          {getProjectDetails(selectedProject).status}
+                        </span>
+                      </div>
+                      <h3 className="text-xl md:text-2xl font-extrabold text-white tracking-tight leading-tight">
+                        {selectedProject.title}
+                      </h3>
+                    </div>
+                    
+                    <button
+                      onClick={() => setSelectedProject(null)}
+                      className="p-2.5 rounded-full bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 text-zinc-400 hover:text-white transition-all cursor-pointer shadow-md flex items-center justify-center group/close shrink-0"
+                      aria-label="Close modal"
+                    >
+                      <X className="w-4 h-4 group-hover/close:rotate-90 transition-transform duration-300" />
+                    </button>
+                  </div>
 
                   {/* Scrollable Content */}
-                  <div className="overflow-y-auto flex-grow scrollbar-none">
-                    {/* Project Image Carousel */}
-                    <div 
-                      className="relative aspect-video w-full bg-zinc-950 border-b border-white/[0.06] overflow-hidden group/modal-img"
-                      onTouchStart={handleTouchStart}
-                      onTouchMove={handleTouchMove}
-                      onTouchEnd={() => {
-                        const diff = touchStartX.current - touchEndX.current;
-                        const swipeThreshold = 40;
-                        if (diff > swipeThreshold) {
-                          setActiveImageIndex((prev) => (prev === imagesCount - 1 ? 0 : prev + 1));
-                        } else if (diff < -swipeThreshold) {
-                          setActiveImageIndex((prev) => (prev === 0 ? imagesCount - 1 : prev - 1));
-                        }
-                        touchStartX.current = 0;
-                        touchEndX.current = 0;
-                      }}
-                    >
-                      {imagesList.map((imgUrl, idx) => (
-                        <motion.div
-                          key={imgUrl}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: idx === activeImageIndex ? 1 : 0 }}
-                          transition={{ duration: 0.3 }}
-                          className={`absolute inset-0 w-full h-full ${idx === activeImageIndex ? "z-10" : "z-0"}`}
-                        >
-                          <Image
-                            src={imgUrl}
-                            alt={`${selectedProject.title} screenshot ${idx + 1}`}
-                            width={800}
-                            height={450}
-                            className="object-cover w-full h-full opacity-90"
-                          />
-                        </motion.div>
-                      ))}
-                      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80 z-20 pointer-events-none" />
-
-                      {/* Left / Right Arrow Controls */}
-                      {imagesList.length > 1 && (
-                        <>
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setActiveImageIndex((prev) => (prev === 0 ? imagesList.length - 1 : prev - 1));
-                            }}
-                            className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/75 border border-white/10 text-white z-30 shadow-md md:opacity-0 md:group-hover/modal-img:opacity-100 transition-opacity duration-200 cursor-pointer flex items-center justify-center"
-                            aria-label="Previous screenshot"
-                          >
-                            <ArrowLeft className="w-4 h-4" />
-                          </button>
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setActiveImageIndex((prev) => (prev === imagesList.length - 1 ? 0 : prev + 1));
-                            }}
-                            className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/75 border border-white/10 text-white z-30 shadow-md md:opacity-0 md:group-hover/modal-img:opacity-100 transition-opacity duration-200 cursor-pointer flex items-center justify-center"
-                            aria-label="Next screenshot"
-                          >
-                            <ArrowRight className="w-4 h-4" />
-                          </button>
-                        </>
-                      )}
-
-                      {/* Slide Indicator Dots */}
-                      {imagesList.length > 1 && (
-                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-30">
-                          {imagesList.map((_, idx) => (
-                            <button
-                              key={idx}
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setActiveImageIndex(idx);
-                              }}
-                              className={`w-2 h-2 rounded-full transition-all cursor-pointer ${
-                                idx === activeImageIndex 
-                                  ? "bg-primary w-4" 
-                                  : "bg-white/40 hover:bg-white/70"
-                              }`}
-                              aria-label={`Go to screenshot ${idx + 1}`}
-                            />
-                          ))}
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Body details */}
-                    <div className="p-6 md:p-8 space-y-6">
-                      <div>
-                        <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
-                          {selectedProject.title}
-                        </h3>
+                  <div className="overflow-y-auto flex-grow scrollbar-none z-10">
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 p-6 md:p-8">
+                      
+                      {/* Left Column: Image Gallery + Long Description + About + Features */}
+                      <div className="md:col-span-7 space-y-6 md:space-y-8">
+                        
                         {selectedProject.longDescription ? (
-                          <p className="text-base text-primary font-medium mt-1">
+                          <p className="text-sm md:text-base text-zinc-300 font-medium leading-relaxed border-l-2 border-primary/60 pl-3">
                             {selectedProject.longDescription}
                           </p>
                         ) : null}
-                      </div>
 
-                      <div className="space-y-3">
-                        <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-500">
-                          About the Project
-                        </h4>
-                        <p className="text-base text-gray-300 leading-relaxed">
-                          {selectedProject.description}
-                        </p>
-                      </div>
-
-                      <div className="space-y-3">
-                        <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-500">
-                          Technologies Used
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                          {selectedProject.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="text-sm font-medium text-gray-300 bg-white/[0.04] border border-white/[0.08] px-3 py-1.5 rounded-md"
+                        {/* Project Image Carousel */}
+                        <div 
+                          className="relative aspect-video w-full bg-zinc-950 border border-white/[0.06] rounded-xl overflow-hidden group/modal-img shadow-2xl"
+                          onTouchStart={handleTouchStart}
+                          onTouchMove={handleTouchMove}
+                          onTouchEnd={() => {
+                            const diff = touchStartX.current - touchEndX.current;
+                            const swipeThreshold = 40;
+                            if (diff > swipeThreshold) {
+                              setActiveImageIndex((prev) => (prev === imagesCount - 1 ? 0 : prev + 1));
+                            } else if (diff < -swipeThreshold) {
+                              setActiveImageIndex((prev) => (prev === 0 ? imagesCount - 1 : prev - 1));
+                            }
+                            touchStartX.current = 0;
+                            touchEndX.current = 0;
+                          }}
+                        >
+                          {imagesList.map((imgUrl, idx) => (
+                            <motion.div
+                              key={imgUrl}
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: idx === activeImageIndex ? 1 : 0 }}
+                              transition={{ duration: 0.3 }}
+                              className={`absolute inset-0 w-full h-full ${idx === activeImageIndex ? "z-10" : "z-0"}`}
                             >
-                              {tag}
-                            </span>
+                              <Image
+                                src={imgUrl}
+                                alt={`${selectedProject.title} screenshot ${idx + 1}`}
+                                width={800}
+                                height={450}
+                                className="object-cover w-full h-full opacity-90"
+                              />
+                            </motion.div>
                           ))}
+                          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80 z-20 pointer-events-none" />
+
+                          {/* Left / Right Arrow Controls */}
+                          {imagesList.length > 1 && (
+                            <>
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setActiveImageIndex((prev) => (prev === 0 ? imagesList.length - 1 : prev - 1));
+                                }}
+                                className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 border border-white/10 text-white z-30 shadow-md hover:bg-black/80 transition-all cursor-pointer flex items-center justify-center"
+                                aria-label="Previous screenshot"
+                              >
+                                <ArrowLeft className="w-4 h-4" />
+                              </button>
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setActiveImageIndex((prev) => (prev === imagesList.length - 1 ? 0 : prev + 1));
+                                }}
+                                className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 border border-white/10 text-white z-30 shadow-md hover:bg-black/80 transition-all cursor-pointer flex items-center justify-center"
+                                aria-label="Next screenshot"
+                              >
+                                <ArrowRight className="w-4 h-4" />
+                              </button>
+                            </>
+                          )}
+
+                          {/* Slide Indicator Dots */}
+                          {imagesList.length > 1 && (
+                            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-30">
+                              {imagesList.map((_, idx) => (
+                                <button
+                                  key={idx}
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setActiveImageIndex(idx);
+                                  }}
+                                  className={`w-1.5 h-1.5 rounded-full transition-all cursor-pointer ${
+                                    idx === activeImageIndex 
+                                      ? "bg-primary w-3.5" 
+                                      : "bg-white/40 hover:bg-white/70"
+                                  }`}
+                                  aria-label={`Go to screenshot ${idx + 1}`}
+                                />
+                              ))}
+                            </div>
+                          )}
                         </div>
+
+                        {/* Thumbnail gallery preview if multiple images */}
+                        {imagesList.length > 1 && (
+                          <div className="flex items-center gap-2 overflow-x-auto py-1 scrollbar-none">
+                            {imagesList.map((imgUrl, idx) => (
+                              <button
+                                key={imgUrl}
+                                onClick={() => setActiveImageIndex(idx)}
+                                className={`relative w-16 h-10 rounded-lg overflow-hidden border-2 transition-all shrink-0 ${
+                                  idx === activeImageIndex ? "border-primary scale-105" : "border-white/10 opacity-60 hover:opacity-100"
+                                }`}
+                              >
+                                <Image src={imgUrl} alt="thumbnail" fill className="object-cover" />
+                              </button>
+                            ))}
+                          </div>
+                        )}
+
+                        {/* About Section */}
+                        <div className="space-y-3 p-5 rounded-2xl bg-white/[0.02] border border-white/[0.04]">
+                          <h4 className="text-xs font-bold uppercase tracking-wider text-primary flex items-center gap-2">
+                            <Sparkles className="w-3.5 h-3.5 text-primary" /> About the Project
+                          </h4>
+                          <p className="text-sm text-gray-300 leading-relaxed">
+                            {selectedProject.description}
+                          </p>
+                        </div>
+
+                        {/* Features Section */}
+                        {selectedProject.features && selectedProject.features.length > 0 && (
+                          <div className="space-y-4">
+                            <h4 className="text-xs font-bold uppercase tracking-widest text-zinc-400 flex items-center gap-2">
+                              <CheckCircle2 className="w-4 h-4 text-primary" /> Key System Capabilities
+                            </h4>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                              {selectedProject.features.map((feature, idx) => (
+                                <div 
+                                  key={idx} 
+                                  className="relative group overflow-hidden rounded-xl bg-white/[0.01] border border-white/[0.04] p-4 hover:bg-white/[0.03] hover:border-white/[0.1] hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
+                                >
+                                  <div className="absolute top-0 left-0 h-full w-[3px] bg-gradient-to-b from-primary to-secondary opacity-70 group-hover:scale-y-110 transition-transform" />
+                                  <div className="flex items-start gap-3 pl-1.5">
+                                    <Sparkles className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                                    <span className="text-xs md:text-sm text-gray-200 font-medium leading-relaxed">
+                                      {feature}
+                                    </span>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
                       </div>
+
+                      {/* Right Column: CTA Buttons + Specifications Card + Tech Stack */}
+                      <div className="md:col-span-5 space-y-6 md:space-y-8 flex flex-col justify-start z-10">
+                        
+                        {/* Action buttons */}
+                        <div className="flex flex-col gap-3">
+                          {selectedProject.liveUrl && (
+                            <a
+                              href={selectedProject.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="w-full inline-flex items-center justify-center gap-2 text-xs font-bold text-white bg-gradient-to-r from-primary via-purple-600 to-secondary hover:opacity-95 px-5 py-4 rounded-xl transition-all shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:scale-[1.01] active:scale-[0.99] cursor-pointer text-center uppercase tracking-widest"
+                            >
+                              Live Demo <Globe className="w-4 h-4" />
+                            </a>
+                          )}
+                          {selectedProject.githubUrl && (
+                            <a
+                              href={selectedProject.githubUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="w-full inline-flex items-center justify-center gap-2 text-xs font-bold text-zinc-200 bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 px-5 py-4 rounded-xl transition-all hover:text-white hover:scale-[1.01] active:scale-[0.99] cursor-pointer text-center uppercase tracking-widest"
+                            >
+                              GitHub Code <Github className="w-4 h-4" />
+                            </a>
+                          )}
+                        </div>
+
+                        {/* Technical details specs */}
+                        <div className="relative overflow-hidden rounded-2xl bg-white/[0.02] border border-white/[0.04] p-5 shadow-inner space-y-4">
+                          <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+                          <h4 className="text-xs font-bold uppercase tracking-widest text-zinc-400 pb-2 border-b border-white/[0.05]">
+                            System Specifications
+                          </h4>
+                          <div className="space-y-4 pt-1">
+                            <div className="flex items-center justify-between text-xs md:text-sm">
+                              <span className="text-zinc-400 flex items-center gap-2"><Layers className="w-4 h-4 text-zinc-500" /> Focus</span>
+                              <span className="text-zinc-100 font-bold text-right">{getProjectDetails(selectedProject).scope}</span>
+                            </div>
+                            <div className="flex items-center justify-between text-xs md:text-sm">
+                              <span className="text-zinc-400 flex items-center gap-2"><Cpu className="w-4 h-4 text-zinc-500" /> Architecture</span>
+                              <span className="text-zinc-100 font-bold text-right">{getProjectDetails(selectedProject).architecture}</span>
+                            </div>
+                            <div className="flex items-center justify-between text-xs md:text-sm">
+                              <span className="text-zinc-400 flex items-center gap-2"><Database className="w-4 h-4 text-zinc-500" /> Database</span>
+                              <span className="text-zinc-100 font-bold text-right">{getProjectDetails(selectedProject).database}</span>
+                            </div>
+                            <div className="flex items-center justify-between text-xs md:text-sm">
+                              <span className="text-zinc-400 flex items-center gap-2"><Activity className="w-4 h-4 text-zinc-500" /> Environment</span>
+                              <span className="text-zinc-300 font-bold text-right flex items-center gap-1.5">
+                                <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" /> Production Node.js
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Technologies Tag Cloud */}
+                        <div className="space-y-4">
+                          <h4 className="text-xs font-bold uppercase tracking-widest text-zinc-400 pb-2 border-b border-white/[0.05]">
+                            Technologies Used
+                          </h4>
+                          <div className="flex flex-wrap gap-2">
+                            {selectedProject.tags.map((tag) => (
+                              <span
+                                key={tag}
+                                className="text-xs font-semibold text-zinc-300 bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.06] hover:border-primary/40 hover:text-white px-3 py-1.5 rounded-lg transition-all cursor-default select-none hover:shadow-md hover:shadow-primary/5"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                      </div>
+
                     </div>
                   </div>
 
-                  {/* Modal Footer (CTAs) */}
-                  <div className="p-6 border-t border-white/5 bg-black/20 flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-4">
-                      {selectedProject.liveUrl && (
-                        <a
-                          href={selectedProject.liveUrl}
-                          target="_blank; noreferrer"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 text-xs font-bold text-black bg-white hover:bg-gray-200 px-4 py-2.5 rounded-lg transition-colors cursor-pointer"
-                        >
-                          Live Demo <ExternalLink className="w-3.5 h-3.5" />
-                        </a>
-                      )}
-                      {selectedProject.githubUrl && (
-                        <a
-                          href={selectedProject.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2.5 rounded-lg transition-colors cursor-pointer"
-                        >
-                          GitHub Code <Github className="w-3.5 h-3.5" />
-                        </a>
-                      )}
-                    </div>
+                  {/* Mobile-only bottom Close CTA */}
+                  <div className="p-4 border-t border-white/5 bg-black/20 flex md:hidden items-center justify-end shrink-0 z-10">
                     <button
                       onClick={() => setSelectedProject(null)}
-                      className="text-xs font-semibold text-gray-500 hover:text-white transition-colors cursor-pointer"
+                      className="w-full text-center text-xs font-bold text-zinc-400 hover:text-white bg-white/5 hover:bg-white/10 px-4 py-2.5 rounded-xl border border-white/10 transition-colors cursor-pointer"
                     >
-                      Close
+                      Close Details
                     </button>
                   </div>
+
                 </motion.div>
               </motion.div>
             );

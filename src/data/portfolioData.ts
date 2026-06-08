@@ -96,50 +96,117 @@ export const portfolioData: PortfolioData = {
 
   projects: [
     {
-  id: "ataa-charity-platform",
-  title: "Ataa Charity Platform",
-
-  description:
-    "A production-grade full-stack charity ecosystem enabling transparent donations, real-time impact tracking, campaign management, and AI-driven insights.",
-
-  longDescription:
-    "Ataa is a scalable full-stack platform designed to modernize charity operations. It connects donors, organizations, and administrators through a secure role-based system. The platform delivers real-time donation tracking, campaign lifecycle management, automated workflows, and AI-powered analytics to enhance transparency, trust, and decision-making in charitable operations.",
-
+      id: "ataa-charity-platform",
+      title: "Ataa Charity Platform",
+      description: "A production-grade full-stack charity ecosystem enabling transparent donations, real-time impact tracking, campaign management, and AI-driven insights.",
+      longDescription: "Ataa is a scalable full-stack platform designed to modernize charity operations. It connects donors, organizations, and administrators through a secure role-based system. The platform delivers real-time donation tracking, campaign lifecycle management, automated workflows, and AI-powered analytics to enhance transparency, trust, and decision-making in charitable operations.",
       image: "/images/ataa-charity.png",
       images: [
         "/images/ataa-charity.png"
       ],
-  tags: [
-    "React",
-    "TypeScript",
-    "Node.js",
-    "Express.js",
-    "MongoDB",
-    "Mongoose",
-    "JWT",
-    "bcrypt",
-    "Cloudinary",
-    "Node-cron",
-    "REST API",
-    "AI Integration"
-  ],
-
-  features: [
-    "Secure authentication with JWT & password hashing (bcrypt)",
-    "Role-based access control (Admin / Donor / Organization)",
-    "Real-time donation tracking and analytics dashboard",
-    "Full campaign lifecycle management system",
-    "AI-powered insights for donation optimization",
-    "Automated email notification workflows",
-    "Cloud-based media handling via Cloudinary",
-    "Scheduled background jobs using Node-cron",
-    "Responsive and modern UI/UX dashboard"
-  ],
-
-  liveUrl: "https://ataa.page",
-  githubUrl: "https://github.com/Sayed-Herzallah/Ataa-Charity-Platform-React-TypeScript",
-  featured: true
-},
+      tags: [
+        "React",
+        "TypeScript",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Mongoose",
+        "JWT",
+        "bcrypt",
+        "Cloudinary",
+        "Node-cron",
+        "REST API",
+        "AI Integration"
+      ],
+      features: [
+        "Secure authentication with JWT & password hashing (bcrypt)",
+        "Role-based access control (Admin / Donor / Organization)",
+        "Real-time donation tracking and analytics dashboard",
+        "Full campaign lifecycle management system",
+        "AI-powered insights for donation optimization",
+        "Automated email notification workflows",
+        "Cloud-based media handling via Cloudinary",
+        "Scheduled background jobs using Node-cron",
+        "Responsive and modern UI/UX dashboard"
+      ],
+      liveUrl: "https://ataa.page",
+      githubUrl: "https://github.com/Sayed-Herzallah/Ataa-Charity-Platform-React-TypeScript",
+      featured: true
+    },
+    {
+      id: "r3aya-child-physiotherapy-system",
+      title: "R3aya – Child Physiotherapy Monitoring System API",
+      description: "Scalable healthcare backend system for managing child physiotherapy sessions, EMG assessments, and connecting parents with specialists through a secure digital platform.",
+      longDescription: "R3aya is a production-level backend API designed for a child physiotherapy monitoring ecosystem. It enables structured management of parents, children, and medical specialists while supporting EMG-based muscle analysis sessions. The system is built with a modular architecture focusing on scalability, security, and healthcare-grade data integrity.",
+      image: "/images/r3aya-healthcare.png",
+      images: [
+        "/images/r3aya-healthcare.png"
+      ],
+      tags: [
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Mongoose",
+        "JWT",
+        "Joi",
+        "Nodemailer",
+        "REST API",
+        "Clean Architecture"
+      ],
+      features: [
+        "Secure authentication with JWT and email OTP verification",
+        "Role-based access control (Parent / Specialist / Admin)",
+        "Child profile management linked to parent accounts",
+        "Specialist discovery and contact request system",
+        "EMG session tracking and medical data storage",
+        "Soft delete system for data integrity",
+        "Paginated medical record handling for large datasets",
+        "Email notifications and verification system",
+        "Modular and scalable backend architecture"
+      ],
+      liveUrl: "",
+      githubUrl: "https://github.com/Sayed-Herzallah/R3aya-Care-System-Api",
+      featured: true
+    },
+    {
+      id: "sharaha-app-backend",
+      title: "Sharaha App – Anonymous Messaging API",
+      description: "Secure and scalable backend API for an anonymous messaging platform supporting authentication, encrypted communication, and message management.",
+      longDescription: "Sharaha App is a production-level RESTful API inspired by anonymous messaging platforms. It allows users to securely register, authenticate, and receive anonymous messages. The system is built with a modular architecture emphasizing separation of concerns, security best practices, and scalability.",
+      image: "/images/sharaha-messaging.png",
+      images: [
+        "/images/sharaha-messaging.png"
+      ],
+      tags: [
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Mongoose",
+        "JWT",
+        "bcrypt",
+        "Joi",
+        "Nodemailer",
+        "Multer",
+        "Cloudinary",
+        "REST API",
+        "Modular Architecture"
+      ],
+      features: [
+        "Secure user authentication with JWT",
+        "Password hashing using bcrypt",
+        "Email verification system via Nodemailer",
+        "Anonymous messaging system",
+        "Message retrieval and optional reply system",
+        "Input validation using Joi",
+        "Protection against XSS and NoSQL injection",
+        "Global error handling middleware",
+        "File upload support with Cloudinary",
+        "Modular feature-based architecture"
+      ],
+      liveUrl: "",
+      githubUrl: "https://github.com/Sayed-Herzallah/Sharaha-App-BackEnd",
+      featured: true
+    },
     {
       id: "siwa-oasis-api",
       title: "Siwa Oasis Travel Platform API",
@@ -169,6 +236,38 @@ export const portfolioData: PortfolioData = {
       featured: true
     },
     {
+      id: "blog-backend-sequelize",
+      title: "Blog Platform Backend (Sequelize)",
+      description: "Scalable backend API for a blog platform with user authentication, posts management, and relational database structure using Sequelize ORM.",
+      longDescription: "This project is a production-style backend API for a blogging system built with Node.js and Express, using Sequelize ORM for relational database management. It supports user authentication, CRUD operations for posts, and structured relational data modeling to ensure scalability and data consistency.",
+      image: "/images/blog-platform.png",
+      images: [
+        "/images/blog-platform.png"
+      ],
+      tags: [
+        "Node.js",
+        "Express.js",
+        "Sequelize",
+        "MySQL",
+        "JWT",
+        "REST API",
+        "MVC Architecture"
+      ],
+      features: [
+        "User authentication with JWT",
+        "Secure password hashing",
+        "Create, update, delete blog posts",
+        "Relational database design using Sequelize",
+        "MVC architecture structure",
+        "RESTful API design",
+        "Input validation and error handling",
+        "Scalable database schema design"
+      ],
+      liveUrl: "",
+      githubUrl: "https://github.com/Sayed-Herzallah/My-Blog-Back-end-Sequelize",
+      featured: true
+    },
+    {
       id: "ai-url-dashboard",
       title: "AI-Integrated URL Analysis Dashboard",
       description: "Full-stack dashboard application with deployed frontend and backend. Integrates an AI layer for real-time URL analysis and insight generation. Features responsive UI with dynamic data visualization.",
@@ -181,6 +280,35 @@ export const portfolioData: PortfolioData = {
       liveUrl: "",
       githubUrl: "https://github.com/Sayed-Herzallah/dev-portfolio-backend",
       featured: true
+    },
+    {
+      id: "ufuq-real-estate-react",
+      title: "UFUQ Real Estate Platform",
+      description: "Modern responsive real estate web platform built with React, enabling users to explore property listings, view statistics, and interact with an intuitive UI experience.",
+      longDescription: "UFUQ Real Estate is a production-level frontend application designed to deliver a seamless property browsing experience. The platform includes dynamic property listings, multilingual support, and interactive UI sections such as hero banners, testimonials, and contact flows. It focuses on performance, responsiveness, and clean user experience design principles.",
+      image: "/images/ufuq-realestate.png",
+      images: [
+        "/images/ufuq-realestate.png"
+      ],
+      tags: [
+        "React",
+        "JavaScript",
+        "Context API",
+        "CSS3",
+        "Responsive Design",
+        "UI/UX"
+      ],
+      features: [
+        "Dynamic property listings with detailed views",
+        "Multi-language support using Context API",
+        "Interactive UI sections (Hero, Stats, Testimonials)",
+        "Fully responsive design across all devices",
+        "Clean and modern user experience",
+        "Reusable component-based architecture"
+      ],
+      liveUrl: "",
+      githubUrl: "https://github.com/Sayed-Herzallah/Ufuq-Real-Estate-React",
+      featured: false
     },
     {
       id: "brain-tumor-ai",
@@ -197,48 +325,6 @@ export const portfolioData: PortfolioData = {
       featured: false
     },
     {
-  id: "r3aya-child-physiotherapy-system",
-  title: "R3aya – Child Physiotherapy Monitoring System API",
-
-  description:
-    "Scalable healthcare backend system for managing child physiotherapy sessions, EMG assessments, and connecting parents with specialists through a secure digital platform.",
-
-  longDescription:
-    "R3aya is a production-level backend API designed for a child physiotherapy monitoring ecosystem. It enables structured management of parents, children, and medical specialists while supporting EMG-based muscle analysis sessions. The system is built with a modular architecture focusing on scalability, security, and healthcare-grade data integrity.",
-
-      image: "/images/r3aya-healthcare.png",
-      images: [
-        "/images/r3aya-healthcare.png"
-      ],
-  tags: [
-    "Node.js",
-    "Express.js",
-    "MongoDB",
-    "Mongoose",
-    "JWT",
-    "Joi",
-    "Nodemailer",
-    "REST API",
-    "Clean Architecture"
-  ],
-
-  features: [
-    "Secure authentication with JWT and email OTP verification",
-    "Role-based access control (Parent / Specialist / Admin)",
-    "Child profile management linked to parent accounts",
-    "Specialist discovery and contact request system",
-    "EMG session tracking and medical data storage",
-    "Soft delete system for data integrity",
-    "Paginated medical record handling for large datasets",
-    "Email notifications and verification system",
-    "Modular and scalable backend architecture"
-  ],
-
-  liveUrl: "",
-  githubUrl: "https://github.com/Sayed-Herzallah/R3aya-Care-System-Api",
-  featured: true
-},
-    {
       id: "villa-agency",
       title: "Villa Agency React Frontend",
       description: "React application for a real estate agency with full CRUD, authentication, responsive animations, and live Vercel deployment. Built as a graduation project for MCIT Creativa Innovation Hub.",
@@ -251,131 +337,7 @@ export const portfolioData: PortfolioData = {
       liveUrl: "",
       githubUrl: "https://github.com/Sayed-Herzallah",
       featured: false
-    },
-    {
-  id: "sharaha-app-backend",
-  title: "Sharaha App – Anonymous Messaging API",
-
-  description:
-    "Secure and scalable backend API for an anonymous messaging platform supporting authentication, encrypted communication, and message management.",
-
-  longDescription:
-    "Sharaha App is a production-level RESTful API inspired by anonymous messaging platforms. It allows users to securely register, authenticate, and receive anonymous messages. The system is built with a modular architecture emphasizing separation of concerns, security best practices, and scalability.",
-
-      image: "/images/sharaha-messaging.png",
-      images: [
-        "/images/sharaha-messaging.png"
-      ],
-
-  tags: [
-    "Node.js",
-    "Express.js",
-    "MongoDB",
-    "Mongoose",
-    "JWT",
-    "bcrypt",
-    "Joi",
-    "Nodemailer",
-    "Multer",
-    "Cloudinary",
-    "REST API",
-    "Modular Architecture"
-  ],
-
-  features: [
-    "Secure user authentication with JWT",
-    "Password hashing using bcrypt",
-    "Email verification system via Nodemailer",
-    "Anonymous messaging system",
-    "Message retrieval and optional reply system",
-    "Input validation using Joi",
-    "Protection against XSS and NoSQL injection",
-    "Global error handling middleware",
-    "File upload support with Cloudinary",
-    "Modular feature-based architecture"
-  ],
-
-  liveUrl: "",
-  githubUrl: "https://github.com/Sayed-Herzallah/Sharaha-App-BackEnd",
-  featured: false
-},
-    {
-  id: "ufuq-real-estate-react",
-  title: "UFUQ Real Estate Platform",
-
-  description:
-    "Modern responsive real estate web platform built with React, enabling users to explore property listings, view statistics, and interact with an intuitive UI experience.",
-
-  longDescription:
-    "UFUQ Real Estate is a production-level frontend application designed to deliver a seamless property browsing experience. The platform includes dynamic property listings, multilingual support, and interactive UI sections such as hero banners, testimonials, and contact flows. It focuses on performance, responsiveness, and clean user experience design principles.",
-
-      image: "/images/ufuq-realestate.png",
-      images: [
-        "/images/ufuq-realestate.png"
-      ],
-
-  tags: [
-    "React",
-    "JavaScript",
-    "Context API",
-    "CSS3",
-    "Responsive Design",
-    "UI/UX"
-  ],
-
-  features: [
-    "Dynamic property listings with detailed views",
-    "Multi-language support using Context API",
-    "Interactive UI sections (Hero, Stats, Testimonials)",
-    "Fully responsive design across all devices",
-    "Clean and modern user experience",
-    "Reusable component-based architecture"
-  ],
-
-  liveUrl: "",
-  githubUrl: "https://github.com/Sayed-Herzallah/Ufuq-Real-Estate-React",
-  featured: false
-},
-{
-  id: "blog-backend-sequelize",
-  title: "Blog Platform Backend (Sequelize)",
-
-  description:
-    "Scalable backend API for a blog platform with user authentication, posts management, and relational database structure using Sequelize ORM.",
-
-  longDescription:
-    "This project is a production-style backend API for a blogging system built with Node.js and Express, using Sequelize ORM for relational database management. It supports user authentication, CRUD operations for posts, and structured relational data modeling to ensure scalability and data consistency.",
-
-      image: "/images/blog-platform.png",
-      images: [
-        "/images/blog-platform.png"
-      ],
-
-  tags: [
-    "Node.js",
-    "Express.js",
-    "Sequelize",
-    "MySQL",
-    "JWT",
-    "REST API",
-    "MVC Architecture"
-  ],
-
-  features: [
-    "User authentication with JWT",
-    "Secure password hashing",
-    "Create, update, delete blog posts",
-    "Relational database design using Sequelize",
-    "MVC architecture structure",
-    "RESTful API design",
-    "Input validation and error handling",
-    "Scalable database schema design"
-  ],
-
-  liveUrl: "",
-  githubUrl: "https://github.com/Sayed-Herzallah/My-Blog-Back-end-Sequelize",
-  featured: false
-}
+    }
   ],
 
   skills: [
@@ -455,21 +417,21 @@ export const portfolioData: PortfolioData = {
       id: "cert-ai",
       title: "Build with AI: Masr Edition",
       issuer: "Google",
-      date: "May 2024",
-      url: ""
+      date: "May 2026",
+      url: "https://drive.google.com/file/d/1zN9vb-V9mgWz6-uj5st-7iAlTojm5cAb/view?usp=sharing"
     },
     {
       id: "cert-NTI - National Telecommunication Institute",
       title: "MERN Stack Developer Certificate",
       issuer: "NTI - National Telecommunication Institute",
-      date: "Apr 2024",
+      date: "Nov 2025",
       url: "https://drive.google.com/file/d/11fPLx2J5t4Eq25eBhm9EAhsaSe94xAYd/view?usp=sharing"
     },
     {
       id: "cert-creativa",
       title: "Frontend React.js Scholarship (MCIT-affiliated)",
       issuer: "Creativa Innovation Hub",
-      date: "Nov 2023",
+      date: "Feb 2026",
       url: "https://drive.google.com/file/d/17Zey7KrCjPif3ngCvqhTC_lImm8Bkmlx/view?usp=sharing"
     },
         {
@@ -478,7 +440,22 @@ export const portfolioData: PortfolioData = {
       issuer: "Manara",
       date: "Feb 2024",
       url: "https://app.manara.tech/certificate/1775901865-B9E7A239B519F760"
-    },    
+    },
+    {
+      id:"cert-maharaTech",
+      title:"Modern JavaScript: ES6 and beyond",
+      issuer:"Mahara Tech",
+      date:"Sep 2025",
+      url:"https://maharatech.gov.eg/mod/customcert/view.php?id=8086&downloadown=1"
+    },
+      {
+      id:"cert-maharaTech",
+      title:"Javascript",
+      issuer:"Mahara Tech",
+      date:"Sep 2025",
+      url:"https://maharatech.gov.eg/mod/customcert/view.php?id=7660&downloadown=1"
+    }    
+    
 
 
   ]

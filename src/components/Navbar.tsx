@@ -63,24 +63,53 @@ export default function Navbar() {
 
   return (
     <header ref={navRef} className="fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-[95vw] lg:max-w-5xl">
-      <nav className="glass-card px-2 xs:px-3 sm:px-6 py-2 rounded-full border border-white/10 flex items-center gap-1.5 sm:gap-4 shadow-2xl shadow-black/40 bg-[#0d0d11]/80 backdrop-blur-md w-full">
-        <a
-          href="#home"
-          onClick={(e) => handleNavClick(e, "#home")}
-          className="flex items-center gap-1 sm:gap-2 group shrink-0 pl-0.5 sm:pl-1"
-          aria-label="Go to home"
-        >
-          <Logo />
-          <span className="hidden xs:inline text-white font-bold tracking-widest text-[11px] sm:text-xs lg:text-sm group-hover:text-primary transition-colors uppercase select-none">
-            {portfolioData.name.split(" ")[1]}
-          </span>
-        </a>
+      <nav className="glass-card px-3 sm:px-6 py-2.5 md:py-2 rounded-2xl md:rounded-full border border-white/10 flex flex-col md:flex-row items-center gap-2.5 md:gap-4 shadow-2xl shadow-black/40 bg-[#0d0d11]/80 backdrop-blur-md w-full">
+        
+        {/* Brand row (Logo + Name + mobile/tablet CV) */}
+        <div className="flex items-center justify-between w-full md:w-auto shrink-0">
+          <a
+            href="#home"
+            onClick={(e) => handleNavClick(e, "#home")}
+            className="flex items-center gap-1.5 sm:gap-2 group pl-0.5 sm:pl-1"
+            aria-label="Go to home"
+          >
+            <Logo />
+            <span className="text-white font-bold tracking-widest text-[10px] xs:text-[11px] sm:text-xs lg:text-sm group-hover:text-primary transition-colors uppercase select-none">
+              {portfolioData.name.split(" ")[1]}
+            </span>
+          </a>
 
-        <div className="flex items-center gap-x-0.5 xs:gap-x-1 sm:gap-x-2.5 py-0.5 flex-1 overflow-x-auto scrollbar-none">
+          {/* CV button on mobile/tablet only */}
+          <a
+            href={portfolioData.cvUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex md:hidden text-secondary hover:text-white bg-secondary/10 hover:bg-secondary/20 px-3 py-1 border border-secondary/20 hover:border-secondary/40 text-[9px] font-bold tracking-widest rounded-full transition-all duration-200 uppercase"
+          >
+            CV
+          </a>
+        </div>
+
+        {/* Links row */}
+        <div className="flex items-center justify-center md:justify-end gap-x-1.5 sm:gap-x-3 md:gap-x-2.5 py-0.5 w-full md:w-auto flex-1 overflow-visible">
           {navLinks.map((link) => {
             const sectionId = link.href.replace("#", "");
             const isActive = !link.external && activeSection === sectionId;
             const isCV = link.label === "CV";
+
+            if (isCV) {
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hidden md:inline-flex text-secondary hover:text-white bg-secondary/10 hover:bg-secondary/20 px-3.5 py-1.5 border border-secondary/20 hover:border-secondary/40 text-[10px] sm:text-[11.5px] md:text-xs lg:text-sm font-bold tracking-widest rounded-full transition-all duration-200 uppercase"
+                >
+                  CV
+                </a>
+              );
+            }
 
             const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
               if (!link.external) {
@@ -96,15 +125,11 @@ export default function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                target={link.external ? "_blank" : undefined}
-                rel={link.external ? "noopener noreferrer" : undefined}
                 onClick={handleClick}
-                className={`transition-all duration-200 uppercase cursor-pointer whitespace-nowrap shrink-0 text-center font-bold tracking-wide sm:tracking-widest rounded-full
-                  ${isCV
-                    ? "hidden lg:inline-flex text-secondary hover:text-white bg-secondary/10 hover:bg-secondary/20 px-2 sm:px-3.5 py-1 sm:py-1.5 border border-secondary/20 hover:border-secondary/40 text-[10px] xs:text-[11px] sm:text-[11.5px] md:text-xs lg:text-sm"
-                    : isActive
-                      ? "text-white bg-white/10 border border-white/10 px-1.5 xs:px-2 sm:px-3.5 py-1 sm:py-1.5 text-[10px] xs:text-[11px] sm:text-[11.5px] md:text-xs lg:text-sm shadow-inner"
-                      : "text-zinc-400 hover:text-white hover:bg-white/5 px-1.5 xs:px-2 sm:px-3.5 py-1 sm:py-1.5 text-[10px] xs:text-[11px] sm:text-[11.5px] md:text-xs lg:text-sm"
+                className={`transition-all duration-200 uppercase cursor-pointer whitespace-nowrap text-center font-bold tracking-wide sm:tracking-widest rounded-full py-1 md:py-1.5 px-2 sm:px-3 text-[8.5px] xs:text-[9.5px] sm:text-[11.5px] md:text-xs lg:text-sm
+                  ${isActive
+                    ? "text-white bg-white/10 border border-white/10 shadow-inner"
+                    : "text-zinc-400 hover:text-white hover:bg-white/5 border border-transparent"
                   }
                 `}
               >
