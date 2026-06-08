@@ -315,227 +315,185 @@ export default function Projects() {
 
                   {/* Scrollable Content */}
                   <div className="overflow-y-auto flex-grow scrollbar-none z-10">
-                    <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 p-6 md:p-8">
+                    <div className="p-5 md:p-6 space-y-5">
                       
-                      {/* Left Column: Image Gallery + Long Description + About + Features */}
-                      <div className="md:col-span-7 space-y-6 md:space-y-8">
-                        
-                        {selectedProject.longDescription ? (
-                          <p className="text-sm md:text-base text-zinc-300 font-medium leading-relaxed border-l-2 border-primary/60 pl-3">
-                            {selectedProject.longDescription}
-                          </p>
-                        ) : null}
+                      {/* Long Description */}
+                      {selectedProject.longDescription && (
+                        <p className="text-sm md:text-base text-zinc-300 leading-relaxed border-l-2 border-primary/60 pl-3">
+                          {selectedProject.longDescription}
+                        </p>
+                      )}
 
-                        {/* Project Image Carousel */}
-                        <div 
-                          className="relative aspect-video w-full bg-zinc-950 border border-white/[0.06] rounded-xl overflow-hidden group/modal-img shadow-2xl"
-                          onTouchStart={handleTouchStart}
-                          onTouchMove={handleTouchMove}
-                          onTouchEnd={() => {
-                            const diff = touchStartX.current - touchEndX.current;
-                            const swipeThreshold = 40;
-                            if (diff > swipeThreshold) {
-                              setActiveImageIndex((prev) => (prev === imagesCount - 1 ? 0 : prev + 1));
-                            } else if (diff < -swipeThreshold) {
-                              setActiveImageIndex((prev) => (prev === 0 ? imagesCount - 1 : prev - 1));
-                            }
-                            touchStartX.current = 0;
-                            touchEndX.current = 0;
-                          }}
-                        >
-                          {imagesList.map((imgUrl, idx) => (
-                            <motion.div
-                              key={imgUrl}
-                              initial={{ opacity: 0 }}
-                              animate={{ opacity: idx === activeImageIndex ? 1 : 0 }}
-                              transition={{ duration: 0.3 }}
-                              className={`absolute inset-0 w-full h-full ${idx === activeImageIndex ? "z-10" : "z-0"}`}
-                            >
-                              <Image
-                                src={imgUrl}
-                                alt={`${selectedProject.title} screenshot ${idx + 1}`}
-                                width={800}
-                                height={450}
-                                className="object-cover w-full h-full opacity-90"
-                              />
-                            </motion.div>
-                          ))}
-                          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80 z-20 pointer-events-none" />
+                      {/* Project Image Carousel - Compact */}
+                      <div 
+                        className="relative aspect-video w-full bg-zinc-950 border border-white/[0.06] rounded-xl overflow-hidden group/modal-img shadow-lg"
+                        onTouchStart={handleTouchStart}
+                        onTouchMove={handleTouchMove}
+                        onTouchEnd={() => {
+                          const diff = touchStartX.current - touchEndX.current;
+                          const swipeThreshold = 40;
+                          if (diff > swipeThreshold) {
+                            setActiveImageIndex((prev) => (prev === imagesCount - 1 ? 0 : prev + 1));
+                          } else if (diff < -swipeThreshold) {
+                            setActiveImageIndex((prev) => (prev === 0 ? imagesCount - 1 : prev - 1));
+                          }
+                          touchStartX.current = 0;
+                          touchEndX.current = 0;
+                        }}
+                      >
+                        {imagesList.map((imgUrl, idx) => (
+                          <motion.div
+                            key={imgUrl}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: idx === activeImageIndex ? 1 : 0 }}
+                            transition={{ duration: 0.3 }}
+                            className={`absolute inset-0 w-full h-full ${idx === activeImageIndex ? "z-10" : "z-0"}`}
+                          >
+                            <Image
+                              src={imgUrl}
+                              alt={`${selectedProject.title} screenshot ${idx + 1}`}
+                              width={800}
+                              height={450}
+                              className="object-cover w-full h-full opacity-90"
+                            />
+                          </motion.div>
+                        ))}
+                        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80 z-20 pointer-events-none" />
 
-                          {/* Left / Right Arrow Controls */}
-                          {imagesList.length > 1 && (
-                            <>
-                              <button
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  setActiveImageIndex((prev) => (prev === 0 ? imagesList.length - 1 : prev - 1));
-                                }}
-                                className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 border border-white/10 text-white z-30 shadow-md hover:bg-black/80 transition-all cursor-pointer flex items-center justify-center"
-                                aria-label="Previous screenshot"
-                              >
-                                <ArrowLeft className="w-4 h-4" />
-                              </button>
-                              <button
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  setActiveImageIndex((prev) => (prev === imagesList.length - 1 ? 0 : prev + 1));
-                                }}
-                                className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 border border-white/10 text-white z-30 shadow-md hover:bg-black/80 transition-all cursor-pointer flex items-center justify-center"
-                                aria-label="Next screenshot"
-                              >
-                                <ArrowRight className="w-4 h-4" />
-                              </button>
-                            </>
-                          )}
-
-                          {/* Slide Indicator Dots */}
-                          {imagesList.length > 1 && (
-                            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-30">
-                              {imagesList.map((_, idx) => (
-                                <button
-                                  key={idx}
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    setActiveImageIndex(idx);
-                                  }}
-                                  className={`w-1.5 h-1.5 rounded-full transition-all cursor-pointer ${
-                                    idx === activeImageIndex 
-                                      ? "bg-primary w-3.5" 
-                                      : "bg-white/40 hover:bg-white/70"
-                                  }`}
-                                  aria-label={`Go to screenshot ${idx + 1}`}
-                                />
-                              ))}
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Thumbnail gallery preview if multiple images */}
                         {imagesList.length > 1 && (
-                          <div className="flex items-center gap-2 overflow-x-auto py-1 scrollbar-none">
-                            {imagesList.map((imgUrl, idx) => (
+                          <>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setActiveImageIndex((prev) => (prev === 0 ? imagesList.length - 1 : prev - 1));
+                              }}
+                              className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 border border-white/10 text-white z-30 shadow-md hover:bg-black/80 transition-all cursor-pointer flex items-center justify-center"
+                              aria-label="Previous screenshot"
+                            >
+                              <ArrowLeft className="w-4 h-4" />
+                            </button>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setActiveImageIndex((prev) => (prev === imagesList.length - 1 ? 0 : prev + 1));
+                              }}
+                              className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 border border-white/10 text-white z-30 shadow-md hover:bg-black/80 transition-all cursor-pointer flex items-center justify-center"
+                              aria-label="Next screenshot"
+                            >
+                              <ArrowRight className="w-4 h-4" />
+                            </button>
+                          </>
+                        )}
+
+                        {imagesList.length > 1 && (
+                          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-30">
+                            {imagesList.map((_, idx) => (
                               <button
-                                key={imgUrl}
-                                onClick={() => setActiveImageIndex(idx)}
-                                className={`relative w-16 h-10 rounded-lg overflow-hidden border-2 transition-all shrink-0 ${
-                                  idx === activeImageIndex ? "border-primary scale-105" : "border-white/10 opacity-60 hover:opacity-100"
+                                key={idx}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setActiveImageIndex(idx);
+                                }}
+                                className={`w-1.5 h-1.5 rounded-full transition-all cursor-pointer ${
+                                  idx === activeImageIndex 
+                                    ? "bg-primary w-3.5" 
+                                    : "bg-white/40 hover:bg-white/70"
                                 }`}
-                              >
-                                <Image src={imgUrl} alt="thumbnail" fill className="object-cover" />
-                              </button>
+                                aria-label={`Go to screenshot ${idx + 1}`}
+                              />
                             ))}
                           </div>
                         )}
-
-                        {/* About Section */}
-                        <div className="space-y-3 p-5 rounded-2xl bg-white/[0.02] border border-white/[0.04]">
-                          <h4 className="text-xs font-bold uppercase tracking-wider text-primary flex items-center gap-2">
-                            <Sparkles className="w-3.5 h-3.5 text-primary" /> About the Project
-                          </h4>
-                          <p className="text-sm text-gray-300 leading-relaxed">
-                            {selectedProject.description}
-                          </p>
-                        </div>
-
-                        {/* Features Section */}
-                        {selectedProject.features && selectedProject.features.length > 0 && (
-                          <div className="space-y-4">
-                            <h4 className="text-xs font-bold uppercase tracking-widest text-zinc-400 flex items-center gap-2">
-                              <CheckCircle2 className="w-4 h-4 text-primary" /> Key System Capabilities
-                            </h4>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                              {selectedProject.features.map((feature, idx) => (
-                                <div 
-                                  key={idx} 
-                                  className="relative group overflow-hidden rounded-xl bg-white/[0.01] border border-white/[0.04] p-4 hover:bg-white/[0.03] hover:border-white/[0.1] hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
-                                >
-                                  <div className="absolute top-0 left-0 h-full w-[3px] bg-gradient-to-b from-primary to-secondary opacity-70 group-hover:scale-y-110 transition-transform" />
-                                  <div className="flex items-start gap-3 pl-1.5">
-                                    <Sparkles className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
-                                    <span className="text-xs md:text-sm text-gray-200 font-medium leading-relaxed">
-                                      {feature}
-                                    </span>
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-
                       </div>
 
-                      {/* Right Column: CTA Buttons + Specifications Card + Tech Stack */}
-                      <div className="md:col-span-5 space-y-6 md:space-y-8 flex flex-col justify-start z-10">
-                        
-                        {/* Action buttons */}
-                        <div className="flex flex-col gap-3">
-                          {selectedProject.liveUrl && (
-                            <a
-                              href={selectedProject.liveUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="w-full inline-flex items-center justify-center gap-2 text-xs font-bold text-white bg-gradient-to-r from-primary via-purple-600 to-secondary hover:opacity-95 px-5 py-4 rounded-xl transition-all shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:scale-[1.01] active:scale-[0.99] cursor-pointer text-center uppercase tracking-widest"
-                            >
-                              Live Demo <Globe className="w-4 h-4" />
-                            </a>
-                          )}
-                          {selectedProject.githubUrl && (
-                            <a
-                              href={selectedProject.githubUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="w-full inline-flex items-center justify-center gap-2 text-xs font-bold text-zinc-200 bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 px-5 py-4 rounded-xl transition-all hover:text-white hover:scale-[1.01] active:scale-[0.99] cursor-pointer text-center uppercase tracking-widest"
-                            >
-                              GitHub Code <Github className="w-4 h-4" />
-                            </a>
-                          )}
-                        </div>
+                      {/* Action buttons - inline compact */}
+                      <div className="flex flex-wrap gap-3">
+                        {selectedProject.liveUrl && (
+                          <a
+                            href={selectedProject.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 text-xs font-bold text-white bg-gradient-to-r from-primary via-purple-600 to-secondary hover:opacity-95 px-4 py-3 rounded-xl transition-all shadow-lg shadow-primary/20 cursor-pointer text-center uppercase tracking-widest"
+                          >
+                            Live Demo <Globe className="w-3.5 h-3.5" />
+                          </a>
+                        )}
+                        {selectedProject.githubUrl && (
+                          <a
+                            href={selectedProject.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 text-xs font-bold text-zinc-200 bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 px-4 py-3 rounded-xl transition-all hover:text-white cursor-pointer text-center uppercase tracking-widest"
+                          >
+                            GitHub Code <Github className="w-3.5 h-3.5" />
+                          </a>
+                        )}
+                      </div>
 
-                        {/* Technical details specs */}
-                        <div className="relative overflow-hidden rounded-2xl bg-white/[0.02] border border-white/[0.04] p-5 shadow-inner space-y-4">
-                          <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-                          <h4 className="text-xs font-bold uppercase tracking-widest text-zinc-400 pb-2 border-b border-white/[0.05]">
-                            System Specifications
-                          </h4>
-                          <div className="space-y-4 pt-1">
-                            <div className="flex items-center justify-between text-xs md:text-sm">
-                              <span className="text-zinc-400 flex items-center gap-2"><Layers className="w-4 h-4 text-zinc-500" /> Focus</span>
-                              <span className="text-zinc-100 font-bold text-right">{getProjectDetails(selectedProject).scope}</span>
-                            </div>
-                            <div className="flex items-center justify-between text-xs md:text-sm">
-                              <span className="text-zinc-400 flex items-center gap-2"><Cpu className="w-4 h-4 text-zinc-500" /> Architecture</span>
-                              <span className="text-zinc-100 font-bold text-right">{getProjectDetails(selectedProject).architecture}</span>
-                            </div>
-                            <div className="flex items-center justify-between text-xs md:text-sm">
-                              <span className="text-zinc-400 flex items-center gap-2"><Database className="w-4 h-4 text-zinc-500" /> Database</span>
-                              <span className="text-zinc-100 font-bold text-right">{getProjectDetails(selectedProject).database}</span>
-                            </div>
-                            <div className="flex items-center justify-between text-xs md:text-sm">
-                              <span className="text-zinc-400 flex items-center gap-2"><Activity className="w-4 h-4 text-zinc-500" /> Environment</span>
-                              <span className="text-zinc-300 font-bold text-right flex items-center gap-1.5">
-                                <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" /> Production Node.js
-                              </span>
-                            </div>
-                          </div>
+                      {/* System Specs - horizontal compact grid */}
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <div className="bg-white/[0.02] border border-white/[0.05] rounded-xl p-3 text-center">
+                          <Layers className="w-4 h-4 text-primary mx-auto mb-1.5" />
+                          <p className="text-[10px] text-zinc-500 uppercase tracking-wider">Focus</p>
+                          <p className="text-xs text-zinc-200 font-bold mt-0.5">{getProjectDetails(selectedProject).scope}</p>
                         </div>
+                        <div className="bg-white/[0.02] border border-white/[0.05] rounded-xl p-3 text-center">
+                          <Cpu className="w-4 h-4 text-primary mx-auto mb-1.5" />
+                          <p className="text-[10px] text-zinc-500 uppercase tracking-wider">Architecture</p>
+                          <p className="text-xs text-zinc-200 font-bold mt-0.5">{getProjectDetails(selectedProject).architecture}</p>
+                        </div>
+                        <div className="bg-white/[0.02] border border-white/[0.05] rounded-xl p-3 text-center">
+                          <Database className="w-4 h-4 text-primary mx-auto mb-1.5" />
+                          <p className="text-[10px] text-zinc-500 uppercase tracking-wider">Database</p>
+                          <p className="text-xs text-zinc-200 font-bold mt-0.5">{getProjectDetails(selectedProject).database}</p>
+                        </div>
+                        <div className="bg-white/[0.02] border border-white/[0.05] rounded-xl p-3 text-center">
+                          <Activity className="w-4 h-4 text-primary mx-auto mb-1.5" />
+                          <p className="text-[10px] text-zinc-500 uppercase tracking-wider">Environment</p>
+                          <p className="text-xs text-zinc-200 font-bold mt-0.5 flex items-center justify-center gap-1">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                            Production
+                          </p>
+                        </div>
+                      </div>
 
-                        {/* Technologies Tag Cloud */}
-                        <div className="space-y-4">
-                          <h4 className="text-xs font-bold uppercase tracking-widest text-zinc-400 pb-2 border-b border-white/[0.05]">
-                            Technologies Used
+                      {/* Features - Compact list */}
+                      {selectedProject.features && selectedProject.features.length > 0 && (
+                        <div className="space-y-3">
+                          <h4 className="text-xs font-bold uppercase tracking-widest text-zinc-400 flex items-center gap-2">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-primary" /> Key Capabilities
                           </h4>
-                          <div className="flex flex-wrap gap-2">
-                            {selectedProject.tags.map((tag) => (
-                              <span
-                                key={tag}
-                                className="text-xs font-semibold text-zinc-300 bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.06] hover:border-primary/40 hover:text-white px-3 py-1.5 rounded-lg transition-all cursor-default select-none hover:shadow-md hover:shadow-primary/5"
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            {selectedProject.features.map((feature, idx) => (
+                              <div 
+                                key={idx} 
+                                className="flex items-start gap-2.5 bg-white/[0.015] border border-white/[0.04] rounded-lg px-3 py-2.5 hover:bg-white/[0.03] hover:border-white/[0.08] transition-all"
                               >
-                                {tag}
-                              </span>
+                                <Sparkles className="w-3 h-3 text-primary shrink-0 mt-0.5" />
+                                <span className="text-xs text-gray-300 leading-relaxed">
+                                  {feature}
+                                </span>
+                              </div>
                             ))}
                           </div>
                         </div>
+                      )}
 
+                      {/* Technologies */}
+                      <div className="space-y-3">
+                        <h4 className="text-xs font-bold uppercase tracking-widest text-zinc-400">
+                          Technologies
+                        </h4>
+                        <div className="flex flex-wrap gap-1.5">
+                          {selectedProject.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="text-[11px] font-semibold text-zinc-300 bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] hover:border-primary/40 hover:text-white px-2.5 py-1 rounded-lg transition-all cursor-default select-none"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
                       </div>
 
                     </div>

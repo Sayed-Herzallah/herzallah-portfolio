@@ -95,6 +95,7 @@ export const portfolioData: PortfolioData = {
   },
 
   projects: [
+    // === #1 — FLAGSHIP: Full-Stack Charity Platform (Biggest & most complex) ===
     {
       id: "ataa-charity-platform",
       title: "Ataa Charity Platform",
@@ -133,6 +134,7 @@ export const portfolioData: PortfolioData = {
       githubUrl: "https://github.com/Sayed-Herzallah/Ataa-Charity-Platform-React-TypeScript",
       featured: true
     },
+    // === #2 — Healthcare System API (Domain complexity + medical-grade) ===
     {
       id: "r3aya-child-physiotherapy-system",
       title: "R3aya – Child Physiotherapy Monitoring System API",
@@ -168,6 +170,58 @@ export const portfolioData: PortfolioData = {
       githubUrl: "https://github.com/Sayed-Herzallah/R3aya-Care-System-Api",
       featured: true
     },
+    // === #3 — Social Media Real-time API (Real-time + complex data relationships) ===
+    {
+      id: "social-media-api",
+      title: "Social Media Platform Real-time API",
+      description: "High-performance backend API supporting complex social graph relationships (followers/following), real-time communication via WebSockets, and scalable feed retrieval using cursor-based pagination for infinite scroll.",
+      longDescription: "A high-throughput social media backend engineered for real-time interaction and scalable data retrieval. The system models complex social graph relationships including follower/following networks, implements bidirectional real-time messaging via Socket.io, and uses cursor-based pagination for performant infinite-scroll feeds. Optimized for high read-load scenarios with efficient database indexing and query patterns.",
+      image: "/images/social-media.png",
+      images: [
+        "/images/social-media.png"
+      ],
+      tags: ["Node.js", "MongoDB", "Mongoose", "Socket.io", "Cursor-based Pagination"],
+      features: [
+        "Complex social graph modeling (followers/following relationships)",
+        "Real-time bidirectional messaging via Socket.io WebSockets",
+        "Cursor-based pagination for infinite-scroll feed retrieval",
+        "User profile management with follow/unfollow functionality",
+        "Post creation, editing, and deletion with media support",
+        "Optimized database indexing for high read-load scenarios",
+        "JWT-based authentication and session management",
+        "Scalable architecture designed for concurrent connections"
+      ],
+      liveUrl: "",
+      githubUrl: "https://github.com/Sayed-Herzallah",
+      featured: true
+    },
+    // === #4 — Travel Platform API (Multi-feature backend: trips, booking, chatbot) ===
+    {
+      id: "siwa-oasis-api",
+      title: "Siwa Oasis Travel Platform API",
+      description: "Production-ready REST API for a tourism platform — handling user authentication, destination browsing, custom trip planning, bus booking with cancel/confirm flows, chatbot with session history, and admin reporting.",
+      longDescription: "A comprehensive backend system architected using a layered service pattern (Controller → Service → Model) with full separation of concerns. The API manages the entire travel experience lifecycle — from destination discovery and custom trip planning to real-time bus seat reservation with confirm/cancel workflows. It also integrates an AI-powered chatbot with persistent session history, and provides admin-level analytics and reporting dashboards for platform oversight.",
+      image: "/images/siwa-oasis.png",
+      images: [
+        "/images/siwa-oasis.png"
+      ],
+      tags: ["Node.js", "Express.js", "Sequelize", "MySQL", "JWT", "Clean Architecture"],
+      features: [
+        "JWT-based authentication and role-based authorization",
+        "Destination browsing with search and filtering",
+        "Custom trip planning and itinerary builder",
+        "Bus booking system with seat selection and confirm/cancel flows",
+        "AI-powered chatbot with persistent session history",
+        "Admin reporting and analytics dashboard",
+        "Layered service architecture (Controller → Service → Model)",
+        "MySQL relational database with Sequelize ORM",
+        "Input validation and centralized error handling"
+      ],
+      liveUrl: "",
+      githubUrl: "https://github.com/Sayed-Herzallah",
+      featured: true
+    },
+    // === #5 — Anonymous Messaging API (Security-focused backend) ===
     {
       id: "sharaha-app-backend",
       title: "Sharaha App – Anonymous Messaging API",
@@ -207,34 +261,32 @@ export const portfolioData: PortfolioData = {
       githubUrl: "https://github.com/Sayed-Herzallah/Sharaha-App-BackEnd",
       featured: true
     },
+    // === #6 — AI Dashboard (Full-stack + AI integration) ===
     {
-      id: "siwa-oasis-api",
-      title: "Siwa Oasis Travel Platform API",
-      description: "Production-ready REST API for a tourism platform — handling user authentication, destination browsing, custom trip planning, bus booking with cancel/confirm flows, chatbot with session history, and admin reporting.",
-      longDescription: "Architected using layered service pattern (Controller → Service → Model) with full separation of concerns.",
-      image: "/images/siwa-oasis.png",
+      id: "ai-url-dashboard",
+      title: "AI-Integrated URL Analysis Dashboard",
+      description: "Full-stack dashboard application with deployed frontend and backend. Integrates an AI layer for real-time URL analysis and insight generation. Features responsive UI with dynamic data visualization.",
+      longDescription: "A full-stack web application that combines a React frontend with a Node.js backend to deliver real-time URL analysis powered by AI. Users can submit URLs for automated analysis, receiving detailed insights including SEO metrics, security assessments, and content categorization. The dashboard features dynamic data visualization with charts and interactive elements, providing a comprehensive view of web resource intelligence through a clean, modern interface.",
+      image: "/images/ai-dashboard.png",
       images: [
-        "/images/siwa-oasis.png"
+        "/images/ai-dashboard.png"
       ],
-      tags: ["Node.js", "Express.js", "Sequelize", "MySQL", "JWT", "Clean Architecture"],
+      tags: ["React.js", "Node.js", "Fetch API", "AI Integration", "Tailwind CSS"],
+      features: [
+        "AI-powered real-time URL analysis and insight generation",
+        "Dynamic data visualization with interactive charts",
+        "Full-stack architecture with deployed frontend and backend",
+        "RESTful API communication via Fetch API",
+        "Responsive dashboard UI with Tailwind CSS",
+        "URL validation and error handling",
+        "Serverless model hooks for AI processing",
+        "Clean component-based frontend architecture"
+      ],
       liveUrl: "",
-      githubUrl: "https://github.com/Sayed-Herzallah",
+      githubUrl: "https://github.com/Sayed-Herzallah/dev-portfolio-backend",
       featured: true
     },
-    {
-      id: "social-media-api",
-      title: "Social Media Platform Real-time API",
-      description: "High-performance backend API supporting complex social graph relationships (followers/following), real-time communication via WebSockets, and scalable feed retrieval using cursor-based pagination for infinite scroll.",
-      longDescription: "Optimised for high read-load scenarios using cursor-based pagination.",
-      image: "/images/social-media.png",
-      images: [
-        "/images/social-media.png"
-      ],
-      tags: ["Node.js", "MongoDB", "Mongoose", "Socket.io", "Cursor-based Pagination"],
-      liveUrl: "",
-      githubUrl: "https://github.com/Sayed-Herzallah",
-      featured: true
-    },
+    // === #7 — Blog Backend (Sequelize + relational DB) ===
     {
       id: "blog-backend-sequelize",
       title: "Blog Platform Backend (Sequelize)",
@@ -267,20 +319,32 @@ export const portfolioData: PortfolioData = {
       githubUrl: "https://github.com/Sayed-Herzallah/My-Blog-Back-end-Sequelize",
       featured: true
     },
+    // === #8 — Brain Tumor Medical App (17-screen UI conversion) ===
     {
-      id: "ai-url-dashboard",
-      title: "AI-Integrated URL Analysis Dashboard",
-      description: "Full-stack dashboard application with deployed frontend and backend. Integrates an AI layer for real-time URL analysis and insight generation. Features responsive UI with dynamic data visualization.",
-      longDescription: "Provides complete frontend/backend communication via Fetch API with serverless model hooks.",
-      image: "/images/ai-dashboard.png",
+      id: "brain-tumor-ai",
+      title: "Brain Tumor AI Analysis Medical Web App",
+      description: "Transformed a complete 17-screen mobile UI design into a structured React application simulating a real-world medical platform — covering patient registration, MRI scan upload, medical history search, and chat interface.",
+      longDescription: "A comprehensive frontend application that translates a full 17-screen mobile UI design into a production-structured React codebase. The app simulates a real-world medical analysis platform covering the entire patient workflow — from registration and authentication to MRI scan upload, AI-driven tumor analysis results, medical history search with filtering, and a real-time chat interface between patients and specialists. Demonstrates strong UI-to-code translation skills and scalable component architecture.",
+      image: "/images/brain-tumor.png",
       images: [
-        "/images/ai-dashboard.png"
+        "/images/brain-tumor.png"
       ],
-      tags: ["React.js", "Node.js", "Fetch API", "AI Integration", "Tailwind CSS"],
+      tags: ["React.js", "Context API", "Custom Hooks", "Responsive Design"],
+      features: [
+        "17-screen mobile UI design translated to React components",
+        "Patient registration and authentication flows",
+        "MRI scan upload interface with progress tracking",
+        "AI-driven tumor analysis results display",
+        "Medical history search with advanced filtering",
+        "Real-time chat interface between patients and specialists",
+        "State management with Context API and custom hooks",
+        "Fully responsive design across all device sizes"
+      ],
       liveUrl: "",
-      githubUrl: "https://github.com/Sayed-Herzallah/dev-portfolio-backend",
-      featured: true
+      githubUrl: "https://github.com/Sayed-Herzallah",
+      featured: false
     },
+    // === #9 — UFUQ Real Estate (Frontend SPA) ===
     {
       id: "ufuq-real-estate-react",
       title: "UFUQ Real Estate Platform",
@@ -310,30 +374,27 @@ export const portfolioData: PortfolioData = {
       githubUrl: "https://github.com/Sayed-Herzallah/Ufuq-Real-Estate-React",
       featured: false
     },
-    {
-      id: "brain-tumor-ai",
-      title: "Brain Tumor AI Analysis Medical Web App",
-      description: "Transformed a complete 17-screen mobile UI design into a structured React application simulating a real-world medical platform — covering patient registration, MRI scan upload, medical history search, and chat interface.",
-      longDescription: "Demonstrates strong UI-to-code translation and scalable component architecture.",
-      image: "/images/brain-tumor.png",
-      images: [
-        "/images/brain-tumor.png"
-      ],
-      tags: ["React.js", "Context API", "Custom Hooks", "Responsive Design"],
-      liveUrl: "",
-      githubUrl: "https://github.com/Sayed-Herzallah",
-      featured: false
-    },
+    // === #10 — Villa Agency (Graduation project) ===
     {
       id: "villa-agency",
       title: "Villa Agency React Frontend",
       description: "React application for a real estate agency with full CRUD, authentication, responsive animations, and live Vercel deployment. Built as a graduation project for MCIT Creativa Innovation Hub.",
-      longDescription: "Features interactive villa searching, sorting, and user listing functions.",
+      longDescription: "A feature-complete React frontend application built as a graduation project for the MCIT Creativa Innovation Hub program. The platform provides an interactive real estate browsing experience with full CRUD operations for property listings, user authentication flows, smooth animations and transitions, and responsive design across all viewports. Successfully deployed to Vercel for production access.",
       image: "/images/villa-agency.png",
       images: [
         "/images/villa-agency.png"
       ],
       tags: ["React.js", "CRUD", "Auth", "Responsive", "Vercel Deployment"],
+      features: [
+        "Full CRUD operations for property listings",
+        "User authentication and authorization",
+        "Interactive villa searching and sorting",
+        "Smooth animations and page transitions",
+        "Responsive design for all screen sizes",
+        "Live production deployment on Vercel",
+        "User listing management functionality",
+        "Clean component-based architecture"
+      ],
       liveUrl: "",
       githubUrl: "https://github.com/Sayed-Herzallah",
       featured: false
