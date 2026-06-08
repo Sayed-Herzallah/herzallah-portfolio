@@ -503,18 +503,18 @@ export const portfolioData: PortfolioData = {
       url: "https://app.manara.tech/certificate/1775901865-B9E7A239B519F760"
     },
     {
-      id:"cert-maharaTech",
-      title:"Modern JavaScript: ES6 and beyond",
-      issuer:"Mahara Tech",
-      date:"Sep 2025",
-      url:"https://maharatech.gov.eg/mod/customcert/view.php?id=8086&downloadown=1"
+      id: "cert-maharaTech-es6",
+      title: "Modern JavaScript: ES6 and beyond",
+      issuer: "Mahara Tech",
+      date: "Sep 2025",
+      url: "https://maharatech.gov.eg/mod/customcert/view.php?id=8086&downloadown=1"
     },
-      {
-      id:"cert-maharaTech",
-      title:"Javascript",
-      issuer:"Mahara Tech",
-      date:"Sep 2025",
-      url:"https://maharatech.gov.eg/mod/customcert/view.php?id=7660&downloadown=1"
+    {
+      id: "cert-maharaTech-javascript",
+      title: "Javascript",
+      issuer: "Mahara Tech",
+      date: "Sep 2025",
+      url: "https://maharatech.gov.eg/mod/customcert/view.php?id=7660&downloadown=1"
     }    
     
 
