@@ -212,6 +212,38 @@ export default function Hero() {
         </motion.div>
       </div>
 
+      {/* Rich Bilingual Search Indexing Block (Accessibility & SEO Crawlers) */}
+      <div className="sr-only absolute w-0 h-0 overflow-hidden opacity-0 pointer-events-none select-none" aria-hidden="true">
+        <h2>سيد حرز الله | Sayed Herzallah - مطور ويب متكامل Full-Stack Developer</h2>
+        <p>
+          مرحباً بكم في معرض أعمال المهندس سيد حرز الله (Sayed Herzallah)، مطور ويب متكامل (Full-Stack Web Developer) متخصص في هندسة الأنظمة الخلفية (Backend focused) وهندسة قواعد البيانات (Database Engineering).
+          سيد حرز الله (Sayed Herzallah) يعمل في القاهرة، مصر (Cairo, Egypt)، ولديه خبرة واسعة في بناء المواقع والأنظمة المعقدة وقواعد البيانات عالية الأداء.
+        </p>
+        <p>
+          الكلمات المفتاحية للبحث عن سيد حرز الله:
+          سيد حرز الله مبرمج، سيد حرز الله مطور نود، سيد حرزالله، حرز الله مطور، مطور باك اند مصر، مطور ميرن مصر، مطور ويب القاهرة، Sayed Herzallah, Sayed Herzallah portfolio, Sayed Herzallah website, Sayed Herzallah developer.
+          سيد حرز الله حاصل على بكالوريوس نظم معلومات حاسب آلي من معهد الدلتا العالي (Delta Higher Institute).
+          تم اختيار سيد حرز الله ضمن 5000 مطور في مبادرة Google Build with AI Masr Edition (بناء مع الذكاء الاصطناعي من جوجل مصر).
+          حاصل على تدريب وشهادات معتمدة من المعهد القومي للاتصالات NTI (MERN stack developer) ومنحة Creativa من وزارة الاتصالات وتكنولوجيا المعلومات MCIT في تطوير الواجهات باستخدام React.js.
+        </p>
+        <h3>المشاريع التي قام ببنائها سيد حرز الله (Sayed Herzallah Projects):</h3>
+        <ul>
+          <li>منصة عطاء الخيرية (Ataa Charity Platform) - تطبيق تبرعات متكامل بنظام React و TypeScript و Express.</li>
+          <li>نظام رعاية لتشخيص وعلاج طبيعي للأطفال (R3aya Care System API) - لوحة تحكم طبية لربط المعالجين وأولياء الأمور وقراءة مستشعرات العضلات EMG.</li>
+          <li>منصة سيوة للسياحة (Siwa Oasis Travel Platform API) - نظام حجز رحلات ومقاعد باصات وحسابات سياحية متطورة ومنع الحجز المزدوج.</li>
+          <li>تطبيق فحص أورام المخ بالذكاء الاصطناعي (Brain Tumor AI Analysis Web App) - واجهة طبيب متكاملة لرفع وقراءة تحاليل أشعة الرنين المغناطيسي وتحديد الأورام بدقة.</li>
+          <li>منصة أفق العقارية (UFUQ Real Estate Platform) - موقع عرض العقارات والفلل والشقق وإدارة حسابات العملاء.</li>
+          <li>وكالة فيلا للعقارات (Villa Agency React Application) - نظام لإدارة حجوزات الفلل واستعراض تفاصيلها كاملة.</li>
+          <li>تطبيق صراحة للمراسلة السرية (Sharaha Messaging App Backend) - نظام إرسال واستقبال رسائل مجهولة بخصوصية عالية.</li>
+          <li>منصة التواصل الاجتماعي (Social Media Real-time API) - نظام تفاعلي للمنشورات والمتابعات والمحادثات المباشرة بالـ WebSockets.</li>
+        </ul>
+        <p>
+          المهارات والتقنيات التي يستخدمها المهندس سيد حرز الله:
+          Node.js, Express.js, JavaScript, TypeScript, React.js, Next.js, Redux, MySQL, MongoDB, Mongoose, Sequelize ORM, SQLite, RESTful APIs, Git, GitHub, WebSockets Socket.io, Docker, Clean Architecture.
+          برمجة قواعد البيانات، حماية الواجهات البرمجية JWT، تحسين سرعة الاستعلامات، خريطة الموقع sitemap.xml، إثبات ملكية جوجل google-site-verification.
+        </p>
+      </div>
+
     </section>
   );
 }
