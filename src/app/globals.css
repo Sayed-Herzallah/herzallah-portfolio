@@ -1,14 +1,61 @@
 @import "tailwindcss";
 
+:root {
+  /* Theme variables - Default to Winter mode colors */
+  --bg-color: #030308;
+  --fg-color: #f3f4f6;
+  --card-color: #0b0c10;
+  --card-border-color: #1a1e29;
+  
+  --primary-color: #6366f1;       /* Indigo */
+  --secondary-color: #06b6d4;     /* Teal */
+  --accent-teal-color: #22d3ee;
+  --accent-blue-color: #3b82f6;
+  
+  --glow-1: rgba(99, 102, 241, 0.08);
+  --glow-2: rgba(6, 182, 212, 0.08);
+}
+
+.winter-mode {
+  --bg-color: #030308;
+  --fg-color: #f3f4f6;
+  --card-color: #0b0c10;
+  --card-border-color: #1a1e29;
+  
+  --primary-color: #6366f1;       /* Indigo */
+  --secondary-color: #06b6d4;     /* Teal */
+  --accent-teal-color: #22d3ee;
+  --accent-blue-color: #3b82f6;
+  
+  --glow-1: rgba(99, 102, 241, 0.08);
+  --glow-2: rgba(6, 182, 212, 0.08);
+}
+
+.summer-mode {
+  /* Summer Mode - Obsidian background with warm sunset primary and cool ocean accents */
+  --bg-color: #030303;
+  --fg-color: #f3f4f6;
+  --card-color: rgba(13, 13, 17, 0.7);
+  --card-border-color: rgba(255, 255, 255, 0.05);
+  
+  --primary-color: #f97316;       /* Sunset Orange */
+  --secondary-color: #06b6d4;     /* Ocean Teal (matching night mode's amazing coordination) */
+  --accent-teal-color: #22d3ee;   /* Bright Cyan */
+  --accent-blue-color: #3b82f6;   /* Sky Blue */
+  
+  --glow-1: rgba(249, 115, 22, 0.08); /* Warm orange sunset glow */
+  --glow-2: rgba(6, 182, 212, 0.08);  /* Cool teal water/sky glow */
+}
+
 @theme {
-  --color-background: #030303;
-  --color-foreground: #f3f4f6;
-  --color-card: #0d0d11;
-  --color-card-border: #1e1e24;
-  --color-primary: #8b5cf6;
-  --color-secondary: #ec4899;
-  --color-accent-teal: #06b6d4;
-  --color-accent-blue: #3b82f6;
+  --color-background: var(--bg-color);
+  --color-foreground: var(--fg-color);
+  --color-card: var(--card-color);
+  --color-card-border: var(--card-border-color);
+  --color-primary: var(--primary-color);
+  --color-secondary: var(--secondary-color);
+  --color-accent-teal: var(--accent-teal-color);
+  --color-accent-blue: var(--accent-blue-color);
   
   --font-display: var(--font-plus-jakarta-sans), var(--font-geist-sans), sans-serif;
   --font-sans: "Inter", var(--font-geist-sans), sans-serif;
@@ -32,20 +79,23 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #030303;
-    color: #f3f4f6;
+    background-color: var(--bg-color);
+    color: var(--fg-color);
+    transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1), color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   body {
-    background-color: #030303;
-    color: #f3f4f6;
+    background-color: var(--bg-color);
+    color: var(--fg-color);
     font-family: var(--font-sans);
     overflow-x: hidden;
+    transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1), color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    color: #f8fafc;
+    color: var(--fg-color);
+    transition: color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -56,35 +106,37 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #030303;
+  background: var(--bg-color);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1f1f29;
+  background: var(--card-border-color);
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #313146;
+  background: var(--primary-color);
+  opacity: 0.5;
 }
 
 /* Text selections */
 ::selection {
   background: rgba(139, 92, 246, 0.25);
-  color: #f8fafc;
+  color: var(--fg-color);
 }
 
 /* Custom utility styles */
 .glass-card {
-  background: rgba(13, 13, 17, 0.7);
+  background: var(--card-color);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border-color);
+  /* Responsive transition for snappy hover actions */
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .glass-card-hover:hover {
-  border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(20, 20, 28, 0.85);
+  border-color: var(--primary-color);
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px 0px rgba(139, 92, 246, 0.05);
 }
 
@@ -92,4 +144,91 @@
   filter: blur(140px);
   pointer-events: none;
   z-index: 0;
+  transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glowing Sun Element for Summer Theme */
+.sun-element {
+  position: fixed;
+  top: -120px;
+  right: -120px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(251, 191, 36, 0.18) 0%,
+    rgba(249, 115, 22, 0.06) 50%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.summer-mode .sun-element {
+  opacity: 1;
+  transform: scale(1);
+  animation: sun-float 15s ease-in-out infinite alternate;
+}
+
+@keyframes sun-float {
+  0% {
+    transform: scale(1) translate(0px, 0px);
+  }
+  100% {
+    transform: scale(1.1) translate(-20px, 20px);
+  }
+}
+
+/* Heat wave shimmer effect */
+.heat-wave {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(249, 115, 22, 0.02) 0%,
+    transparent 50%,
+    rgba(244, 63, 94, 0.01) 100%
+  );
+  transition: opacity 1.5s ease;
+}
+
+.summer-mode .heat-wave {
+  opacity: 1;
+  animation: heat-wave-shimmer 10s ease-in-out infinite alternate;
+}
+
+@keyframes heat-wave-shimmer {
+  0% {
+    opacity: 0.7;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.03);
+  }
+  100% {
+    opacity: 0.8;
+    filter: brightness(0.98);
+  }
+}
+
+/* Autocomplete input styling override to prevent default white background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-box-shadow: 0 0 0px 1000px #000000 inset !important;
+  box-shadow: 0 0 0px 1000px #000000 inset !important;
+  transition: background-color 5000s ease-in-out 0s;
 }

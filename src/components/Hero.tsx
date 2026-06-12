@@ -27,6 +27,12 @@ export default function Hero() {
       <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-primary/10 glow-spot animate-gradient-pulse" />
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-secondary/10 glow-spot" />
 
+      {/* Sun Overlay for Summer theme */}
+      <div className="sun-element" />
+      
+      {/* Heat Wave shimmer Overlay for Summer theme */}
+      <div className="heat-wave" />
+
       {/* Grid Pattern overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
 
@@ -59,7 +65,7 @@ export default function Hero() {
         >
           <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl font-bold font-display tracking-wide text-white leading-[1.15]">
             I&apos;m Eng.{" "}
-            <span className="bg-gradient-to-r from-[#e9d5ff] via-[#c084fc] to-[#f472b6] bg-clip-text text-transparent block mt-1 lg:mt-2">
+            <span className="bg-gradient-to-r from-[#f3f4f6] via-primary to-secondary bg-clip-text text-transparent block mt-1 lg:mt-2 transition-all duration-700">
               Sayed <br className="hidden lg:inline" />
               Herzallah
             </span>
@@ -121,9 +127,9 @@ export default function Hero() {
             href={portfolioData.cvUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mt-5 px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-widest text-secondary bg-secondary/10 border border-secondary/20 hover:bg-secondary/20 hover:border-secondary/40 hover:text-white transition-all duration-200 self-center lg:self-start"
+            className="inline-flex items-center gap-2 mt-5 px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-widest text-secondary bg-secondary/10 border border-secondary/20 hover:bg-secondary/20 hover:border-secondary/40 hover:text-white transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-secondary/10 self-center lg:self-start group/cv"
           >
-            <FileDown className="w-4 h-4" />
+            <FileDown className="w-4 h-4 transition-transform group-hover/cv:translate-y-0.5" />
             Download CV
           </a>
         </motion.div>

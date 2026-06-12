@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Mail, MapPin, Send, CheckCircle2, ArrowRight, Copy, Check } from "lucide-react";
+import { Mail, MapPin, Send, CheckCircle2, ArrowRight, Copy, Check, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { portfolioData } from "@/data/portfolioData";
 
@@ -27,6 +27,7 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedWhatsApp, setCopiedWhatsApp] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   // Clean phone number to get whatsapp-compatible digits
   const getWhatsAppNumber = (phoneStr: string) => {
@@ -131,7 +132,9 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/contact", {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "";
+      const endpoint = apiUrl.endsWith("/") ? `${apiUrl}contact` : `${apiUrl}/contact`;
+      const response = await fetch(endpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -146,12 +149,13 @@ export default function Contact() {
         setFormState({ name: "", email: "", subject: "", message: "" });
         setErrors({ name: "", email: "", subject: "", message: "" });
         setTouched({ name: false, email: false, subject: false, message: false });
+        setSubmitError(null);
       } else {
-        alert(data.message || data.details?.join("\n") || "Failed to send message. Please try again.");
+        setSubmitError(data.message || data.details?.join("\n") || "Failed to send message. Please try again.");
       }
     } catch (error) {
       console.error("Error submitting contact form:", error);
-      alert("Something went wrong. Please check your connection and try again.");
+      setSubmitError("Something went wrong. Please check your connection and try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -333,14 +337,44 @@ export default function Contact() {
                       Send another message <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   </motion.div>
+                ) : submitError ? (
+                  <motion.div
+                    key="error"
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    transition={{ duration: 0.3 }}
+                    className="py-12 flex flex-col items-center justify-center text-center space-y-4"
+                  >
+                    <div className="w-16 h-16 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-400 mb-2">
+                      <AlertCircle className="w-8 h-8" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white">Failed to Send!</h3>
+                    <p className="text-base text-gray-400 max-w-sm">
+                      {submitError}
+                    </p>
+                    <button
+                      onClick={() => setSubmitError(null)}
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-white transition-colors pt-4 cursor-pointer"
+                    >
+                      Try again <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-2" noValidate>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5">
                       {/* Name input */}
-                      <div className="relative pb-6">
-                        <label htmlFor="name" className="text-sm font-semibold text-zinc-300 block mb-2">
-                          Your Name
-                        </label>
+                      <div className="relative pb-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <label htmlFor="name" className="text-sm font-semibold text-zinc-300">
+                            Your Name
+                          </label>
+                          {touched.name && errors.name && (
+                            <span className="text-red-400 text-xs font-semibold">
+                              {errors.name}
+                            </span>
+                          )}
+                        </div>
                         <input
                           type="text"
                           id="name"
@@ -349,25 +383,27 @@ export default function Contact() {
                           value={formState.name}
                           onChange={handleChange}
                           onBlur={handleBlur}
-                          className={`w-full bg-white/[0.02] border focus:ring-1 rounded-xl px-4 py-3 text-base text-white placeholder-gray-600 outline-none transition-all ${
+                          className={`w-full bg-black border focus:ring-1 rounded-xl px-4 py-3 text-base text-white placeholder-gray-600 outline-none transition-all ${
                             touched.name && errors.name
                               ? "border-red-500/50 focus:border-red-500/80 focus:ring-red-500/20"
                               : "border-white/[0.08] focus:border-primary/50 focus:ring-primary/30"
                           }`}
                           placeholder="John Doe"
                         />
-                        {touched.name && errors.name && (
-                          <span className="text-red-400 text-sm absolute left-0 bottom-0">
-                            {errors.name}
-                          </span>
-                        )}
                       </div>
 
                       {/* Email input */}
-                      <div className="relative pb-6">
-                        <label htmlFor="email" className="text-sm font-semibold text-zinc-300 block mb-2">
-                          Email Address
-                        </label>
+                      <div className="relative pb-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <label htmlFor="email" className="text-sm font-semibold text-zinc-300">
+                            Email Address
+                          </label>
+                          {touched.email && errors.email && (
+                            <span className="text-red-400 text-xs font-semibold">
+                              {errors.email}
+                            </span>
+                          )}
+                        </div>
                         <input
                           type="email"
                           id="email"
@@ -376,26 +412,28 @@ export default function Contact() {
                           value={formState.email}
                           onChange={handleChange}
                           onBlur={handleBlur}
-                          className={`w-full bg-white/[0.02] border focus:ring-1 rounded-xl px-4 py-3 text-base text-white placeholder-gray-600 outline-none transition-all ${
+                          className={`w-full bg-black border focus:ring-1 rounded-xl px-4 py-3 text-base text-white placeholder-gray-600 outline-none transition-all ${
                             touched.email && errors.email
                               ? "border-red-500/50 focus:border-red-500/80 focus:ring-red-500/20"
                               : "border-white/[0.08] focus:border-primary/50 focus:ring-primary/30"
                           }`}
                           placeholder="john@example.com"
                         />
-                        {touched.email && errors.email && (
-                          <span className="text-red-400 text-sm absolute left-0 bottom-0">
-                            {errors.email}
-                          </span>
-                        )}
                       </div>
                     </div>
 
                     {/* Subject input */}
-                    <div className="relative pb-6">
-                      <label htmlFor="subject" className="text-sm font-semibold text-zinc-300 block mb-2">
-                        Subject
-                      </label>
+                    <div className="relative pb-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <label htmlFor="subject" className="text-sm font-semibold text-zinc-300">
+                          Subject
+                        </label>
+                        {touched.subject && errors.subject && (
+                          <span className="text-red-400 text-xs font-semibold">
+                            {errors.subject}
+                          </span>
+                        )}
+                      </div>
                       <input
                         type="text"
                         id="subject"
@@ -404,25 +442,27 @@ export default function Contact() {
                         value={formState.subject}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        className={`w-full bg-white/[0.02] border focus:ring-1 rounded-xl px-4 py-3 text-base text-white placeholder-gray-600 outline-none transition-all ${
+                        className={`w-full bg-black border focus:ring-1 rounded-xl px-4 py-3 text-base text-white placeholder-gray-600 outline-none transition-all ${
                           touched.subject && errors.subject
                             ? "border-red-500/50 focus:border-red-500/80 focus:ring-red-500/20"
                             : "border-white/[0.08] focus:border-primary/50 focus:ring-primary/30"
                         }`}
                         placeholder="Project Discussion"
                       />
-                      {touched.subject && errors.subject && (
-                        <span className="text-red-400 text-sm absolute left-0 bottom-0">
-                          {errors.subject}
-                        </span>
-                      )}
                     </div>
 
                     {/* Message input */}
-                    <div className="relative pb-6">
-                      <label htmlFor="message" className="text-sm font-semibold text-zinc-300 block mb-2">
-                        Your Message
-                      </label>
+                    <div className="relative pb-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <label htmlFor="message" className="text-sm font-semibold text-zinc-300">
+                          Your Message
+                        </label>
+                        {touched.message && errors.message && (
+                          <span className="text-red-400 text-xs font-semibold">
+                            {errors.message}
+                          </span>
+                        )}
+                      </div>
                       <textarea
                         id="message"
                         name="message"
@@ -431,18 +471,13 @@ export default function Contact() {
                         value={formState.message}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        className={`w-full bg-white/[0.02] border focus:ring-1 rounded-xl px-4 py-3 text-base text-white placeholder-gray-600 outline-none transition-all resize-none ${
+                        className={`w-full bg-black border focus:ring-1 rounded-xl px-4 py-3 text-base text-white placeholder-gray-600 outline-none transition-all resize-none ${
                           touched.message && errors.message
                             ? "border-red-500/50 focus:border-red-500/80 focus:ring-red-500/20"
                             : "border-white/[0.08] focus:border-primary/50 focus:ring-primary/30"
                         }`}
                         placeholder="Tell me about your project..."
                       />
-                      {touched.message && errors.message && (
-                        <span className="text-red-400 text-sm absolute left-0 bottom-0">
-                          {errors.message}
-                        </span>
-                      )}
                     </div>
 
                     {/* Submit Button */}

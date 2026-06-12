@@ -1,41 +1,51 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Snowflake } from "lucide-react";
-import SnowEffect from "./SnowEffect";
+import { Snowflake, Sun } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import WeatherEffect from "./WeatherEffect";
 
 export default function ThemeToggle() {
-  const [winterMode, setWinterMode] = useState(false);
+  const [theme, setTheme] = useState<"winter" | "summer">("summer");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     // Check local storage or default to winter season (Dec, Jan, Feb)
-    const saved = localStorage.getItem("winterMode");
-    if (saved !== null) {
-      const isWinter = saved === "true";
-      setWinterMode(isWinter);
-      if (isWinter) {
-        document.documentElement.classList.add("winter-mode");
-      }
+    const saved = localStorage.getItem("portfolio-theme") as "winter" | "summer" | null;
+    let initialTheme: "winter" | "summer" = "summer";
+
+    if (saved !== null && (saved === "winter" || saved === "summer")) {
+      initialTheme = saved;
     } else {
       const month = new Date().getMonth();
       const isWinterSeason = month === 11 || month === 0 || month === 1; // Dec, Jan, Feb
-      setWinterMode(isWinterSeason);
-      if (isWinterSeason) {
-        document.documentElement.classList.add("winter-mode");
-      }
+      initialTheme = isWinterSeason ? "winter" : "summer";
+    }
+
+    setTheme(initialTheme);
+    
+    // Apply initial classes
+    if (initialTheme === "winter") {
+      document.documentElement.classList.add("winter-mode");
+      document.documentElement.classList.remove("summer-mode");
+    } else {
+      document.documentElement.classList.add("summer-mode");
+      document.documentElement.classList.remove("winter-mode");
     }
   }, []);
 
-  const toggleWinterMode = () => {
-    const nextState = !winterMode;
-    setWinterMode(nextState);
-    localStorage.setItem("winterMode", String(nextState));
-    if (nextState) {
+  const toggleTheme = () => {
+    const nextTheme = theme === "winter" ? "summer" : "winter";
+    setTheme(nextTheme);
+    localStorage.setItem("portfolio-theme", nextTheme);
+    
+    if (nextTheme === "winter") {
       document.documentElement.classList.add("winter-mode");
+      document.documentElement.classList.remove("summer-mode");
     } else {
+      document.documentElement.classList.add("summer-mode");
       document.documentElement.classList.remove("winter-mode");
     }
   };
@@ -44,26 +54,37 @@ export default function ThemeToggle() {
 
   return (
     <>
-      {/* Falling Snow Overlay */}
-      {winterMode && <SnowEffect />}
+      {/* Dynamic Canvas Effect Overlay */}
+      <WeatherEffect theme={theme} />
 
       {/* Floating Toggle Button */}
       <button
-        onClick={toggleWinterMode}
-        className={`fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full backdrop-blur-md flex items-center justify-center border shadow-lg transition-all duration-300 scale-100 hover:scale-110 active:scale-95 cursor-pointer group ${
-          winterMode
+        onClick={toggleTheme}
+        className={`fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full backdrop-blur-md flex items-center justify-center border shadow-lg transition-all duration-500 scale-100 hover:scale-110 active:scale-95 cursor-pointer group ${
+          theme === "winter"
             ? "bg-primary/20 border-primary/30 text-primary shadow-primary/10"
-            : "bg-white/[0.03] border-white/10 text-gray-400 hover:text-white shadow-black/30"
+            : "bg-orange-500/10 border-orange-500/30 text-orange-400 shadow-orange-500/10"
         }`}
-        title={winterMode ? "Switch to normal mode" : "Enable winter theme mode"}
-        aria-label="Toggle winter theme"
+        title={theme === "winter" ? "Switch to Summer theme" : "Switch to Winter theme"}
+        aria-label="Toggle theme season"
       >
         <span className="absolute inset-0 rounded-full bg-current opacity-0 group-hover:opacity-5 transition-opacity" />
-        {winterMode ? (
-          <Snowflake className="w-5 h-5 animate-spin-slow" />
-        ) : (
-          <Snowflake className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
-        )}
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={theme}
+            initial={{ opacity: 0, rotate: -90, scale: 0.8 }}
+            animate={{ opacity: 1, rotate: 0, scale: 1 }}
+            exit={{ opacity: 0, rotate: 90, scale: 0.8 }}
+            transition={{ duration: 0.25 }}
+            className="flex items-center justify-center"
+          >
+            {theme === "winter" ? (
+              <Snowflake className="w-5 h-5 animate-spin-slow" />
+            ) : (
+              <Sun className="w-5 h-5" />
+            )}
+          </motion.div>
+        </AnimatePresence>
       </button>
 
       {/* Slow spinning animation helper for Snowflake */}

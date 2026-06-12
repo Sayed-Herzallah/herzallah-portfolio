@@ -107,7 +107,10 @@ export const portfolioData: PortfolioData = {
       longDescription: "Ataa is a scalable full-stack platform designed to modernize charity operations. It connects donors, organizations, and administrators through a secure role-based system. The platform delivers real-time donation tracking, campaign lifecycle management, automated workflows, and AI-powered analytics to enhance transparency, trust, and decision-making in charitable operations.",
       image: "/images/ataa-charity.webp",
       images: [
-        "/images/ataa-charity.webp"
+        "/images/ataa-charity.webp",
+        "/images/ataa-charity-1.png",
+        "/images/ataa-charity-2.png",
+        "/images/ataa-charity-3.png"
       ],
       tags: [
         "React",
@@ -162,7 +165,10 @@ export const portfolioData: PortfolioData = {
       longDescription: "R3aya is a production-level backend API designed for a child physiotherapy monitoring ecosystem. It enables structured management of parents, children, and medical specialists while supporting EMG-based muscle analysis sessions. The system is built with a modular architecture focusing on scalability, security, and healthcare-grade data integrity.",
       image: "/images/r3aya-healthcare.webp",
       images: [
-        "/images/r3aya-healthcare.webp"
+        "/images/r3aya-healthcare.webp",
+        "/images/r3aya-healthcare-1.png",
+        "/images/r3aya-healthcare-2.png",
+        "/images/r3aya-healthcare-3.png"
       ],
       tags: [
         "Node.js",
@@ -214,7 +220,10 @@ export const portfolioData: PortfolioData = {
       longDescription: "A high-throughput social media backend engineered for real-time interaction and scalable data retrieval. The system models complex social graph relationships including follower/following networks, implements bidirectional real-time messaging via Socket.io, and uses cursor-based pagination for performant infinite-scroll feeds. Optimized for high read-load scenarios with efficient database indexing and query patterns.",
       image: "/images/social-media.webp",
       images: [
-        "/images/social-media.webp"
+        "/images/social-media.webp",
+        "/images/social-feed.png",
+        "/images/social-chat.png",
+        "/images/database-schema.png"
       ],
       tags: ["Node.js", "MongoDB", "Mongoose", "Socket.io", "Cursor-based Pagination", "JWT"],
       features: [
@@ -255,7 +264,10 @@ export const portfolioData: PortfolioData = {
       longDescription: "A comprehensive backend system architected using a layered service pattern (Controller → Service → Model) with full separation of concerns. The API manages the entire travel experience lifecycle — from destination discovery and custom trip planning to real-time bus seat reservation with confirm/cancel workflows. It also integrates an AI-powered chatbot with persistent session history, and provides admin-level analytics and reporting dashboards for platform oversight.",
       image: "/images/siwa-oasis.webp",
       images: [
-        "/images/siwa-oasis.webp"
+        "/images/siwa-oasis.webp",
+        "/images/travel-booking.png",
+        "/images/social-chat.png",
+        "/images/database-schema.png"
       ],
       tags: ["Node.js", "Express.js", "Sequelize", "MySQL", "JWT", "Clean Architecture"],
       features: [
@@ -297,7 +309,10 @@ export const portfolioData: PortfolioData = {
       longDescription: "Sharaha App is a production-level RESTful API inspired by anonymous messaging platforms. It allows users to securely register, authenticate, and receive anonymous messages. The system is built with a modular architecture emphasizing separation of concerns, security best practices, and scalability.",
       image: "/images/sharaha-messaging.webp",
       images: [
-        "/images/sharaha-messaging.webp"
+        "/images/sharaha-messaging.webp",
+        "/images/social-chat.png",
+        "/images/social-feed.png",
+        "/images/database-schema.png"
       ],
       tags: [
         "Node.js",
@@ -349,7 +364,10 @@ export const portfolioData: PortfolioData = {
       longDescription: "A full-stack web application that combines a React frontend with a Node.js backend to deliver real-time URL analysis powered by AI. Users can submit URLs for automated analysis, receiving detailed insights including SEO metrics, security assessments, and content categorization. The dashboard features dynamic data visualization with charts and interactive elements, providing a comprehensive view of web resource intelligence through a clean, modern interface.",
       image: "/images/ai-dashboard.webp",
       images: [
-        "/images/ai-dashboard.webp"
+        "/images/ai-dashboard.webp",
+        "/images/dashboard-analytics.png",
+        "/images/code-editor.png",
+        "/images/database-schema.png"
       ],
       tags: ["React.js", "Node.js", "Fetch API", "AI Integration", "Tailwind CSS"],
       features: [
@@ -387,7 +405,10 @@ export const portfolioData: PortfolioData = {
       longDescription: "A comprehensive frontend application that translates a full 17-screen mobile UI design into a production-structured React codebase. The app simulates a real-world medical analysis platform covering the entire patient workflow — from registration and authentication to MRI scan upload, AI-driven tumor analysis results, medical history search with filtering, and a real-time chat interface between patients and specialists. Demonstrates strong UI-to-code translation skills and scalable component architecture.",
       image: "/images/brain-tumor.webp",
       images: [
-        "/images/brain-tumor.webp"
+        "/images/brain-tumor.webp",
+        "/images/medical-scan.png",
+        "/images/social-chat.png",
+        "/images/dashboard-analytics.png"
       ],
       tags: ["React.js", "Context API", "Custom Hooks", "Responsive Design", "UI/UX"],
       features: [
@@ -425,7 +446,10 @@ export const portfolioData: PortfolioData = {
       longDescription: "This project is a production-style backend API for a blogging system built with Node.js and Express, using Sequelize ORM for relational database management. It supports user authentication, CRUD operations for posts, and structured relational data modeling to ensure scalability and data consistency.",
       image: "/images/blog-platform.webp",
       images: [
-        "/images/blog-platform.webp"
+        "/images/blog-platform.webp",
+        "/images/code-editor.png",
+        "/images/database-schema.png",
+        "/images/dashboard-analytics.png"
       ],
       tags: [
         "Node.js",
@@ -466,7 +490,10 @@ export const portfolioData: PortfolioData = {
       longDescription: "UFUQ Real Estate is a production-level frontend application designed to deliver a seamless property browsing experience. The platform includes dynamic property listings, multilingual support, and interactive UI sections such as hero banners, testimonials, and contact flows. It focuses on performance, responsiveness, and clean user experience design principles.",
       image: "/images/ufuq-realestate.webp",
       images: [
-        "/images/ufuq-realestate.webp"
+        "/images/ufuq-realestate.webp",
+        "/images/real-estate-1.png",
+        "/images/real-estate-2.png",
+        "/images/dashboard-analytics.png"
       ],
       tags: [
         "React",
@@ -504,7 +531,10 @@ export const portfolioData: PortfolioData = {
       longDescription: "A feature-complete React frontend application built as a graduation project for the MCIT Creativa Innovation Hub program. The platform provides an interactive real estate browsing experience with full CRUD operations for property listings, user authentication flows, smooth animations and transitions, and responsive design across all viewports. Successfully deployed to Vercel for production access.",
       image: "/images/villa-agency.webp",
       images: [
-        "/images/villa-agency.webp"
+        "/images/villa-agency.webp",
+        "/images/real-estate-1.png",
+        "/images/real-estate-2.png",
+        "/images/dashboard-analytics.png"
       ],
       tags: ["React.js", "CRUD", "Auth", "Responsive", "Vercel Deployment"],
       features: [
