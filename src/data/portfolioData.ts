@@ -237,7 +237,7 @@ export const portfolioData: PortfolioData = {
         "Scalable architecture designed for concurrent connections"
       ],
       liveUrl: "",
-      githubUrl: "https://github.com/Sayed-Herzallah",
+      githubUrl: "https://github.com/Sayed-Herzallah/Social-Media-Back-end",
       featured: true,
       challenges: [
         "Performance degradation on large offset feeds (LIMIT/OFFSET scale issue).",
@@ -282,7 +282,7 @@ export const portfolioData: PortfolioData = {
         "Input validation and centralized error handling"
       ],
       liveUrl: "",
-      githubUrl: "https://github.com/Sayed-Herzallah",
+      githubUrl: "https://github.com/Sayed-Herzallah/Siwa-Oasis-API-Node-JS-Sequelize_SQL",
       featured: true,
       challenges: [
         "Double-booking seats on concurrent bus route requests.",
@@ -421,8 +421,8 @@ export const portfolioData: PortfolioData = {
         "State management with Context API and custom hooks",
         "Fully responsive design across all device sizes"
       ],
-      liveUrl: "",
-      githubUrl: "https://github.com/Sayed-Herzallah",
+      liveUrl: "https://neuroscan-brain-ai.vercel.app/",
+      githubUrl: "https://github.com/Sayed-Herzallah/NeuroScan-Brain-Tumor-Detection-Platform-React",
       featured: false,
       challenges: [
         "Translating a high-fidelity 17-screen mobile-first design layout.",
@@ -542,8 +542,8 @@ export const portfolioData: PortfolioData = {
         "User authentication and authorization",
         "Responsive design for all screen sizes"
       ],
-      liveUrl: "",
-      githubUrl: "https://github.com/Sayed-Herzallah",
+      liveUrl: "https://villas-eg.vercel.app",
+      githubUrl: "https://github.com/Sayed-Herzallah/Villa-Real-Estate-React",
       featured: false,
       challenges: [
         "Syncing client CRUD changes instantly with mock server endpoints.",
