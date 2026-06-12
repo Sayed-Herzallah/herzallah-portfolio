@@ -20,11 +20,16 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Sayed Herzallah | Full-Stack Developer (Backend Focused)",
-  description: "Portfolio of Sayed Herzallah, a Full-Stack Developer specializing in high-performance Backend architecture, Node.js, Express, databases (MySQL, MongoDB), and React frontend.",
+  title: "Sayed Herzallah | سيد حرز الله - Full-Stack Developer",
+  description: "معرض أعمال سيد حرز الله، مطور ويب متكامل (Full-Stack Developer) متخصص في بناء الأنظمة الخلفية Node.js، وقواعد البيانات MySQL وMongoDB. Portfolio of Sayed Herzallah.",
   keywords: [
     "Sayed Herzallah",
     "Herzallah",
+    "سيد حرز الله",
+    "حرز الله",
+    "سيد حرزالله",
+    "معرض أعمال سيد حرز الله",
+    "مطور برمجيات سيد حرز الله",
     "Sayed Herzallah Developer",
     "Backend Developer Egypt",
     "Full Stack Developer Cairo",
@@ -40,25 +45,25 @@ export const metadata: Metadata = {
     canonical: "https://herzallah.me",
   },
   openGraph: {
-    title: "Sayed Herzallah | Full-Stack Developer (Backend Focused)",
-    description: "Full-Stack Developer specializing in high-performance Node.js RESTful APIs, clean layered software architecture, and responsive React web experiences.",
+    title: "Sayed Herzallah | سيد حرز الله - Full-Stack Developer",
+    description: "معرض أعمال سيد حرز الله، مطور ويب متكامل (Full-Stack Developer) متخصص في بناء الأنظمة الخلفية وقواعد البيانات والواجهات التفاعلية.",
     url: "https://herzallah.me",
     siteName: "Sayed Herzallah Portfolio",
-    locale: "en_US",
+    locale: "ar_EG",
     type: "website",
     images: [
       {
         url: "https://herzallah.me/profile.webp",
         width: 800,
         height: 800,
-        alt: "Sayed Herzallah - Full Stack Developer",
+        alt: "Sayed Herzallah | سيد حرز الله",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sayed Herzallah | Full-Stack Developer (Backend Focused)",
-    description: "Full-Stack Developer specializing in backend systems (Node.js, Express, MySQL, MongoDB) and responsive frontend React applications.",
+    title: "Sayed Herzallah | سيد حرز الله - Full-Stack Developer",
+    description: "معرض أعمال سيد حرز الله، مطور ويب متكامل (Full-Stack Developer) متخصص في بناء الأنظمة الخلفية وقواعد البيانات والواجهات التفاعلية.",
     images: ["https://herzallah.me/profile.webp"],
   },
   robots: {
@@ -86,6 +91,7 @@ export default function RootLayout({
         "@type": "Person",
         "@id": "https://herzallah.me/#person",
         "name": "Sayed Herzallah",
+        "alternateName": "سيد حرز الله",
         "url": "https://herzallah.me",
         "image": "https://herzallah.me/profile.webp",
         "jobTitle": "Full Stack Developer",
@@ -112,7 +118,7 @@ export default function RootLayout({
         "@type": "WebSite",
         "@id": "https://herzallah.me/#website",
         "url": "https://herzallah.me",
-        "name": "Sayed Herzallah Portfolio",
+        "name": "Sayed Herzallah | سيد حرز الله Portfolio",
         "publisher": {
           "@id": "https://herzallah.me/#person"
         }
