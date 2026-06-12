@@ -6,6 +6,7 @@ import Logo from "@/components/Logo";
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
+  const [hash, setHash] = useState("");
   const navRef = useRef<HTMLElement>(null);
 
   const navLinks = [
@@ -19,8 +20,18 @@ export default function Navbar() {
   ];
 
   useEffect(() => {
-    const sectionIds = ["home", "about", "projects", "skills", "experience", "certifications", "contact"];
+    if (typeof window !== "undefined") {
+      const handleHashChange = () => {
+        setHash(window.location.hash);
+      };
+      handleHashChange();
+      window.addEventListener("hashchange", handleHashChange);
+      return () => window.removeEventListener("hashchange", handleHashChange);
+    }
+  }, []);
 
+  useEffect(() => {
+    const sectionIds = ["home", "about", "projects", "skills", "experience", "contact"];
     const observers: IntersectionObserver[] = [];
 
     sectionIds.forEach((id) => {
@@ -54,9 +65,18 @@ export default function Navbar() {
     if (href.startsWith("#")) {
       e.preventDefault();
       const id = href.slice(1);
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (id === "certifications") {
+        window.location.hash = "certifications";
+        const el = document.getElementById("experience");
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      } else {
+        window.location.hash = id;
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       }
     }
   };
@@ -94,7 +114,6 @@ export default function Navbar() {
         <div className="flex items-center justify-center md:justify-end gap-x-1.5 sm:gap-x-3 md:gap-x-2.5 py-0.5 w-full md:w-auto flex-1 overflow-visible">
           {navLinks.map((link) => {
             const sectionId = link.href.replace("#", "");
-            const isActive = !link.external && activeSection === sectionId;
             const isCV = link.label === "CV";
 
             if (isCV) {
@@ -111,21 +130,20 @@ export default function Navbar() {
               );
             }
 
-            const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-              if (!link.external) {
-                e.preventDefault();
-                const el = document.getElementById(sectionId);
-                if (el) {
-                  el.scrollIntoView({ behavior: "smooth", block: "start" });
-                }
+            let isActive = !link.external && activeSection === sectionId;
+            if (activeSection === "experience") {
+              if (hash === "#certifications") {
+                isActive = link.label === "CERTS";
+              } else {
+                isActive = link.label === "EXPERIENCE";
               }
-            };
+            }
 
             return (
               <a
                 key={link.label}
                 href={link.href}
-                onClick={handleClick}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className={`transition-all duration-200 uppercase cursor-pointer whitespace-nowrap text-center font-bold tracking-wide sm:tracking-widest rounded-full py-1 md:py-1.5 px-2 sm:px-3 text-[8.5px] xs:text-[9.5px] sm:text-[11.5px] md:text-xs lg:text-sm
                   ${isActive
                     ? "text-white bg-white/10 border border-white/10 shadow-inner"

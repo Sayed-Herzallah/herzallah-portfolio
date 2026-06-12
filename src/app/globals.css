@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
 :root {
+  --font-geist-sans: 'Geist', sans-serif;
+  --font-geist-mono: 'Geist Mono', monospace;
+  --font-plus-jakarta-sans: 'Plus Jakarta Sans', sans-serif;
+
   /* Theme variables - Default to Winter mode colors */
   --bg-color: #030308;
   --fg-color: #f3f4f6;

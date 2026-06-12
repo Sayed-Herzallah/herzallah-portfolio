@@ -169,15 +169,15 @@ export default function Contact() {
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         
         {/* Section Header */}
-        <div className="mb-16 md:mb-20">
+        <div className="mb-16 md:mb-20 text-center max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 text-sm font-semibold text-primary uppercase tracking-widest mb-3">
             <Mail className="w-3.5 h-3.5" />
-            <span>06 // Contact</span>
+            <span>05 // Contact</span>
           </div>
           <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
             Get In Touch
           </h2>
-          <p className="text-base text-zinc-300 mt-2 max-w-lg">
+          <p className="text-base text-zinc-300 mt-2">
             Have an exciting opportunity, a project proposal, or just want to chat? Drop a message below!
           </p>
         </div>

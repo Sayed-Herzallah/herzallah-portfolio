@@ -14,7 +14,7 @@ export default function About() {
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         
         {/* Section Header */}
-        <div className="mb-16 md:mb-20">
+        <div className="mb-16 md:mb-20 text-center max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 text-sm font-semibold text-primary uppercase tracking-widest mb-3">
             <Milestone className="w-3.5 h-3.5" />
             <span>01 // About Me</span>

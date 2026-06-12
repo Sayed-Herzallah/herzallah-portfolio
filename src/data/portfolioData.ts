@@ -585,7 +585,7 @@ export const portfolioData: PortfolioData = {
       id: "exp-freelance",
       role: "Backend Software Engineer (Contract / Freelance)",
       company: "Self-Employed",
-      duration: "May 2024 – Present",
+      duration: "Jan 2025 – Present",
       description: [
         "Architected and deployed the Siwa Oasis Travel booking engine API utilizing Node.js, Express.js, and Sequelize, reducing database query latencies by 30% through optimized MySQL indexing and relational normalization.",
         "Engineered a secure session-based AI chatbot integration (Gemini API) featuring transaction state tracking, handling concurrent booking workflows without state pollution.",
@@ -598,7 +598,7 @@ export const portfolioData: PortfolioData = {
       id: "exp-nti",
       role: "Software Engineer (MERN Stack Track)",
       company: "NTI - National Telecommunication Institute",
-      duration: "Jan 2024 – Apr 2024",
+      duration: "Aug 2025 – Jan 2026",
       description: [
         "Designed and built a high-throughput Social Media API utilizing Node.js, Express, and MongoDB, modeling complex social graphs (follower/following relationship models).",
         "Implemented real-time bidirectional messaging features via WebSockets (Socket.io), reducing messaging latency to sub-100ms.",
@@ -611,7 +611,7 @@ export const portfolioData: PortfolioData = {
       id: "exp-creativa",
       role: "Full Stack Developer (Training Program)",
       company: "Creativa Innovation Hub — Ministry of Communications (MCIT)",
-      duration: "Aug 2023 – Nov 2023",
+      duration: "Nov 2025 – Feb 2026",
       description: [
         "Completed an intensive full-stack development program covering React.js, Node.js, REST API design, and database integration.",
         "Built and deployed a React.js client for a real estate platform, implementing authentication, CRUD operations, responsive UI, and Postman-documented API contracts.",
@@ -639,7 +639,7 @@ export const portfolioData: PortfolioData = {
       id: "cert-ai",
       title: "Build with AI: Masr Edition",
       issuer: "Google",
-      date: "May 2026",
+      date: "Jun 2026",
       url: "https://drive.google.com/file/d/1zN9vb-V9mgWz6-uj5st-7iAlTojm5cAb/view?usp=sharing"
     },
     {
@@ -656,11 +656,11 @@ export const portfolioData: PortfolioData = {
       date: "Feb 2026",
       url: "https://drive.google.com/file/d/17Zey7KrCjPif3ngCvqhTC_lImm8Bkmlx/view?usp=sharing"
     },
-        {
+    {
       id: "cert-manara",
       title: "Modern JavaScript Certificate",
       issuer: "Manara",
-      date: "Feb 2024",
+      date: "Apr 2026",
       url: "https://app.manara.tech/certificate/1775901865-B9E7A239B519F760"
     },
     {

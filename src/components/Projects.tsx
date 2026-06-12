@@ -129,23 +129,21 @@ export default function Projects() {
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         
-        {/* Section Header with Slider Navigation Controls */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-16">
-          <div>
-            <div className="inline-flex items-center gap-2 text-sm font-semibold text-primary uppercase tracking-widest mb-3">
-              <Code2 className="w-3.5 h-3.5" />
-              <span>02 // Featured Work</span>
-            </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
-              Selected Applications
-            </h2>
-            <p className="text-base text-zinc-300 mt-2 max-w-lg">
-              A curated selection of applications representing clean architecture, pixel-perfect layout, and solid engineering.
-            </p>
+        {/* Section Header (Centered) */}
+        <div className="mb-12 md:mb-16 text-center max-w-2xl mx-auto">
+          <div className="inline-flex items-center gap-2 text-sm font-semibold text-primary uppercase tracking-widest mb-3">
+            <Code2 className="w-3.5 h-3.5" />
+            <span>02 // Featured Work</span>
           </div>
+          <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
+            Selected Applications
+          </h2>
+          <p className="text-base text-zinc-300 mt-2">
+            A curated selection of applications representing clean architecture, pixel-perfect layout, and solid engineering.
+          </p>
 
-          {/* Navigation Arrows */}
-          <div className="flex items-center gap-3 self-start md:self-end">
+          {/* Navigation Arrows (Centered) */}
+          <div className="flex items-center justify-center gap-3 mt-6">
             <button
               onClick={() => handleScroll("left")}
               aria-label="Scroll left"

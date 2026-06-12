@@ -92,7 +92,7 @@ export default function Skills() {
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         
         {/* Section Header */}
-        <div className="mb-16 md:mb-20">
+        <div className="mb-16 md:mb-20 text-center max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 text-sm font-semibold text-primary uppercase tracking-widest mb-3">
             <Cpu className="w-3.5 h-3.5" />
             <span>03 // Skills & Stack</span>
@@ -100,7 +100,7 @@ export default function Skills() {
           <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
             Technical Expertise
           </h2>
-          <p className="text-base text-zinc-300 mt-2 max-w-lg">
+          <p className="text-base text-zinc-300 mt-2">
             A comprehensive breakdown of technologies, methodologies, and core professional competencies.
           </p>
         </div>
