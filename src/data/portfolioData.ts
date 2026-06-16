@@ -71,9 +71,9 @@ export interface PortfolioData {
 
 export const portfolioData: PortfolioData = {
   name: "Sayed Herzallah",
-  title: "Full Stack Developer (Backend Focused)",
-  tagline: "Turning complex requirements into clean, production-ready web systems.",
-  bio: "Full Stack Developer specializing in Backend development, with hands-on experience building and deploying real-world web applications across the MERN stack and relational databases (MySQL, Sequelize). Selected as one of 5,000 developers for Google's Build with AI: Masr Edition program.",
+  title: "Backend Software Engineer",
+  tagline: "Designing, optimizing, and deploying high-performance APIs and scalable backend architectures.",
+  bio: "Backend Software Engineer specializing in Node.js, database engineering, and clean layered architectures. Focuses on building high-performance RESTful APIs, real-time systems, and query-optimized database schemas. Selected as one of 5,000 developers for Google's Build with AI: Masr Edition program.",
   profileImage: "/profile.webp",
   cvUrl: "https://drive.google.com/file/d/1GNINzfLv5QjX0bsm-FHEwErgRvLBRo3U/view?usp=drive_link",
   email: "herzallahdeveloper@gmail.com",
@@ -84,10 +84,10 @@ export const portfolioData: PortfolioData = {
   
   about: {
     story: [
-      "I am a Backend-Focused Full-Stack Developer specializing in Node.js, Express, and database engineering (MySQL/MongoDB). Selected as one of 5,000 developers for Google's Build with AI: Masr Edition, I focus on building high-performance RESTful APIs and real-time systems using clean layered architectures.",
-      "I design relational schemas using Sequelize and optimize MySQL indexes to reduce query latency. Simultaneously, I construct optimized MongoDB documents utilizing cursor-based pagination to support large-scale feed retrievals under sub-10ms latency thresholds.",
-      "By applying clean architectural patterns (Controller → Service → Model), I decouple business logic from transport layers, ensuring that APIs are highly testable, secure, and maintainable. I also build responsive frontends in React and TypeScript to consume backend APIs cleanly.",
-      "Recent work includes architecting concurrent travel booking transaction systems, building WebSockets-driven chat engines, and deploying production-ready full-stack applications with integrated AI capability layers."
+      "I am a Backend Software Engineer specializing in Node.js, Express.js, and database engineering (MySQL/MongoDB). Selected as one of 5,000 developers for Google's Build with AI: Masr Edition, I focus on building high-performance, secure, and scalable RESTful APIs using clean layered architectures.",
+      "I design relational database schemas using Sequelize and optimize MySQL indexes to minimize query latency. Simultaneously, I construct optimized MongoDB documents utilizing cursor-based pagination to support large-scale feed retrievals under sub-10ms latency thresholds.",
+      "By applying clean architectural patterns (Controller → Service → Model), I decouple business logic from transport layers, ensuring that APIs are highly testable, secure, and maintainable. I also build responsive frontend clients in React and TypeScript to consume backend APIs cleanly.",
+      "My recent work includes architecting concurrent travel booking reservation systems with InnoDB transaction locks, building WebSockets-driven chat engines, and deploying production-ready backend applications with integrated AI capability layers."
     ],
     stats: [
       { label: "Completed Projects", value: "8+" },
@@ -562,20 +562,20 @@ export const portfolioData: PortfolioData = {
 
   skills: [
     {
-      title: "Frontend Development",
-      skills: ["React.js", "Next.js", "TypeScript", "JavaScript (ES6+)", "Redux Toolkit", "Context API", "Tailwind CSS", "Framer Motion", "HTML5 & CSS3"]
-    },
-        {
       title: "Backend Development",
-      skills: ["Node.js", "Express.js", "RESTful APIs", "JWT Authentication", "Socket.io (Real-time)", "Clean Layered Architecture", "MVC Pattern"]
+      skills: ["Node.js", "Express.js", "NestJS (Applying)", "TypeScript", "RESTful APIs", "JWT Authentication", "Socket.io (Real-time)", "Clean Architecture"]
     },
     {
       title: "Databases & Storage",
-      skills: ["MongoDB", "Mongoose ODM", "MySQL", "Sequelize ORM", "Relational Database Design", "Database Normalization"]
+      skills: ["MySQL", "Sequelize ORM", "MongoDB", "Mongoose ODM", "PostgreSQL", "Database Design & Normalization"]
     },
     {
       title: "Tools & DevOps",
-      skills: ["Git & GitHub", "Docker", "Postman", "Swagger / OpenAPI", "Jest (Testing)", "Redis (Caching)", "Vercel / Railway"]
+      skills: ["Git & GitHub", "Docker", "Postman", "Swagger / OpenAPI", "Jest (Testing)", "Redis (Caching)", "Vercel / Railway / Render"]
+    },
+    {
+      title: "Frontend Development",
+      skills: ["React.js", "Next.js", "Redux Toolkit", "Context API", "Tailwind CSS", "Framer Motion"]
     }
   ],
 
@@ -584,7 +584,7 @@ export const portfolioData: PortfolioData = {
     {
       id: "exp-freelance",
       role: "Backend Software Engineer (Contract / Freelance)",
-      company: "Self-Employed",
+      company: "Independent Contractor",
       duration: "Jan 2025 – Present",
       description: [
         "Architected and deployed the Siwa Oasis Travel booking engine API utilizing Node.js, Express.js, and Sequelize, reducing database query latencies by 30% through optimized MySQL indexing and relational normalization.",
