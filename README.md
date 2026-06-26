@@ -1,45 +1,83 @@
-# ðŸŽ¨ Herzallah Portfolio - Developer Showcase Client
+# 💻 Herzallah Portfolio
 
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:2563eb&height=160&section=header&text=Herzallah%20Portfolio&fontSize=38&fontColor=ffffff&fontFamily=Outfit" width="100%" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:0f172a&height=160&section=header&text=Herzallah%20Portfolio&fontSize=42&fontColor=38bdf8&fontFamily=Outfit" width="100%" />
 </div>
 
 <div align="center">
-  ![React](https://img.shields.io/badge/React-v18-blue?logo=react&style=for-the-badge)
-  ![Vite](https://img.shields.io/badge/Vite-v5-purple?logo=vite&style=for-the-badge)
-  ![GSAP](https://img.shields.io/badge/GSAP-Animations-green?style=for-the-badge)
-  ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+  ![HTML5](https://img.shields.io/badge/HTML5-Structure-orange?logo=html5&style=for-the-badge) ![CSS3](https://img.shields.io/badge/CSS3-Design-blue?logo=css3&style=for-the-badge) ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?logo=javascript&style=for-the-badge) ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 </div>
 
 ---
 
-## ðŸ“Œ Project Overview (Description)
-Sleek, modern interactive developer portfolio built with React and custom modern animations showcasing premium full-stack and UI/UX projects. Features high-performance page rendering and responsive layouts.
+## 📌 Project Overview (Description)
+The custom frontend layout for Sayed Herzallah's developer portfolio, showcasing verified credentials, interactive skills charts, and project timelines.
+
+This codebase represents professional software development practices, clean module organization, and efficient code architectures tailored for high responsiveness and scalability.
 
 ---
 
-## âš¡ The Engineering Challenge
+## ⚡ The Engineering Challenge
 
-### ðŸ”´ Problem
-Complex layouts with high-density animations cause UI thread lag and frame drops (jank) on lower-end mobile devices.
+### 🔴 Problem
+Developers building web solutions face difficulties handling state synchronization, styling inconsistencies, and complex configurations that clutter logic and trigger UI slowdowns or connection lifecycle failures.
 
-### ðŸŸ¢ Solution
-This showcase client utilizes:
-*   **GSAP GPU Acceleration**: Hardware-accelerated animations for hardware layouts.
-*   **Vite Optimization**: Bundling techniques separating vendors from logical files.
-*   **Concurrent Mode**: React 18 rendering states.
-
----
-
-## ðŸš€ Local Run
-`ash
-git clone https://github.com/Sayed-Herzallah/herzallah-portfolio.git
-cd herzallah-portfolio
-npm install
-npm run dev
-`
+### 🟢 Solution
+This project implements:
+* **Separation of Concerns**: Structured module layouts separating design assets from operational logic.
+* **Optimized Rendering**: Efficient script logic and CSS layout variables to maintain lightweight UI paint times.
+* **Structured Coding Standards**: Written using clean semantic patterns ensuring readable code maintainability.
 
 ---
 
-## ðŸ“„ License
+## 🧬 System Architecture
+The internal layout structures are separated logically:
+```text
+herzallah-portfolio/
+├── css/ or styles/      # Styling engines and layouts
+├── js/ or src/          # Source scripts and business logic
+├── index.html or app.js # Operational entry point
+└── README.md            # System documentation
+```
+
+---
+
+## 🛠️ Technology Stack
+
+| Technology | Purpose |
+| :--- | :--- |
+| HTML5 | Semantic structure layout |
+| CSS3 | Layout styling and animations |
+| JavaScript | DOM interactivity logic |
+
+---
+
+## 🚀 Local Developer Setup & Run
+
+### 📋 Prerequisites
+* Modern web browser / Node.js runtime (depending on project stack)
+
+### ⚙️ Quick Start Steps
+```bash
+    git clone https://github.com/Sayed-Herzallah/herzallah-portfolio.git
+    cd herzallah-portfolio
+    # Open index.html in any modern browser, or run local server:
+    python -m http.server 8080
+```
+
+---
+
+## 🔮 Future Improvements
+* [ ] Integrate automated unit testing.
+* [ ] Add dynamic dark/light theme switcher.
+* [ ] Improve responsiveness on extra-small mobile screen viewports.
+
+---
+
+## 👥 Contributors
+* **Sayed Herzallah** - Lead Developer & Systems Architect
+
+---
+
+## 📄 License
 Licensed under the **MIT License**.
