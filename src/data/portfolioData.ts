@@ -93,7 +93,7 @@ export const portfolioData: PortfolioData = {
       { label: "Completed Projects", value: "8+" },
       { label: "Public Repos", value: "40+" },
       { label: "Training Hours", value: "350+" },
-      { label: "University Degree", value: "B.Sc." }
+      { label: "Graduated", value: "B.Sc. 2026" }
     ]
   },
 
@@ -626,9 +626,9 @@ export const portfolioData: PortfolioData = {
       id: "edu-1",
       degree: "Bachelor's Degree in Computer Science and Information Systems",
        school: "Delta Higher Institute",
-        duration: "2022 - 2026",
+         duration: "2022 – 2026 (Graduated)",
       description: [
-        "Specialized in Software Engineering, database normalization, and web technologies.",
+        "Graduated with a B.Sc. in Computer Science and Information Systems, specializing in Software Engineering, database normalization, and web technologies.",
         "Graduation project focused on building automated web analysis tools and RESTful architectures."
       ]
     }

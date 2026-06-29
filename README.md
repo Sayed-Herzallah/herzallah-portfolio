@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Sayed Herzallah - Developer Portfolio Website
 
-## Getting Started
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:00897b&height=180&section=header&text=herzallah-portfolio&fontSize=40&fontColor=ffffff&fontFamily=Outfit" width="100%" />
+</div>
 
-First, run the development server:
+The custom frontend repository for Sayed Herzallah's personal developer portfolio (herzallah.me). Features modern UI interactions, responsive navigation grids, and clean visual structures showcasing full-stack skills and certifications.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🚀 Key Features
+
+* **✨ Fluid Animations**: Smooth scrolling and interactive elements driven by Framer Motion.
+* **📱 Responsive Design**: Fully optimized layout for desktops, tablets, and mobile screens.
+* **📜 Certifications Timeline**: Clickable timeline highlighting verified developer achievements and course degrees.
+
+---
+
+## 🛠️ Technology Stack
+
+| Technology | Purpose |
+| :--- | :--- |
+| React.js | Component-driven UI rendering |
+| Tailwind CSS | Responsive and clean styles |
+| Framer Motion | Smooth layout micro-animations |
+| Lucide Icons | Modern SVG visual icons |
+
+---
+
+## 📂 Folder Structure
+
+```text
+src/
+├── components/      # Hero, About, Experience, Projects, Contact
+├── data/            # Static portfolio content datasets
+├── App.tsx          # Root layout structure
+└── index.css        # Tailwind directives & style overrides
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Getting Started
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Prerequisites
+- Node.js >= 18 (If applicable for package scripts)
+- Modern Web Browser (Chrome, Edge, Firefox)
 
-## Learn More
+### Setup & Launch
+1. Navigate to the project directory:
+   ```bash
+   cd "herzallah-portfolio"
+   ```
+2. Setup environment:
+   ```bash
+   npm install
+   ```
+3. Run locally:
+   ```bash
+   npm start
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📜 Verified Certificates & Achievements
+To review verified technical accomplishments, backend training, and professional project portfolios, click below:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+[![Portfolio Achievements](https://img.shields.io/badge/Verified_Certifications-Click_to_View-gold?style=for-the-badge&logo=credentials)](https://herzallah.me#certifications)
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 👨‍💻 Developed By
+**Sayed Herzallah**  
+*Backend-Focused Full-Stack Developer*  
+- [LinkedIn Profile](https://www.linkedin.com/in/sayed-herzallah)  
+- [Portfolio Website](https://herzallah.me)  
+- [GitHub Profile](https://github.com/Sayed-Herzallah)  
