@@ -138,7 +138,7 @@ export const portfolioData: PortfolioData = {
         "Responsive and modern UI/UX dashboard"
       ],
       liveUrl: "https://ataa.page",
-      githubUrl: "https://github.com/Sayed-Herzallah/Ataa-Charity-Platform-React-TypeScript",
+      githubUrl: "https://github.com/Sayed-Herzallah/Ataa-Charity-Platform",
       featured: true,
       challenges: [
         "Handling concurrent donation transactions without database state discrepancy.",
@@ -193,7 +193,7 @@ export const portfolioData: PortfolioData = {
         "Modular and scalable backend architecture"
       ],
       liveUrl: "",
-      githubUrl: "https://github.com/Sayed-Herzallah/R3aya-Care-System-Api",
+      githubUrl: "https://github.com/Sayed-Herzallah/r3aya-care-system-api",
       featured: true,
       challenges: [
         "Ingesting and modeling rapid EMG muscle sensor datasets efficiently.",
@@ -237,7 +237,7 @@ export const portfolioData: PortfolioData = {
         "Scalable architecture designed for concurrent connections"
       ],
       liveUrl: "",
-      githubUrl: "https://github.com/Sayed-Herzallah/Social-Media-Back-end",
+      githubUrl: "https://github.com/Sayed-Herzallah/social-media-api",
       featured: true,
       challenges: [
         "Performance degradation on large offset feeds (LIMIT/OFFSET scale issue).",
@@ -282,7 +282,7 @@ export const portfolioData: PortfolioData = {
         "Input validation and centralized error handling"
       ],
       liveUrl: "",
-      githubUrl: "https://github.com/Sayed-Herzallah/Siwa-Oasis-API-Node-JS-Sequelize_SQL",
+      githubUrl: "https://github.com/Siwa-Oasis-Org/siwa-oasis-tourism-api",
       featured: true,
       challenges: [
         "Double-booking seats on concurrent bus route requests.",
@@ -340,7 +340,7 @@ export const portfolioData: PortfolioData = {
         "Modular feature-based architecture"
       ],
       liveUrl: "",
-      githubUrl: "https://github.com/Sayed-Herzallah/Sharaha-App-BackEnd",
+      githubUrl: "https://github.com/Sayed-Herzallah/sharaha-app-api",
       featured: false,
       challenges: [
         "Protecting user credentials and communications from leakage.",
@@ -422,7 +422,7 @@ export const portfolioData: PortfolioData = {
         "Fully responsive design across all device sizes"
       ],
       liveUrl: "https://neuroscan-brain-ai.vercel.app/",
-      githubUrl: "https://github.com/Sayed-Herzallah/NeuroScan-Brain-Tumor-Detection-Platform-React",
+      githubUrl: "https://github.com/Sayed-Herzallah/neuroscan-brain-tumor-detection-platform-react",
       featured: false,
       challenges: [
         "Translating a high-fidelity 17-screen mobile-first design layout.",
@@ -466,7 +466,7 @@ export const portfolioData: PortfolioData = {
         "MVC architecture structure"
       ],
       liveUrl: "",
-      githubUrl: "https://github.com/Sayed-Herzallah/My-Blog-Back-end-Sequelize",
+      githubUrl: "https://github.com/Sayed-Herzallah/sequelize-blog-api",
       featured: false,
       challenges: [
         "Managing database relationships between posts, users, and tags.",
@@ -507,7 +507,7 @@ export const portfolioData: PortfolioData = {
         "Interactive UI sections"
       ],
       liveUrl: "",
-      githubUrl: "https://github.com/Sayed-Herzallah/Ufuq-Real-Estate-React",
+      githubUrl: "https://github.com/Sayed-Herzallah/ufuq-real-estate-react",
       featured: false,
       challenges: [
         "Handling state synchronization across dynamic property listing filters.",
@@ -543,7 +543,7 @@ export const portfolioData: PortfolioData = {
         "Responsive design for all screen sizes"
       ],
       liveUrl: "https://villas-eg.vercel.app",
-      githubUrl: "https://github.com/Sayed-Herzallah/Villa-Real-Estate-React",
+      githubUrl: "https://github.com/Sayed-Herzallah/villa-real-estate-react",
       featured: false,
       challenges: [
         "Syncing client CRUD changes instantly with mock server endpoints.",
