@@ -678,6 +678,10 @@ export const portfolioData: PortfolioData = {
       skills: ["Git & GitHub", "Docker", "Postman", "Swagger / OpenAPI", "Jest (Testing)", "Redis (Caching)", "Vercel / Railway / Render"]
     },
     {
+      title: "AI & Agentic Coding",
+      skills: ["Claude Code", "Agentic Workflows", "AI-Assisted Development", "Prompt Engineering", "GitHub Copilot", "Generative AI Integration"]
+    },
+    {
       title: "Frontend Development",
       skills: ["React.js", "Next.js", "Redux Toolkit", "Context API", "Tailwind CSS", "Framer Motion"]
     }
@@ -692,11 +696,12 @@ export const portfolioData: PortfolioData = {
       duration: "Jan 2025 – Present",
       description: [
         "Architected and deployed the Siwa Oasis Travel booking engine API utilizing Node.js, Express.js, and Sequelize, reducing database query latencies by 30% through optimized MySQL indexing and relational normalization.",
+        "Leveraged state-of-the-art Agentic AI tools (Claude Code) and AI-assisted workflows to accelerate API prototyping, refactoring, and code generation, boosting development velocity and test coverage.",
         "Engineered a secure session-based AI chatbot integration (Gemini API) featuring transaction state tracking, handling concurrent booking workflows without state pollution.",
         "Implemented clean Service-Layer Architecture (Controller-Service-Model), decoupling business logic from transport layers to improve code testability and reuse by 45%.",
         "Integrated a full-stack URL analysis system handling asynchronous background extraction pipelines with secure API authentication keys."
       ],
-      tags: ["Node.js", "Express.js", "Sequelize", "MySQL", "AI Integration", "Clean Architecture"]
+      tags: ["Node.js", "Express.js", "Sequelize", "MySQL", "AI Integration", "Claude Code", "Clean Architecture"]
     },
     {
       id: "exp-nti",
