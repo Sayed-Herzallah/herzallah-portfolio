@@ -48,6 +48,7 @@ export default function Hero() {
             width={650}
             height={850}
             priority
+            unoptimized
             className="h-full max-h-[68vh] w-auto object-contain opacity-95 relative z-10"
             onError={() => setProfileImgSrc("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400")}
           />
@@ -149,6 +150,7 @@ export default function Hero() {
             width={450}
             height={550}
             priority
+            unoptimized
             className="w-full h-auto object-contain relative z-10 select-none pointer-events-none max-h-[55vh] xs:max-h-[58vh] sm:max-h-[62vh] md:max-h-[65vh]"
             onError={() => setProfileImgSrc("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400")}
           />

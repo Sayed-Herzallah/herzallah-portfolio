@@ -153,16 +153,16 @@
 
 /* Glowing Sun Element for Summer Theme */
 .sun-element {
-  position: fixed;
-  top: -120px;
-  right: -120px;
-  width: 500px;
-  height: 500px;
+  position: absolute;
+  top: 5%;
+  right: -50px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(251, 191, 36, 0.18) 0%,
-    rgba(249, 115, 22, 0.06) 50%,
+    rgba(251, 191, 36, 0.15) 0%,
+    rgba(249, 115, 22, 0.04) 50%,
     rgba(0, 0, 0, 0) 70%
   );
   filter: blur(40px);
@@ -171,6 +171,15 @@
   opacity: 0;
   transform: scale(0.8);
   transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 1024px) {
+  .sun-element {
+    top: -120px;
+    right: -120px;
+    width: 500px;
+    height: 500px;
+  }
 }
 
 .summer-mode .sun-element {
@@ -184,13 +193,13 @@
     transform: scale(1) translate(0px, 0px);
   }
   100% {
-    transform: scale(1.1) translate(-20px, 20px);
+    transform: scale(1.05) translate(-10px, 10px);
   }
 }
 
 /* Heat wave shimmer effect */
 .heat-wave {
-  position: fixed;
+  position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 1;
@@ -203,6 +212,7 @@
   );
   transition: opacity 1.5s ease;
 }
+
 
 .summer-mode .heat-wave {
   opacity: 1;

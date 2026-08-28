@@ -144,7 +144,7 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className={`transition-all duration-200 uppercase cursor-pointer whitespace-nowrap text-center font-bold tracking-wide sm:tracking-widest rounded-full py-1 md:py-1.5 px-2 sm:px-3 text-[8.5px] xs:text-[9.5px] sm:text-[11.5px] md:text-xs lg:text-sm
+                className={`transition-all duration-200 uppercase cursor-pointer whitespace-nowrap text-center font-bold tracking-wide sm:tracking-widest rounded-full py-1 md:py-1.5 px-1.5 xs:px-2.5 sm:px-3 text-[8px] xs:text-[9.5px] sm:text-[11px] md:text-xs lg:text-sm
                   ${isActive
                     ? "text-white bg-white/10 border border-white/10 shadow-inner"
                     : "text-zinc-400 hover:text-white hover:bg-white/5 border border-transparent"
