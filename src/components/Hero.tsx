@@ -64,7 +64,7 @@ export default function Hero() {
           transition={{ duration: 0.4 }}
           className="col-span-1 lg:col-span-3 flex flex-col items-center lg:items-start justify-center text-center lg:text-left pt-6 lg:pt-0"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl font-bold font-display tracking-wide text-white leading-[1.15]">
+          <h1 className="text-[28px] xs:text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl font-bold font-display tracking-wide text-white leading-[1.15]">
             I&apos;m Eng.{" "}
             <span className="bg-gradient-to-r from-[#f3f4f6] via-primary to-secondary bg-clip-text text-transparent block mt-1 lg:mt-2 transition-all duration-700">
               Sayed <br className="hidden lg:inline" />
@@ -151,7 +151,7 @@ export default function Hero() {
             height={700}
             priority
             unoptimized
-            className="w-full h-auto object-contain relative z-10 select-none pointer-events-none max-h-[70vh] xs:max-h-[72vh] sm:max-h-[75vh] md:max-h-[78vh]"
+            className="w-full h-auto object-contain relative z-10 select-none pointer-events-none max-h-[48vh] xs:max-h-[70vh] sm:max-h-[75vh] md:max-h-[78vh]"
             onError={() => setProfileImgSrc("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400")}
           />
         </motion.div>
