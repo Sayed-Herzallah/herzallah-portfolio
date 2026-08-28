@@ -65,15 +65,18 @@ export default function Projects() {
     setMounted(true);
   }, []);
 
-  // Body Scroll Lock Hook
+  // Body & HTML Scroll Lock Hook
   useEffect(() => {
     if (selectedProject) {
       document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     }
     return () => {
       document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     };
   }, [selectedProject]);
 

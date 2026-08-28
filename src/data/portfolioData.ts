@@ -105,9 +105,9 @@ export const portfolioData: PortfolioData = {
       category: "flagship",
       description: "A production-grade school management platform enabling bulk Excel grade processing, student analytics, multi-role dashboards, and automated CI/CD deployment.",
       longDescription: "GradeX is a scalable MERN-stack academic portal linking React & TypeScript frontend to an Express & MongoDB backend. It empowers administrators to process bulk spreadsheet data, enables teachers to manage student assignments, and provides students with instantaneous grade telemetry inside custom role-based dashboards.",
-      image: "/images/gradex-platform.webp",
+      image: "/images/gradex-platform.jpg",
       images: [
-        "/images/gradex-platform.webp"
+        "/images/gradex-platform.jpg"
       ],
       tags: [
         "React",
@@ -158,9 +158,9 @@ export const portfolioData: PortfolioData = {
       category: "flagship",
       description: "A production-level point-of-sale & cafe management system with automated stock synchronization, menu configuration, and real-time sales telemetry.",
       longDescription: "El Fishawy Cafe Platform is a full-stack restaurant pos client linking a React and TypeScript frontend to a Node, Express, and MongoDB backend. It orchestrates cafe operations, tracks dynamic ingredients recipe conversions, manages employee expenses, and syncs raw stock metrics.",
-      image: "/images/elfishawy-cafe.webp",
+      image: "/images/elfishawy-cafe.jpg",
       images: [
-        "/images/elfishawy-cafe.webp"
+        "/images/elfishawy-cafe.jpg"
       ],
       tags: [
         "React",
