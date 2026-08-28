@@ -36,16 +36,33 @@ export default function Hero() {
       {/* Grid Pattern overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
 
-      {/* Desktop-only profile & monitor grid background logic - REMOVED absolute overlay to prevent overlaps */}
-      
-      <div className="max-w-7xl mx-auto px-6 w-full relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-y-8 lg:gap-y-12 items-center min-h-[85vh] lg:min-h-[90vh]">
+      {/* Desktop-only absolutely centered profile & monitor SVG (restored to first layout style for premium cinematic feel) */}
+      <div className="hidden lg:block absolute inset-0 z-10 pointer-events-none select-none">
+        <div className="w-full h-full max-w-7xl mx-auto relative flex items-center justify-center transform lg:-translate-x-[2%] xl:-translate-x-[1%]">
+          {/* Radial Glow directly behind the portrait area */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-purple-600/20 blur-[100px] z-0 animate-pulse" />
+          
+          <Image
+            src={profileImgSrc}
+            alt={portfolioData.name}
+            width={800}
+            height={1000}
+            priority
+            unoptimized
+            className="h-full max-h-[82vh] w-auto object-contain opacity-95 relative z-10"
+            onError={() => setProfileImgSrc("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400")}
+          />
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 w-full relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-y-4 lg:gap-y-8 items-center min-h-[85vh] lg:min-h-[80vh]">
         
-        {/* Left Column (lg:col-span-6): Welcome message, Title, Bio details & CTA */}
+        {/* Left Column (lg:col-span-5) - Welcome message, Name, Bio description, Connect & CTA all aligned on the left */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4 }}
-          className="col-span-1 lg:col-span-6 flex flex-col items-center lg:items-start justify-center text-center lg:text-left pt-6 lg:pt-0"
+          className="col-span-1 lg:col-span-5 flex flex-col items-center lg:items-start justify-center text-center lg:text-left pt-6 lg:pt-0 z-20"
         >
           <h1 className="text-[28px] xs:text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl font-bold font-display tracking-wide text-white leading-[1.15]">
             I&apos;m Eng.{" "}
@@ -62,12 +79,12 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Integrated description directly on the left to utilize space and avoid split layout */}
-          <p className="text-base sm:text-lg text-gray-200 font-medium leading-relaxed mt-6 mb-2 max-w-lg">
+          {/* Integrated description on the left - text never overlaps image because image is on the right side of grid */}
+          <p className="text-base sm:text-lg text-gray-200 font-medium leading-relaxed mt-6 mb-2 max-w-sm md:max-w-md">
             I am a Backend-Focused Full-Stack Developer specializing in Node.js, Express, and database engineering. I translate complex requirements into clean, optimized, and production-ready APIs.
           </p>
           
-          {/* Social Links & CV */}
+          {/* Social Links under the Name with CONNECT: label (high contrast) */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-6 pl-0.5 w-full justify-center lg:justify-start">
             <span className="text-sm font-semibold text-gray-300 uppercase tracking-widest">Connect:</span>
             <div className="flex items-center gap-5 text-gray-300 justify-center">
@@ -140,23 +157,23 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Right Column (lg:col-span-6): Desktop & Tablet Portrait Graphic (clean inside grid layout) */}
+        {/* Mobile & Tablet Portrait Graphic (stacks in center, hidden on desktop, scaled up on tablet) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.4 }}
-          className="col-span-1 lg:col-span-6 flex justify-center items-center relative my-4 w-full max-w-[420px] xs:max-w-[460px] sm:max-w-xl md:max-w-2xl lg:max-w-full mx-auto"
+          className="col-span-1 lg:hidden flex justify-center items-center relative my-4 w-full max-w-[420px] xs:max-w-[460px] sm:max-w-xl md:max-w-2xl mx-auto z-10"
         >
           {/* Glow */}
-          <div className="absolute w-[280px] h-[280px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] rounded-full bg-purple-600/20 blur-[60px] lg:blur-[100px] z-0 animate-pulse" />
+          <div className="absolute w-[280px] h-[280px] md:w-[400px] md:h-[400px] rounded-full bg-purple-600/20 blur-[60px] z-0 animate-pulse" />
           <Image
             src={profileImgSrc}
             alt={portfolioData.name}
-            width={700}
-            height={900}
+            width={600}
+            height={700}
             priority
             unoptimized
-            className="w-full h-auto max-h-[48vh] xs:max-h-[70vh] sm:max-h-[75vh] md:max-h-[78vh] lg:max-h-[82vh] object-contain relative z-10 select-none pointer-events-none"
+            className="w-full h-auto object-contain relative z-10 select-none pointer-events-none max-h-[48vh] xs:max-h-[70vh] sm:max-h-[75vh] md:max-h-[78vh]"
             onError={() => setProfileImgSrc("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400")}
           />
         </motion.div>
