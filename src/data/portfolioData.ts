@@ -683,11 +683,11 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: "AI-Driven Engineering & Automation",
-      skills: ["Agentic Developer Workflows", "AI-Assisted System Refactoring", "CLI-Based AI Execution", "Prompt Engineering for Code Gen", "Automated SDLC Optimization"]
+      skills: ["Agentic Developer Workflows", "AI-Assisted System Refactoring", "CLI-Based AI Execution", "Prompt Engineering for Code Gen", "Automated SDLC Optimization", "Terminal AI CLI Agents", "DevSecOps Automation"]
     },
     {
       title: "Frontend Development",
-      skills: ["React.js", "Next.js", "Redux Toolkit", "Context API", "Tailwind CSS", "Framer Motion"]
+      skills: ["React.js", "Next.js", "Redux Toolkit", "Context API", "Tailwind CSS", "Framer Motion", "Vite Bundler", "Responsive Web Design"]
     }
   ],
 

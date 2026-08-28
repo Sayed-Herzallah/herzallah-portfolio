@@ -97,6 +97,41 @@ export default function Projects() {
     setActiveImageIndex(0);
   };
 
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Auto-scroll loop hook
+  useEffect(() => {
+    if (isPaused || selectedProject) return;
+
+    const interval = setInterval(() => {
+      if (scrollRef.current) {
+        const firstCard = scrollRef.current.firstElementChild as HTMLElement;
+        if (firstCard) {
+          const cardWidth = firstCard.clientWidth;
+          const gap = 24;
+          const scrollAmount = cardWidth + gap;
+          
+          const maxScrollLeft = scrollRef.current.scrollWidth - scrollRef.current.clientWidth;
+          
+          // If we reached the end, loop back to start
+          if (scrollRef.current.scrollLeft >= maxScrollLeft - 10) {
+            scrollRef.current.scrollTo({
+              left: 0,
+              behavior: "smooth"
+            });
+          } else {
+            scrollRef.current.scrollTo({
+              left: scrollRef.current.scrollLeft + scrollAmount,
+              behavior: "smooth"
+            });
+          }
+        }
+      }
+    }, 4500); // Shift every 4.5 seconds
+
+    return () => clearInterval(interval);
+  }, [isPaused, selectedProject]);
+
   const handleScroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
       const firstCard = scrollRef.current.firstElementChild as HTMLElement;
@@ -167,6 +202,8 @@ export default function Projects() {
         {/* Horizontal Project Slider Carousel */}
         <div
           ref={scrollRef}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
           className="flex overflow-x-auto gap-6 pb-6 scrollbar-none snap-x snap-mandatory scroll-smooth"
         >
           {portfolioData.projects.filter(p => p.category === "flagship").map((project, index) => (
