@@ -678,8 +678,8 @@ export const portfolioData: PortfolioData = {
       skills: ["Git & GitHub", "Docker", "Postman", "Swagger / OpenAPI", "Jest (Testing)", "Redis (Caching)", "Vercel / Railway / Render"]
     },
     {
-      title: "AI & Agentic Coding",
-      skills: ["Claude Code", "Agentic Workflows", "AI-Assisted Development", "Prompt Engineering", "GitHub Copilot", "Generative AI Integration"]
+      title: "AI-Driven Engineering & Automation",
+      skills: ["Agentic Developer Workflows", "AI-Assisted System Refactoring", "CLI-Based AI Execution", "Prompt Engineering for Code Gen", "Automated SDLC Optimization"]
     },
     {
       title: "Frontend Development",
@@ -696,12 +696,12 @@ export const portfolioData: PortfolioData = {
       duration: "Jan 2025 – Present",
       description: [
         "Architected and deployed the Siwa Oasis Travel booking engine API utilizing Node.js, Express.js, and Sequelize, reducing database query latencies by 30% through optimized MySQL indexing and relational normalization.",
-        "Integrated agentic pipeline automation (Claude Code CLI) to streamline localized debugging workflows, optimize database schema refactoring loops, and improve integration testing coverage.",
+        "Designed and optimized AI-augmented developer pipelines to automate code generation and structure refactoring loops, accelerating local integration testing and debugging cycle efficiency.",
         "Engineered a secure session-based AI chatbot integration (Gemini API) featuring transaction state tracking, handling concurrent booking workflows without state pollution.",
         "Implemented clean Service-Layer Architecture (Controller-Service-Model), decoupling business logic from transport layers to improve code testability and reuse by 45%.",
         "Integrated a full-stack URL analysis system handling asynchronous background extraction pipelines with secure API authentication keys."
       ],
-      tags: ["Node.js", "Express.js", "Sequelize", "MySQL", "AI Integration", "Claude Code", "Clean Architecture"]
+      tags: ["Node.js", "Express.js", "Sequelize", "MySQL", "AI Integration", "Pipeline Automation", "Clean Architecture"]
     },
     {
       id: "exp-nti",
