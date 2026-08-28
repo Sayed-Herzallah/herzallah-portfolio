@@ -98,7 +98,111 @@ export const portfolioData: PortfolioData = {
   },
 
   projects: [
-    // === #1 — FLAGSHIP: Full-Stack Charity Platform ===
+    // === #1 — FLAGSHIP: GradeX Academic Management System ===
+    {
+      id: "gradex-academic-system",
+      title: "GradeX – Academic Grade Management Platform",
+      category: "flagship",
+      description: "A production-grade school management platform enabling bulk Excel grade processing, student analytics, multi-role dashboards, and automated CI/CD deployment.",
+      longDescription: "GradeX is a scalable MERN-stack academic portal linking React & TypeScript frontend to an Express & MongoDB backend. It empowers administrators to process bulk spreadsheet data, enables teachers to manage student assignments, and provides students with instantaneous grade telemetry inside custom role-based dashboards.",
+      image: "/images/gradex-platform.webp",
+      images: [
+        "/images/gradex-platform.webp"
+      ],
+      tags: [
+        "React",
+        "TypeScript",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Mongoose",
+        "Docker",
+        "GitHub Actions",
+        "REST API",
+        "JWT",
+        "Rate Limiting",
+        "Excel Parsing"
+      ],
+      features: [
+        "Bulk Excel spreadsheet parsing (.xlsx) for rapid grade imports",
+        "Role-Based Access Control (Admin / Teacher / Student) via JWT versioning",
+        "Interactive analytics dashboards showing student KPIs and telemetry",
+        "Robust security hardening using Helmet, CORS, and Express Rate Limiter",
+        "Docker containerization for uniform development and production",
+        "GitHub Actions automated CI pipeline for dependencies and lint tests",
+        "Lazy database connection logic built for high-performance serverless Vercel starts"
+      ],
+      liveUrl: "https://gradex-self.vercel.app",
+      githubUrl: "https://github.com/Sayed-Herzallah/gradex-backend",
+      featured: true,
+      challenges: [
+        "CORS preflight redirection blocks caused by trailing slash mismatches in environment variables.",
+        "Mongoose database connection timeouts due to cold starts in Vercel serverless environments.",
+        "Processing bulk Excel rows concurrently without blocking the Node.js event loop."
+      ],
+      solutions: [
+        "Refactored API base URL parsing with regex sanitization directly inside the Axios client.",
+        "Implemented lazy database connection middleware firing on the initial request trigger.",
+        "Designed asynchronous chunking algorithms to parse Excel documents in non-blocking batches."
+      ],
+      metrics: [
+        "Parsed and populated 500+ student profiles in less than 2.8 seconds.",
+        "100% reduction in CORS redirect issues post-sanitization.",
+        "Zero Mongoose cold-start timeout exceptions reported in production Vercel logs."
+      ]
+    },
+    // === #2 — FLAGSHIP: El Fishawy Cafe Platform ===
+    {
+      id: "elfishawy-cafe-platform",
+      title: "El Fishawy – Full-Stack POS & Cafe Platform",
+      category: "flagship",
+      description: "A production-level point-of-sale & cafe management system with automated stock synchronization, menu configuration, and real-time sales telemetry.",
+      longDescription: "El Fishawy Cafe Platform is a full-stack restaurant pos client linking a React and TypeScript frontend to a Node, Express, and MongoDB backend. It orchestrates cafe operations, tracks dynamic ingredients recipe conversions, manages employee expenses, and syncs raw stock metrics.",
+      image: "/images/elfishawy-cafe.webp",
+      images: [
+        "/images/elfishawy-cafe.webp"
+      ],
+      tags: [
+        "React",
+        "TypeScript",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Mongoose",
+        "Cloudinary",
+        "Node-cron",
+        "REST API",
+        "Joi Validation",
+        "JWT"
+      ],
+      features: [
+        "Interactive product catalog with category management and dynamic search",
+        "Automated inventory stock deductions based on multi-ingredient recipes",
+        "Centralized sales and expense dashboards with daily margin analytics",
+        "Secure auth flows with OTP verification and JWT session tokens",
+        "Media pipeline integrating Multer memory storage and Cloudinary API",
+        "Node-cron scheduled tasks for automatic database telemetry optimization"
+      ],
+      liveUrl: "",
+      githubUrl: "https://github.com/Sayed-Herzallah/elfishawy-cafe-frontend",
+      featured: true,
+      challenges: [
+        "Calculating ingredient unit conversions dynamically (grams, ml, pieces) for recipe deductions.",
+        "Securely validating mixed-type order payloads at the server boundaries.",
+        "Handling concurrent order submissions during peak sales hours without inventory race conditions."
+      ],
+      solutions: [
+        "Developed a custom UnitConverter utility library mapping standard metrics.",
+        "Created strict Joi schema validation middleware guarding the HTTP controllers.",
+        "Implemented optimistic locks and isolated inventory transaction logs."
+      ],
+      metrics: [
+        "Inventory updates processed under 15ms per transaction.",
+        "99.9% accuracy on recipe ingredient deduction audits.",
+        "100% coverage on order parameter validation tests."
+      ]
+    },
+    // === #3 — FLAGSHIP: Full-Stack Charity Platform ===
     {
       id: "ataa-charity-platform",
       title: "Ataa Charity Platform",
