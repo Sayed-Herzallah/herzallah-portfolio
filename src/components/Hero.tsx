@@ -36,33 +36,16 @@ export default function Hero() {
       {/* Grid Pattern overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
 
-      {/* Desktop-only absolutely centered profile & monitor SVG (scaled to 55vh to prevent any overlap on text columns) */}
-      <div className="hidden lg:block absolute inset-0 z-10 pointer-events-none select-none">
-        <div className="w-full h-full max-w-7xl mx-auto relative flex items-center justify-center transform lg:-translate-x-[2%] xl:-translate-x-[1%]">
-          {/* Radial Glow directly behind the portrait area */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-purple-600/20 blur-[100px] z-0 animate-pulse" />
-          
-          <Image
-            src={profileImgSrc}
-            alt={portfolioData.name}
-            width={800}
-            height={1000}
-            priority
-            unoptimized
-            className="h-full max-h-[82vh] w-auto object-contain opacity-95 relative z-10"
-            onError={() => setProfileImgSrc("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400")}
-          />
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 w-full relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-y-4 lg:gap-y-8 items-center min-h-[85vh] lg:min-h-[80vh]">
+      {/* Desktop-only profile & monitor grid background logic - REMOVED absolute overlay to prevent overlaps */}
+      
+      <div className="max-w-7xl mx-auto px-6 w-full relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-y-8 lg:gap-y-12 items-center min-h-[85vh] lg:min-h-[90vh]">
         
-        {/* Left Column (Desktop) / Centered Top Content (Mobile/Tablet): Greeting and Name */}
+        {/* Left Column (lg:col-span-6): Welcome message, Title, Bio details & CTA */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4 }}
-          className="col-span-1 lg:col-span-3 flex flex-col items-center lg:items-start justify-center text-center lg:text-left pt-6 lg:pt-0"
+          className="col-span-1 lg:col-span-6 flex flex-col items-center lg:items-start justify-center text-center lg:text-left pt-6 lg:pt-0"
         >
           <h1 className="text-[28px] xs:text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl font-bold font-display tracking-wide text-white leading-[1.15]">
             I&apos;m Eng.{" "}
@@ -72,7 +55,6 @@ export default function Hero() {
             </span>
           </h1>
           
-          {/* High-contrast, two-line title to keep things clean, clear, and highlight Backend focus */}
           <div className="text-sm uppercase tracking-[0.2em] font-bold text-gray-300 mt-4 pl-0.5 leading-relaxed">
             <div>Full Stack Developer</div>
             <div className="text-secondary font-bold text-xs tracking-[0.15em] mt-1.5 block">
@@ -80,10 +62,15 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Social Links under the Name with CONNECT: label (high contrast) */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-6 pl-0.5">
+          {/* Integrated description directly on the left to utilize space and avoid split layout */}
+          <p className="text-base sm:text-lg text-gray-200 font-medium leading-relaxed mt-6 mb-2 max-w-lg">
+            I am a Backend-Focused Full-Stack Developer specializing in Node.js, Express, and database engineering. I translate complex requirements into clean, optimized, and production-ready APIs.
+          </p>
+          
+          {/* Social Links & CV */}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-6 pl-0.5 w-full justify-center lg:justify-start">
             <span className="text-sm font-semibold text-gray-300 uppercase tracking-widest">Connect:</span>
-            <div className="flex items-center gap-5 text-gray-300">
+            <div className="flex items-center gap-5 text-gray-300 justify-center">
               <a
                 href={portfolioData.github}
                 target="_blank"
@@ -123,94 +110,55 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* CV Button — visible on all screens */}
-          <a
-            href={portfolioData.cvUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mt-5 px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-widest text-secondary bg-secondary/10 border border-secondary/20 hover:bg-secondary/20 hover:border-secondary/40 hover:text-white transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-secondary/10 self-center lg:self-start group/cv"
-          >
-            <FileDown className="w-4 h-4 transition-transform group-hover/cv:translate-y-0.5" />
-            Download CV
-          </a>
+          <div className="flex flex-wrap items-center gap-4 mt-6 justify-center lg:justify-start w-full">
+            <a
+              href={portfolioData.cvUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-widest text-secondary bg-secondary/10 border border-secondary/20 hover:bg-secondary/20 hover:border-secondary/40 hover:text-white transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-secondary/10 group/cv"
+            >
+              <FileDown className="w-4 h-4 transition-transform group-hover/cv:translate-y-0.5" />
+              Download CV
+            </a>
+            
+            <a
+              href="#projects"
+              className="inline-flex items-center gap-2.5 text-sm font-bold uppercase tracking-[0.2em] text-white hover:text-primary transition-colors duration-200 group px-3 py-2"
+            >
+              <span>View My Work</span>
+              <svg
+                className="w-10 h-3 ml-1.5 group-hover:translate-x-1.5 transition-transform duration-200 text-white"
+                viewBox="0 0 40 12"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <line x1="0" y1="6" x2="38" y2="6" />
+                <polyline points="32,1 38,6 32,11" />
+              </svg>
+            </a>
+          </div>
         </motion.div>
 
-        {/* Mobile & Tablet Portrait Graphic (stacks in center, hidden on desktop, scaled up on tablet) */}
+        {/* Right Column (lg:col-span-6): Desktop & Tablet Portrait Graphic (clean inside grid layout) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.4 }}
-          className="col-span-1 lg:hidden flex justify-center items-center relative my-4 w-full max-w-[420px] xs:max-w-[460px] sm:max-w-xl md:max-w-2xl mx-auto"
+          className="col-span-1 lg:col-span-6 flex justify-center items-center relative my-4 w-full max-w-[420px] xs:max-w-[460px] sm:max-w-xl md:max-w-2xl lg:max-w-full mx-auto"
         >
           {/* Glow */}
-          <div className="absolute w-[280px] h-[280px] md:w-[400px] md:h-[400px] rounded-full bg-purple-600/20 blur-[60px] z-0 animate-pulse" />
+          <div className="absolute w-[280px] h-[280px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] rounded-full bg-purple-600/20 blur-[60px] lg:blur-[100px] z-0 animate-pulse" />
           <Image
             src={profileImgSrc}
             alt={portfolioData.name}
-            width={600}
-            height={700}
+            width={700}
+            height={900}
             priority
             unoptimized
-            className="w-full h-auto object-contain relative z-10 select-none pointer-events-none max-h-[48vh] xs:max-h-[70vh] sm:max-h-[75vh] md:max-h-[78vh]"
+            className="w-full h-auto max-h-[48vh] xs:max-h-[70vh] sm:max-h-[75vh] md:max-h-[78vh] lg:max-h-[82vh] object-contain relative z-10 select-none pointer-events-none"
             onError={() => setProfileImgSrc("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400")}
           />
-        </motion.div>
-
-        {/* Mobile & Tablet Description & View My Work (stacks in center, hidden on desktop) */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.4 }}
-          className="col-span-1 lg:hidden flex flex-col items-center justify-center text-center mt-1 mb-6"
-        >
-          <p className="text-base sm:text-lg text-gray-200 font-medium leading-relaxed mb-6 max-w-sm md:max-w-2xl">
-            I am a Backend-Focused Full-Stack Developer specializing in Node.js, Express, and database engineering. I translate complex requirements into clean, optimized, and production-ready APIs.
-          </p>
-          <a
-            href="#projects"
-            className="inline-flex items-center gap-2.5 text-sm font-bold uppercase tracking-[0.2em] text-white hover:text-primary transition-colors duration-200 group"
-          >
-            <span>View My Work</span>
-            <svg
-              className="w-10 h-3 ml-1.5 group-hover:translate-x-1.5 transition-transform duration-200 text-white"
-              viewBox="0 0 40 12"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <line x1="0" y1="6" x2="38" y2="6" />
-              <polyline points="32,1 38,6 32,11" />
-            </svg>
-          </a>
-        </motion.div>
-
-        {/* Desktop-only Description & View My Work Column */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.4 }}
-          className="hidden lg:flex lg:col-span-3 lg:col-start-10 flex-col items-start justify-center text-left pl-4"
-        >
-          <p className="text-base sm:text-lg text-gray-200 font-medium leading-relaxed mb-8">
-            I am a Backend-Focused Full-Stack Developer specializing in Node.js, Express, and database engineering. I translate complex requirements into clean, optimized, and production-ready APIs.
-          </p>
-          
-          <a
-            href="#projects"
-            className="inline-flex items-center gap-2.5 text-sm font-bold uppercase tracking-[0.2em] text-white hover:text-primary transition-colors duration-200 group"
-          >
-            <span>View My Work</span>
-            <svg
-              className="w-10 h-3 ml-1.5 group-hover:translate-x-1.5 transition-transform duration-200 text-white"
-              viewBox="0 0 40 12"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <line x1="0" y1="6" x2="38" y2="6" />
-              <polyline points="32,1 38,6 32,11" />
-            </svg>
-          </a>
         </motion.div>
       </div>
 

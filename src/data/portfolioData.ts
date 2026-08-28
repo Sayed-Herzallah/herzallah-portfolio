@@ -696,7 +696,7 @@ export const portfolioData: PortfolioData = {
       duration: "Jan 2025 – Present",
       description: [
         "Architected and deployed the Siwa Oasis Travel booking engine API utilizing Node.js, Express.js, and Sequelize, reducing database query latencies by 30% through optimized MySQL indexing and relational normalization.",
-        "Leveraged state-of-the-art Agentic AI tools (Claude Code) and AI-assisted workflows to accelerate API prototyping, refactoring, and code generation, boosting development velocity and test coverage.",
+        "Integrated agentic pipeline automation (Claude Code CLI) to streamline localized debugging workflows, optimize database schema refactoring loops, and improve integration testing coverage.",
         "Engineered a secure session-based AI chatbot integration (Gemini API) featuring transaction state tracking, handling concurrent booking workflows without state pollution.",
         "Implemented clean Service-Layer Architecture (Controller-Service-Model), decoupling business logic from transport layers to improve code testability and reuse by 45%.",
         "Integrated a full-stack URL analysis system handling asynchronous background extraction pipelines with secure API authentication keys."
