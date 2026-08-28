@@ -45,11 +45,11 @@ export default function Hero() {
           <Image
             src={profileImgSrc}
             alt={portfolioData.name}
-            width={650}
-            height={850}
+            width={800}
+            height={1000}
             priority
             unoptimized
-            className="h-full max-h-[68vh] w-auto object-contain opacity-95 relative z-10"
+            className="h-full max-h-[82vh] w-auto object-contain opacity-95 relative z-10"
             onError={() => setProfileImgSrc("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400")}
           />
         </div>
@@ -140,18 +140,18 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.4 }}
-          className="col-span-1 lg:hidden flex justify-center items-center relative my-1 w-full max-w-[360px] xs:max-w-[400px] sm:max-w-lg md:max-w-xl mx-auto"
+          className="col-span-1 lg:hidden flex justify-center items-center relative my-4 w-full max-w-[420px] xs:max-w-[460px] sm:max-w-xl md:max-w-2xl mx-auto"
         >
           {/* Glow */}
           <div className="absolute w-[280px] h-[280px] md:w-[400px] md:h-[400px] rounded-full bg-purple-600/20 blur-[60px] z-0 animate-pulse" />
           <Image
             src={profileImgSrc}
             alt={portfolioData.name}
-            width={450}
-            height={550}
+            width={600}
+            height={700}
             priority
             unoptimized
-            className="w-full h-auto object-contain relative z-10 select-none pointer-events-none max-h-[55vh] xs:max-h-[58vh] sm:max-h-[62vh] md:max-h-[65vh]"
+            className="w-full h-auto object-contain relative z-10 select-none pointer-events-none max-h-[70vh] xs:max-h-[72vh] sm:max-h-[75vh] md:max-h-[78vh]"
             onError={() => setProfileImgSrc("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400")}
           />
         </motion.div>
