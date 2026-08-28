@@ -670,6 +670,10 @@ export const portfolioData: PortfolioData = {
       skills: ["Node.js", "Express.js", "NestJS (Applying)", "TypeScript", "RESTful APIs", "JWT Authentication", "Socket.io (Real-time)", "Clean Architecture"]
     },
     {
+      title: "Architecture & System Engineering",
+      skills: ["RESTful API Design", "Database Normalization & Indexing", "Concurrency Control (Row Locking)", "Caching Strategies", "Role-Based Access Control (RBAC)", "Rate Limiting & Threat Mitigation", "Design Patterns (CSM)"]
+    },
+    {
       title: "Databases & Storage",
       skills: ["MySQL", "Sequelize ORM", "MongoDB", "Mongoose ODM", "PostgreSQL", "Database Design & Normalization"]
     },
